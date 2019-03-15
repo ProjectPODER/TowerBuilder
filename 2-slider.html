@@ -1,0 +1,32 @@
+---
+layout: default
+title: Slider 1
+permalink: /slider-1/
+category: menu-item
+---
+<div id="fullpage">
+	{% for first-slide in site.first-slider %}
+		{% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
+		<div class="section">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-5 col-md-12">
+						{{ first-slide.content }}
+					</div>
+					<div class="col-lg-7 col-md-12">
+						<img src="/assets/img/{{first-slide.image}}" alt="" class="img-fluid">
+					</div>
+				</div>
+			</div>
+	    </div>
+	{% endfor %}
+</div>
+
+<script type="text/javascript">
+	var anchors = [
+	{% for first-slide in site.first-slider %}
+	  {% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
+	  '{{id}}'{% if forloop.last == false %},{% endif %}
+	{% endfor %}
+	]
+</script>
