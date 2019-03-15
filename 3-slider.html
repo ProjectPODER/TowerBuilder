@@ -1,0 +1,31 @@
+---
+layout: default
+title: Slider 2
+permalink: /slider-2/
+---
+<div id="fullpage">
+	{% for second-slide in site.second-slider %}
+		{% capture id %}{{ second-slide.id | remove:'/' | remove:'second-slider' | downcase }}{% endcapture %}
+		<div class="section">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-5 col-md-12">
+						{{ second-slide.content }}
+					</div>
+					<div class="col-lg-7 col-md-12">
+						<img src="/assets/img/{{second-slide.image}}" alt="" class="img-fluid">
+					</div>
+				</div>
+			</div>
+	    </div>
+	{% endfor %}
+</div>
+
+<script type="text/javascript">
+	var anchors = [
+	{% for second-slide in site.second-slider %}
+	  {% capture id %}{{ second-slide.id | remove:'/' | remove:'second-slider' | downcase }}{% endcapture %}
+	  '{{id}}'{% if forloop.last == false %},{% endif %}
+	{% endfor %}
+	]
+</script>

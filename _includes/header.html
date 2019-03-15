@@ -1,23 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+    {%- assign titles_size = site.pages | map: 'title' | size -%}
+    <a class="navbar-brand" rel="author" href="{{ '/'' | relative_url }}">{{ site.title | escape }}</a>
+    <!-- <a class="site-title" rel="author" href="{{ "/" | relative_url }}"><img src="/assets/img/{{ site.image | prepend: site.baseurl }}"></a> -->
 
-    {%- assign page_paths = site.header_pages -%}
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      {%- if titles_size > 0 -%}
       <ul class="navbar-nav ml-auto">
-        {%- for path in page_paths -%}
-          {%- assign my_page = site.pages | where: "path", path | first -%}
-          {%- if my_page.title -%}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-          </li>
-          {%- endif -%}
-        {% endfor -%}
+          {%- for path in page_paths -%}
+            {%- assign my_page = site.pages | where: "path", path | first -%}
+            {%- if my_page.title -%}
+              <li class="nav-item {% if my_page.url == page.url %}active{% endif %}">
+                <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
       </ul>
+      {%- endif -%}
     </div>
   </div>
 </nav>

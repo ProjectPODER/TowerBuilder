@@ -30,8 +30,9 @@ plugins:
   - jekyll-sitemap
 
 # A list of the pages to display in the navigation bar
-header_pages:
-  item.md
+# header_pages:
+#   - slider-1.html
+#   - slider-2.html
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -42,3 +43,15 @@ exclude:
   - node_modules
   - update_boostrap.sh
   - vendor/
+
+collections:
+  first-slider:
+    output: true
+  second-slider:
+    output: true
+  third-slider:
+    output: true
+  fourth-slider:
+    output: true
+    # permalink: /work/:name
+collections_dir: sliders

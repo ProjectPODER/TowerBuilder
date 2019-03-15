@@ -1,4 +1,11 @@
+section.page {
+    padding-top: 7rem;
+}
+
 // Home page
+.navbar {
+    z-index: 1;
+}
 
 .home-content {
     position: relative;
@@ -15,21 +22,24 @@
     background-attachment: scroll;
     background-size: cover;
 
-    h1.first-title {
-		font-size: 70px;
-		line-height: 75px;
-		margin-bottom: 100px;
-	}
+    h1 {
+        font-size: 70px;
+        line-height: 75px;
+        margin-bottom: 100px;
+    }
 
-	.home-buttons {
-		margin-left: 0.5rem;
-		margin-right: 0.5rem;
-	}
+    a {
+        @extend .btn;
+        @extend .btn-primary;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 1rem;
+    }
 }
 
 @media (min-width: 992px) {
-	.home-content {
-	    height: 100vh;
-	    padding: 0;
-	}
+    .home-content {
+        height: 100vh;
+        padding: 0;
+    }
 }
