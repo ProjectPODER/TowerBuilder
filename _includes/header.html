@@ -3,7 +3,7 @@
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- assign titles_size = site.pages | map: 'title' | size -%}
-    <a class="navbar-brand" rel="author" href="{{ '/'' | relative_url }}">{{ site.title | escape }}</a>
+    <a class="navbar-brand" rel="author" href="{{ '/'' | relative_url }}"><img src="/assets/img/{{ site.image | prepend: site.baseurl }}">{{ site.title | escape }}</a>
     <!-- <a class="site-title" rel="author" href="{{ "/" | relative_url }}"><img src="/assets/img/{{ site.image | prepend: site.baseurl }}"></a> -->
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

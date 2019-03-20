@@ -1,7 +1,8 @@
 ---
 layout: home
-title: Inicio
+title: Home
 permalink: /
+image: logo-pdp.png
 ---
 
 # THIS IS THE FIRST TITLE
