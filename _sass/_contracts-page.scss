@@ -1,0 +1,43 @@
+section#contracts_page {
+    
+    .contracts-content {
+        
+        .contract-search {
+            display: block;
+            width: 100%;
+
+            .search-title {
+                display: block;
+                font-weight: 600;
+                margin-bottom: 5px;
+                // font-size: 1.2rem;
+            }
+        }
+        
+        .contract-filter {
+            margin-bottom: 40px;
+            
+            .filter-box {
+                .info-icon {
+                    width: 16px;
+                    margin-left: 5px;
+                    margin-top: -4px;
+                }
+
+                .half-input,
+                .datepicker__input-container {
+                    float: left;
+                    display: block;
+                    margin-right: 2%;
+                    width: 48%;
+                }
+                .filter-title {
+                    position: relative;
+                    font-weight: bold;
+                    float: left;
+                    display: block;
+                }
+            }
+        }
+    }   
+}

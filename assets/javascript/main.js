@@ -6,3 +6,7 @@ $(function() {
     menu: '#menu'
   });
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
