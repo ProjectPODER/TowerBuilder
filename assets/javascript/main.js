@@ -1,3 +1,4 @@
+//Inicializing sliders
 $(function() {
   $('#fullpage').fullpage({
     verticalCentered: true,
@@ -7,11 +8,12 @@ $(function() {
   });
 });
 
+//Tooltips
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-
+//Collapsing navbar
 var autocollapse = function (menu,maxHeight) {
     
     var nav = $(menu);
@@ -52,8 +54,6 @@ var autocollapse = function (menu,maxHeight) {
         
     }
 };
-
-
 $(document).ready(function () {
 
     // when the page loads
