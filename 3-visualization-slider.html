@@ -1,0 +1,31 @@
+---
+layout: default
+title: Visualization
+permalink: /visualization/
+---
+<div id="fullpage">
+	{% for visualization-slide in site.visualization-slider %}
+		{% capture id %}{{ visualization-slide.id | remove:'/' | remove:'visualization-slider' | downcase }}{% endcapture %}
+		<div class="section">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-5 col-md-12">
+						{{ visualization-slide.content }}
+					</div>
+					<div class="col-lg-7 col-md-12">
+						<div class="graph-container"></div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	{% endfor %}
+</div>
+
+<script type="text/javascript">
+	var anchors = [
+	{% for visualization-slide in site.visualization-slider %}
+	  {% capture id %}{{ visualization-slide.id | remove:'/' | remove:'second-slider' | downcase }}{% endcapture %}
+	  '{{id}}'{% if forloop.last == false %},{% endif %}
+	{% endfor %}
+	]
+</script>

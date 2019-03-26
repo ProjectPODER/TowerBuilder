@@ -49,11 +49,7 @@ exclude:
 collections:
   first-slider:
     output: true
-  second-slider:
-    output: true
-  third-slider:
-    output: true
-  fourth-slider:
+  visualization-slider:
     output: true
     # permalink: /work/:name
 collections_dir: sliders
