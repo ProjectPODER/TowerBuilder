@@ -31,11 +31,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
-# A list of the pages to display in the navigation bar
-# header_pages:
-#   - slider-1.html
-#   - slider-2.html
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -51,5 +46,4 @@ collections:
     output: true
   visualization-slider:
     output: true
-    # permalink: /work/:name
 collections_dir: sliders
