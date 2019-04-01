@@ -24,6 +24,31 @@ This will be another paragraph, as it has a blank line above it.
 
 ----
 
+# Colors
+
+Primary
+{: .text-primary }
+
+Secondary
+{: .text-secondary }
+
+Success
+{: .text-success }
+
+Danger
+{: .text-danger }
+
+Warning
+{: .text-warning }
+
+Info
+{: .text-info }
+
+Muted
+{: .text-muted }
+
+----
+
 # Emphasis
 
 *This text will be italic*
@@ -67,4 +92,3 @@ Ordered
 # Links
 
 [This is a link](http://github.com)
-
