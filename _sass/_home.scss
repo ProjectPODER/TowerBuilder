@@ -16,16 +16,21 @@
     h1 {
         font-size: 70px;
         line-height: 75px;
-        margin-bottom: 100px;
+        margin-bottom: 2rem;
         font-weight: bolder;
     }
-
+    
+    h1,
+    p {
+        color: $white;
+    }
+    p {
+        font-size: 1.7rem;
+    }
     a {
         @extend .btn;
         @extend .btn-primary;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        margin-bottom: 1rem;
+        margin: 2rem 0.5rem 1rem 0.5rem;
     }
 }
 
