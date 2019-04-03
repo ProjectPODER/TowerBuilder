@@ -20,10 +20,6 @@ description: >- # this means to ignore newlines until "baseurl:"
   TowerBuilder es un sistema que no requiere programación para generar sitios web con visualizaciones de datos de contrataciones, especialmente orientado a grandes obras públicas, inspirado por www.torredecontrol.org.
 #baseurl: "" # the subpath of your site, e.g. /blog
 #url: "" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
-#github_username:  jekyll
-
-repository: ""
 
 # Build settings
 plugins:
@@ -41,6 +37,7 @@ exclude:
   - vendor/
   - docs/
 
+# Collections
 collections:
   first-slider:
     output: true

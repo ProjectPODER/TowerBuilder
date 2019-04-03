@@ -11,11 +11,12 @@ Te recomendamos la [guía de Markdown de Github](https://guides.github.com/featu
 Los textos principales están conformados por las secciones que aparecen en el menú principal.
 
 Para editar los archivos:
-1. En el repositorio en Github, dar click en el archivo que se quiere modificar .
+
+1. En el repositorio en Github, dar click en el archivo que se quiere modificar.
 2. Dentro del archivo, dar click en el ícono del lápiz (Edit this file).
 3. Modificar el archivo en formato markdown.
 4. Una vez editado, ir a la parte de abajo de la página en la sección **Commit changes**, en el primer campo añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
-5. Guardar los cambios dando click en el botón verde **Commit changes**
+5. Guardar los cambios dando click en el botón verde **Commit changes**.
 
 A continuación, mostramos la lista de documentos que se pueden editar:
 
@@ -79,23 +80,42 @@ Por default tenemos este orden:
 1. Home
 2. slider.html
 3. visualization-slider.html
-4. about.md
-5. contracts.html
+4. contracts.html
+5. about.md
 6. styleguide.md
 
 Estos son los pasos para editar el nombre de un archivo en Github:
+
 1. Da click en el archivo que quieres modificar.
 2. Dentro del archivo, dar click en el ícono del lápiz (Edit this file).
 3. En la parte superior de la página, encontrarás el campo donde se modifica el nombre del archivo.
 4. Modificar el nombre del archivo.
 5. Una vez modificado, ir a la parte de abajo de la página en la sección **Commit changes**, en el primer campo añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
-6. Guardar los cambios dando click en el botón verde **Commit changes**
+6. Guardar los cambios dando click en el botón verde **Commit changes**.
 
-#### Agregar o eliminar un elemento 
+**Nota:** Para quitar la página _Styleguide_ del menú, debes ir al archivo de configuraciones **_config.yml** y escribir el nombre completo del archivo en la sección _exclude_, quedando de esta manera:
 
-Para agregar una página de información, debes crear un archivo con el número y nombre correspondiente en la raíz de la carpeta.
- 
+```
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - update_boostrap.sh
+  - vendor/
+  - docs/
+  - **6-styleguide.md**
+```
+
+#### Eliminar un elemento 
+
 Para quitar un elemento del menú, basta con eliminar el archivo. 
+
+Para eliminar un archivo en Github:
+
+1. Da click en el archivo que quieres eliminar.
+2. En la parte de arriba del documento, da click en el ícono del bote de basura.
+3. Al final de la página, en el primer campo de la sección **Commit changes**, añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
+5. Guardar los cambios dando click en el botón verde **Commit changes**.
 
 
 ## Artículos

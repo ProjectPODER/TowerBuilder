@@ -1,5 +1,6 @@
 ---
 title: Slide 3
+image: graphic-example.png
 ---
 
 # THIS IS THE THIRD SLIDE

@@ -6,7 +6,10 @@ permalink: /
 
 # THIS IS THE FIRST TITLE
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae dolorum, hic odit possimus. Nam odio, dicta. Fugit minima distinctio sapiente, dolor vel nesciunt, quidem perferendis saepe sint, qui, deserunt nam.
+This text is a paragraph.
+This won't be another paragraph, it will join the line above it.
+
+This will be another paragraph, as it has a blank line above it.
 
 [Button Title](link)
 [Button Title](link)
