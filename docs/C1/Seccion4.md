@@ -33,8 +33,14 @@ Para editar los textos de cada slide del slider:
 
 Para añadir o quitar un slide, sólo debes añadir o quitar un archivo **.md** dentro de la carpeta **_first-slider**.
 
+Para cambiar o añadir una imagen (_.jpg_, _.png_ o _.svg_) dentro del slider, debes agregar la imagen dentro de la carpeta **assets/img/** y agregar el nombre del archivo dentro del archivo correspondiente al slide en el que aparecerá la imagen.
 
-Para cambiar o añadir una imagen (_.jpg_, _png_ o _.svg_) dentro del slider, debes agregar la imagen dentro de la carpeta **assets/img/** y agregar el nombre del archivo dentro del archivo correspondiente al slide en el que aparecerá la imagen.
+```
+---
+title: First Slide
+**image: graphic-example.png** -> aquí va el nombre del archivo.
+---
+```
 
 Para editar los textos del slider con la visualización:
   - **sliders/_visualization-slider/slide-1.md**
@@ -44,7 +50,7 @@ Para editar los textos del slider con la visualización:
 
 ### Nombre de páginas y permalinks
 
-Puedes editar el nombre y el permalink que se mostrará cada sección del menú principal.
+Puedes editar el nombre y el permalink que se mostrará en cada sección del menú principal.
 
 Para eso, debes ubicar en cada archivo editable, el área donde se encuentra esta información, por ejemplo:
 
@@ -106,7 +112,36 @@ exclude:
   - **6-styleguide.md**
 ```
 
-#### Eliminar un elemento 
+### Agregar un elemento del menú
+
+Puedes crear un archivo donde podrás añadir texto y aparecerá dentro del menú.
+
+Los pasos para crear un archivo son:
+
+1. En GitHub, navegua a la página principal del repositorio.
+2. En el repositorio, busca la carpeta donde deseas crear un archivo.
+3. Encima de la lista de archivos, haz clic en _Create new file_.
+![Crear nuevo documento](https://help.github.com/assets/images/help/repository/create_new_file.png)
+4. En el campo de _Name your file_, escribe el nombre y la extensión del archivo. Para crear subdirectorios, escribe el /separador de directorios.
+![Nombrar un nuevo archivo](https://help.github.com/assets/images/help/repository/new-file-name.png)
+5. En la pestaña _Edit new file_ , agrega contenido al archivo.
+6. Es importante agregar siempre a los archivos nuevos creados, el siguiente código al incio del archivo:
+```
+---
+layout: page -> siempre debe ser **page**
+title: Nombre de la página -> puedes cambiar al título que desees
+permalink: /nombre-del-link/ -> puedes cambiar al nombre del link que desees mostrar
+---
+```
+
+7. Para revisar el nuevo contenido, haz clic en _Preview_.
+![Vista previa](https://help.github.com/assets/images/help/repository/new-file-preview.png)
+8. Al final de la página, en el primer campo de la sección **Commit new file**, añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
+9. Guardar los cambios dando click en el botón verde **Commit new file**.
+
+Para información más detallada de cómo crear un nuevo archivo, visita la [documentación oficial de Github](https://help.github.com/en/articles/creating-new-files).
+
+### Eliminar un elemento del menú
 
 Para quitar un elemento del menú, basta con eliminar el archivo. 
 
