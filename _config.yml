@@ -33,14 +33,17 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - update_boostrap.sh
   - vendor/
   - docs/
 
 # Collections
+collections_dir: collections
 collections:
   first-slider:
     output: true
   visualization-slider:
     output: true
-collections_dir: sliders
+
+# set to false to hide excerpts on the posts page
+show_excerpts: true
+future: true

@@ -1,5 +1,7 @@
 
 section.page,
+section.posts-page,
+section.post-page,
 section#contracts_page {
     padding-top: 7rem;
 }
@@ -17,4 +19,8 @@ blockquote {
 
 blockquote p:last-child, blockquote ul:last-child, blockquote ol:last-child {
     margin-bottom: 0;
+}
+
+a {
+	transition: all .35s;
 }

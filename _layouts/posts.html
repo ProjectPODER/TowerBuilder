@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<section class="posts-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+        {{content}}
+      </div>
+      {%- if site.posts.size > 0 -%}
+      {%- for post in site.posts -%}
+      <div class="col-lg-12">
+        <div class="card bg-light mb-3">
+          <div class="card-body">
+            <div class="header-card d-flex align-items-first">
+              <a href="{{ post.url | relative_url }}">
+                <h2 class="card-title">{{ post.title | escape }}</h2>
+              </a>
+              <div class="ml-auto">
+                <span class="text-muted">
+                  {%- assign date_format = "%b %-d, %Y" -%}
+                  {{ post.date | date: date_format }}
+                </span>
+                {%- if post.author -%}
+                <p><b>Published by {{ post.author }}</b></p>
+                {%- endif -%}
+              </div>
+            </div>
+            {%- if site.show_excerpts -%}
+              <p>{{ post.excerpt }}</p>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      {%- endfor -%}
+      <div class="col-lg-12">
+        <p class="rss-subscribe mt-4">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+

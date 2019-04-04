@@ -27,9 +27,9 @@ Para editar los textos de la página Acerca:
   - **4-about.md**
 
 Para editar los textos de cada slide del slider:
-  - **sliders/_first-slider/slide-1.md**
-  - **sliders/_first-slider/slide-2.md**
-  - **sliders/_first-slider/slide-3.md**
+  - **collections/_first-slider/slide-1.md**
+  - **collections/_first-slider/slide-2.md**
+  - **collections/_first-slider/slide-3.md**
 
 Para añadir o quitar un slide, sólo debes añadir o quitar un archivo **.md** dentro de la carpeta **_first-slider**.
 
@@ -43,9 +43,9 @@ title: First Slide
 ```
 
 Para editar los textos del slider con la visualización:
-  - **sliders/_visualization-slider/slide-1.md**
-  - **sliders/_visualization-slider/slide-2.md**
-  - **sliders/_visualization-slider/slide-3.md**
+  - **collections/_visualization-slider/slide-1.md**
+  - **collections/_visualization-slider/slide-2.md**
+  - **collections/_visualization-slider/slide-3.md**
 
 
 ### Nombre de páginas y permalinks
@@ -88,7 +88,8 @@ Por default tenemos este orden:
 3. visualization-slider.html
 4. contracts.html
 5. about.md
-6. styleguide.md
+6. posts.md
+7. styleguide.md
 
 Estos son los pasos para editar el nombre de un archivo en Github:
 
@@ -109,7 +110,7 @@ exclude:
   - update_boostrap.sh
   - vendor/
   - docs/
-  - 6-styleguide.md
+  - 7-styleguide.md
 ```
 
 ### Agregar un elemento del menú
@@ -137,7 +138,7 @@ Los pasos para crear un archivo son:
    ```
 7. Para revisar el nuevo contenido, haz clic en _Preview_.
    ![](https://help.github.com/assets/images/help/repository/new-file-preview.png)
-   
+
 8. Al final de la página, en el primer campo de la sección **Commit new file**, añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
 9. Guardar los cambios dando click en el botón verde **Commit new file**.
 
@@ -159,8 +160,40 @@ Para eliminar un archivo en Github:
 
 Los artículos son notas que analizan contratos, y aparecen vinculados a estos en el gráfico.
 
-Para que se puedan vincular, debes saber el identificador del contrato OCID y agregarlo en el archivo, de la siguiente manera:
+
+### Crear un artículo
+
+Para crear un artículo, agrega un archivo en la carpeta **_posts** que está dentro de **collections**.
+
+El nombre del nuevo archivo debe tener el siguiente formato, de lo contrario, Tower Builder no podrá leer el artículo:
+
+```
+YEAR-MONTH-DAY-title.MARKUP
+```
+
+Donde **YEAR** tiene un número de cuatro dígitos, **MONTH** y **DAY** tienen números de dos dígitos, y **MARKUP** es la extensión del archivo que representa el formato utilizado. Por ejemplo, los siguientes son ejemplos de nombres válidos:
+
+```
+2018-12-31-new-years-eve-is-awesome.md
+2018-09-12-how-to-write-a-blog.md
+```
+
+Todos los archivos de los artículos, deben comenzar con el siguiente encabezado:
+
+```
+---
+layout: post -> Siempre debe ser post
+title:  "Welcome to Jekyll!" -> Puedes cambiarlo por el nombre que desees para tu artículo.
+author: "Name" -> Puedes escribir el nombre del autor del artículo
+---
+```
+
+Debajo del encabezado, puedes seguir con el contenido del artículo, siguiendo el mismo formato de los demás textos editables, que es Markdown.
+
+Para que se puedan vincular con el gráfico, debes saber el identificador del contrato OCID y agregarlo en el encabezado del  archivo, de la siguiente manera:
 
 ```
 person: Juan Carlos Dueño
 ```
+
+Si deseas conocer todas las opciones posibles para los encabezados de los artículos y más configuraciones relacionadas, [visita este link](https://jekyllrb.com/docs/posts/).
