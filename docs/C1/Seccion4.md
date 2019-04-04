@@ -122,19 +122,22 @@ Los pasos para crear un archivo son:
 2. En el repositorio, busca la carpeta donde deseas crear un archivo.
 3. Encima de la lista de archivos, haz clic en _Create new file_.
    ![](https://help.github.com/assets/images/help/repository/create_new_file.png)
+
 4. En el campo de _Name your file_, escribe el nombre y la extensión del archivo. Para crear subdirectorios, escribe el /separador de directorios.
    ![](https://help.github.com/assets/images/help/repository/new-file-name.png)
+
 5. En la pestaña _Edit new file_ , agrega contenido al archivo.
 6. Es importante agregar siempre a los archivos nuevos creados, el siguiente código al incio del archivo:
-  ```
-  ---
-  layout: page -> siempre debe ser **page**
-  title: Nombre de la página -> puedes cambiar al título que desees
-  permalink: /nombre-del-link/ -> puedes cambiar al nombre del link que desees mostrar
-  ---
-  ```
+   ```
+   ---
+   layout: page -> siempre debe ser **page**
+   title: Nombre de la página -> puedes cambiar al título que desees
+   permalink: /nombre-del-link/ -> puedes cambiar al nombre del link que desees mostrar
+   ---
+   ```
 7. Para revisar el nuevo contenido, haz clic en _Preview_.
    ![](https://help.github.com/assets/images/help/repository/new-file-preview.png)
+   
 8. Al final de la página, en el primer campo de la sección **Commit new file**, añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
 9. Guardar los cambios dando click en el botón verde **Commit new file**.
 
