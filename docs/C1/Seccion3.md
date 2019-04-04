@@ -10,7 +10,7 @@ El archivo de datos debe contener un listado de records o releases de los proces
 
 - **Release package:** un objeto "releases" que contiene un listado en forma de array (entre corchetes []) cuyos elementos son releases individuales.
     ```
-     	{
+    {
     	"releases": [
             { (release 1) },
             { (release 2) },
@@ -63,13 +63,6 @@ Cada fila del archivo representa una rama del árbol de jerarquías, partiendo d
 
 Deberás llenar el archivo de la siguiente manera, con la información de cada entidad en una fila separada:
 
-|     | NOMBRE | TIPO_ENTIDAD | RELACIONADO_CON | TIPO_RELACION | PUESTO |
-| --- | :----- | :----------- | :-------------- | :------------ | :----- |
-| 1 | Empresa A | empresa | *(vacío)* | *(vacío)* | *(vacío)* |
-| 2 | Empresa B | empresa | Empresa A | parent | *(vacío)* |
-| 3 | Persona C | persona | Empresa B | shareholder | *(vacío)* |
-| 4 | Persona D | persona | Empresa B | shareholder | *(vacío)* |
-| 5 | Persona E | persona | Empresa B | boardmember | Presidente |
-| 6 | Persona F | persona | Empresa B | boardmember | Vicepresidente |
+![Ejemplo CSV](csvtable.png "Ejemplo CSV")
 
 Repite el mismo proceso para cada jerarquía de empresas de la que tengas datos.
