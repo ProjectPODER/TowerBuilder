@@ -83,12 +83,12 @@ Tower Builder añade los elementos del menú principal en orden alfabético, se 
 
 Por default tenemos este orden:
 
-1. Home
+1. home
 2. slider.html
 3. visualization-slider.html
 4. contracts.html
-5. about.md
-6. posts.md
+5. posts.md
+6. about.md
 7. styleguide.md
 
 Estos son los pasos para editar el nombre de un archivo en Github:
