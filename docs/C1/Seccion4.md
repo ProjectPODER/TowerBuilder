@@ -163,9 +163,11 @@ Los artículos son notas que analizan contratos, y aparecen vinculados a estos e
 
 ### Crear un artículo
 
-Para crear un artículo, agrega un archivo en la carpeta **_posts** que está dentro de **collections**.
+Para crear un artículo, en tu repositorio, ve dentro de la carpeta **_posts** que a su vez está dentro de **collections**.
 
-El nombre del nuevo archivo debe tener el siguiente formato, de lo contrario, Tower Builder no podrá leer el artículo:
+Da click en **Create new file**.
+
+Escribe dentro del campo **Name your file** el nombre del nuevo archivo, que debe tener el siguiente formato, de lo contrario, Tower Builder no podrá leer el artículo:
 
 ```
 YEAR-MONTH-DAY-title.MARKUP
@@ -195,5 +197,7 @@ Para que se puedan vincular con el gráfico, debes saber el identificador del co
 ```
 person: Juan Carlos Dueño
 ```
+
+Para guardar el nuevo archivo, da click en el botón **Commit new file** después de agregar un comentario sobre el nuevo archivo.
 
 Si deseas conocer todas las opciones posibles para los encabezados de los artículos y más configuraciones relacionadas, [visita este link](https://jekyllrb.com/docs/posts/).
