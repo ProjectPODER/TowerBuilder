@@ -1,13 +1,3 @@
-//Inicializing sliders
-// $(function() {
-//   $('#fullpage').fullpage({
-//     verticalCentered: true,
-//     navigation: true,
-//     anchors: anchors,
-//     menu: '#menu'
-//   });
-// });
-
 //Tooltips
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()

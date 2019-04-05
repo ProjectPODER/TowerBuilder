@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Slider 1
-permalink: /slider-1/
+title: Slider
+permalink: /slider/
 ---
-<div id="fullpage">
+<div id="fullpage-slider">
 	{% for first-slide in site.first-slider %}
 		{% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
 		<div class="section">
@@ -22,6 +22,16 @@ permalink: /slider-1/
 </div>
 
 <script type="text/javascript">
+	//Inicializing sliders
+	$(function() {
+	  $('#fullpage-slider').fullpage({
+	    verticalCentered: true,
+	    navigation: true,
+	    anchors: anchors,
+	    menu: '#menu'
+	  });
+	});
+
 	var anchors = [
 	{% for first-slide in site.first-slider %}
 	  {% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}

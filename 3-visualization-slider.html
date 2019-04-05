@@ -39,7 +39,7 @@ permalink: /visualization/
 <script type="text/javascript">
 	var anchors = [
 	{% for visualization-slide in site.visualization-slider %}
-	  {% capture id %}{{ visualization-slide.id | remove:'/' | remove:'second-slider' | downcase }}{% endcapture %}
+	  {% capture id %}{{ visualization-slide.id | remove:'/' | remove:'visualization-slider' | downcase }}{% endcapture %}
 	  '{{id}}'{% if forloop.last == false %},{% endif %}
 	{% endfor %}
 	]
