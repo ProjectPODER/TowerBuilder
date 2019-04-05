@@ -1114,37 +1114,37 @@ function numberWithCommas(x) {
 }
 
 function setupFullPage() {
-  const anchors = isMobile
-    ? [
-      'slide-1',
-      'slide-2',
-      'slide-3',
-      'slide-4',
-      'slide-5',
-      'slide-6',
-      'slide-7',
-      'slide-8',
-      'slide-9',
-      'slide-10',
-      'slide-11',
-      'slide-12'
-    ]
-    : [
-      'slide-1',
-      'slide-2',
-      'slide-3',
-      'slide-4',
-      'slide-5',
-      'slide-6'
-    ];
+  // const anchors = isMobile
+  //   ? [
+  //     'slide-1',
+  //     'slide-2',
+  //     'slide-3',
+  //     'slide-4',
+  //     'slide-5',
+  //     'slide-6',
+  //     'slide-7',
+  //     'slide-8',
+  //     'slide-9',
+  //     'slide-10',
+  //     'slide-11',
+  //     'slide-12'
+  //   ]
+  //   : [
+  //     'slide-1',
+  //     'slide-2',
+  //     'slide-3',
+  //     'slide-4',
+  //     'slide-5',
+  //     'slide-6'
+  //   ];
+  const anchors = window.anchors
 
-/* FIXME: que hacer con esto???
+
+ // FIXME: que hacer con esto???
   $('#fullpage').fullpage({
     anchors: anchors,
     menu: '#slidesMenu',
-    navigation: isMobile
-      ? false
-      : true,
+    navigation: true,
     paddingTop: isMobile
       ? '0px'
       : ($('.site-top-ribbon').height() + 60) + 'px',
@@ -1196,7 +1196,10 @@ function setupFullPage() {
     afterLoad: function(anchorLink, index) {
       $(`.slide-${index}`).addClass('slide-active');
     }
-}); */
+}); 
+
+
+
 
   function triggerUpdate(index, nextIndex, newZoom) {
     if (window.CustomEvent) {

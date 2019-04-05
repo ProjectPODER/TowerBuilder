@@ -1,12 +1,12 @@
 //Inicializing sliders
-$(function() {
-  $('#fullpage').fullpage({
-    verticalCentered: true,
-    navigation: true,
-    anchors: anchors,
-    menu: '#menu'
-  });
-});
+// $(function() {
+//   $('#fullpage').fullpage({
+//     verticalCentered: true,
+//     navigation: true,
+//     anchors: anchors,
+//     menu: '#menu'
+//   });
+// });
 
 //Tooltips
 $(function () {
