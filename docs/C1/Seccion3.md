@@ -39,11 +39,22 @@ El archivo de datos debe contener un listado de records o releases de los proces
     }
     ```
 
+Nota: dentro de cada release, es necesario que ciertos campos contengan algún valor para que los gráficos se desplieguen de manera correcta. Los campos obligatorios son:
+- *ocid*
+- *tender.title*
+- *tender.mainProcurementCategory*
+- *tender.procurementMethodDetails*
+- *contracts.value.amount*
+- *contracts.value.currency*
+- Dentro del campo parties, al menos uno con *role: ["supplier"]* y con valores para los campos de *id* y *name*
+
+Los datos deberán ser colocados en un archivo con el nombre **contracts.json** y el archivo ubicado en la ruta *assets/data/*. Para subir el archivo al repositorio de Github debes navegar hacia la ruta anterior y hacer click en el botón "Upload files", ubicado sobre la tabla del listado de archivos al lado derecho de la pantalla. Esto te llevará a una pantalla desde la cual puedes elegir el archivo desde tu computadora o arrastrarlo hacia la ventana del navegador.
+
 ### Datos de beneficiarios reales
 
 Para complementar los datos de procesos de contratación es posible indicar la manera como éstos se relacionan con las personas y empresas que se encuentran detrás de las entidades que aparecen en los datos publicados bajo OCDS. Las relaciones se expresan como un árbol de jerarquías, en el cual se establecen relaciones entre empresas (una empresa matriz y sus subsidiarias) o entre empresas y personas (accionistas y miembros de juntas directivas de una empresa). Este árbol de jerarquías permite establecer quiénes son los beneficiarios reales de los procesos de contratación analizados.
 
-Para crear el conjunto de datos de beneficiarios reales debes usar la plantilla disponible en *BO-template.csv*, editarla en un software de planilla de cálculo (LibreOffice Calc, MS Excel, Google Spreadsheets u otro) y modificar los valores. El archivo contiene las siguientes columnas:
+Para crear el conjunto de datos de beneficiarios reales debes usar la plantilla disponible en *assets/data/BO-template.csv*, editarla en un software de planilla de cálculo (LibreOffice Calc, MS Excel, Google Spreadsheets u otro) y modificar los valores. El archivo contiene las siguientes columnas:
 
 1. **NOMBRE:** el nombre de la entidad (persona o empresa) tal y como aparece en los datos OCDS.
 2. **TIPO_ENTIDAD:** las palabras "*empresa*" o "*persona*" según la entidad de la primera columna.
@@ -65,4 +76,4 @@ Deberás llenar el archivo de la siguiente manera, con la información de cada e
 
 ![Ejemplo CSV](csvtable.png "Ejemplo CSV")
 
-Repite el mismo proceso para cada jerarquía de empresas de la que tengas datos.
+Repite el mismo proceso para cada jerarquía de empresas de la que tengas datos. Una vez tu archivo esté completo, puedes utilizar el mismo procedimiento de la sección anterior para subirlo a la carpeta *assets/data/*. Para este archivo deberás utilizar el nombre **owners.csv**.
