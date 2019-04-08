@@ -201,3 +201,5 @@ person: Juan Carlos Dueño
 Para guardar el nuevo archivo, da click en el botón **Commit new file** después de agregar un comentario sobre el nuevo archivo.
 
 Si deseas conocer todas las opciones posibles para los encabezados de los artículos y más configuraciones relacionadas, [visita este link](https://jekyllrb.com/docs/posts/).
+
+**Importante:** Todas las modificaciones se reflejan automáticamente en el sitio público, este proceso puede tardar varios minutos para verse en la web.

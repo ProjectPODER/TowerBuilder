@@ -54,6 +54,8 @@ Los datos deberán ser colocados en un archivo con el nombre **contracts.json** 
 
 Para complementar los datos de procesos de contratación es posible indicar la manera como éstos se relacionan con las personas y empresas que se encuentran detrás de las entidades que aparecen en los datos publicados bajo OCDS. Las relaciones se expresan como un árbol de jerarquías, en el cual se establecen relaciones entre empresas (una empresa matriz y sus subsidiarias) o entre empresas y personas (accionistas y miembros de juntas directivas de una empresa). Este árbol de jerarquías permite establecer quiénes son los beneficiarios reales de los procesos de contratación analizados.
 
+> Un Beneficiario Real es la persona física o natural quien, directa o indirectamente y en última instancia, posee, influencia, controla y/o se beneficia de al menos el 5% de un activo mediante un vehículo corporativo, sociedad mercantil o fideicomiso. Más información sobre Beneficiarios Reales, [aquí](https://www.colaboratorio.org/beneficiarios-reales-en-mexico/).
+
 Para crear el conjunto de datos de beneficiarios reales debes usar la plantilla disponible en *assets/data/BO-template.csv*, editarla en un software de planilla de cálculo (LibreOffice Calc, MS Excel, Google Spreadsheets u otro) y modificar los valores. El archivo contiene las siguientes columnas:
 
 1. **NOMBRE:** el nombre de la entidad (persona o empresa) tal y como aparece en los datos OCDS.
