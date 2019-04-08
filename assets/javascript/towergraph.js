@@ -4,6 +4,9 @@ VARIABLE DEFINITIONS FOR GRAPH
 *=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-_
 */
 
+// FIXME esto debería venir de algún otro lugar para ser parametrizable
+const projectTitle = 'Título del proyecto';
+
 // FIXME: detectar si es movil, todo lo demas deberia funcionar bien...
 const isMobile = false;
 const isDesktop = true;
@@ -459,7 +462,7 @@ function initGraph(data) {
     group: 1,
     color: '#1ee6d3',
     linksCount: 0,
-    label: "DA TOWER", // FIXME: este título debería parametrizarse
+    label: projectTitle,
     icon: null
   };
   slidesObjects[1].nodes.push(node);
@@ -1196,7 +1199,7 @@ function setupFullPage() {
     afterLoad: function(anchorLink, index) {
       $(`.slide-${index}`).addClass('slide-active');
     }
-}); 
+});
 
 
 
@@ -1540,10 +1543,10 @@ function setupD3() {
                 const contractsTotalText = AppData.texts.contracts_total_text;
                 const contractsAmountText = AppData.texts.contracts_amount_text;
                 return `
-                      <p class="title">El Nuevo Aeropuerto Internacional de la Ciudad de México</p>
+                      <p class="title">${projectTitle}</p>
                 <p>Número de contratos: <span>${contractsTotalText}</span></p>
                 <p>Importe contratado: <span>$${contractsAmountText}M</span></p>
-                `;
+                `; // FIXME esto debe ser parametrizable para cambiar el título del proyecto dentro del tooltip
                 break;
               }
             case "contract_type":
