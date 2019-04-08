@@ -5,7 +5,7 @@ VARIABLE DEFINITIONS FOR GRAPH
 */
 
 // FIXME esto debería venir de algún otro lugar para ser parametrizable
-const projectTitle = 'Título del proyecto';
+const projectTitle = window.graphTitle;
 
 // FIXME: detectar si es movil, todo lo demas deberia funcionar bien...
 const isMobile = false;
