@@ -34,6 +34,12 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
   	Tu descripción va aquí 
 	```
 
+	- Para que en el slider de la Visualización, aparezca el nombre principal de tu gráfico, edita la variable: 
+
+	```
+    graphTitle: "Nombre del gráfico"
+	```
+
 	- Jekyll tiene un sistema de **Plugins**  que permiten ejecutar código personalizado sin necesidad de modificar la fuente de Jekyll. En la página de configuración de Tower Builder, se representa de esta manera:
 	```
 	plugins:
