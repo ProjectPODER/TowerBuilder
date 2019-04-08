@@ -1,0 +1,37 @@
+div.tooltip {
+    font-family: Rajdhani;
+    font-size: 13px;
+    line-height: 15px;
+    position: absolute;
+    max-width: 300px;
+    padding: 10px;
+    background: #fff;
+    border: 0;
+    border-radius: 2px;
+    z-index: 1001;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, .2);
+    text-align: left
+}
+
+div.tooltip ul {
+    margin-left: 15px;
+    list-style: square
+}
+
+div.tooltip * {
+    pointer-events: none;
+    color: #013e5c;
+    margin: 0
+}
+
+div.tooltip .title {
+    font-weight: 600;
+    margin-bottom: 10px
+}
+
+div.tooltip a {
+    pointer-events: auto;
+    color: #013e5c;
+    cursor: pointer;
+    word-wrap: break-word
+}
