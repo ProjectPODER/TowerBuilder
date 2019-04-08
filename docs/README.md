@@ -6,6 +6,7 @@ TowerBuilder es un sistema que no requiere programación para generar sitios web
 ¿Qué necesito para armar mi sitio con TowerBuilder?
 ---------------------------------------------------
 
+- Mucha paciencia, te tomará aproximadamente dos horas para configurar Tower Builder, te recomendamos poner tu música favorita para comenzar.
 - Conseguir un listado de contrataciones en formato OCDS.
 - Armar una planilla de cálculo con los dueños de las empresas contratistas.
 - Redactar y editar textos en formato [MarkDown](https://guides.github.com/features/mastering-markdown/).
@@ -19,6 +20,8 @@ TowerBuilder es un sistema que no requiere programación para generar sitios web
 - Si tienes acceso a los datos, podrás armar tu sitio en minutos.
 - Podrás personalizar el diseño y los textos todo lo que gustes, de acuerdo a tus conocimientos y el tiempo disponible.
 - Podrás utilizar los datos abiertos del gobierno de tu país y demostrar la utilidad del estándar de contrataciones abiertas (OCDS) para el periodismo.
+
+Si algo te resulta muy difícil, puedes volver a intentar en 15 minutos, revisar nuestra sección de [Errores y correcciones](https://towerbuilder.readthedocs.io/en/latest/C3/Seccion1.html) o pedir ayuda.
 
 
 ```eval_rst
