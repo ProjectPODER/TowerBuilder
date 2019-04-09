@@ -48,7 +48,6 @@ Si algo te resulta muy difícil, puedes volver a intentar en 15 minutos, revisar
    C2/Seccion1
    C2/Seccion2
    C2/Seccion3
-   C2/Seccion4
 
 .. toctree::
    :maxdepth: 2

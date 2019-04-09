@@ -20,6 +20,8 @@ TowerBuilder es un sistema que no requiere programación para generar sitios web
 - Podrás personalizar el diseño y los textos todo lo que gustes, de acuerdo a tus conocimientos y el tiempo disponible.
 - Podrás utilizar los datos abiertos del gobierno de tu país y demostrar la utilidad del estándar de contrataciones abiertas (OCDS) para el periodismo.
 
+Si algo te resulta muy difícil, puedes volver a intentar en 15 minutos, revisar nuestra sección de [Errores y correcciones](https://towerbuilder.readthedocs.io/en/latest/C3/Seccion1.html) o pedir ayuda.
+
 
 .. toctree::
    :maxdepth: 2
@@ -44,7 +46,6 @@ TowerBuilder es un sistema que no requiere programación para generar sitios web
    C2/Seccion1
    C2/Seccion2
    C2/Seccion3
-   C2/Seccion4
 
 .. toctree::
    :maxdepth: 2
