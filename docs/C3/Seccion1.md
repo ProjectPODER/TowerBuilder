@@ -9,7 +9,9 @@ Revisa que el nombre de cada artículo este en el formato correcto o si está co
 ## ¿Por qué el formato de mi texto o artículo se rompe? 
 
 Revisa que el formato del archivo sea **.md**.
+
 Revisa si los archivos correspondientes, cuentan con el encabezado correcto como lo explicamos [aquí](https://towerbuilder.readthedocs.io/en/latest/C1/Seccion4.html#agregar-un-elemento-del-menu).
+
 Checa que estés usando elemento que acepta el formato **Markdown**, puedes checar la documentación oficial [aquí](https://guides.github.com/features/mastering-markdown/).
 
 ## Tengo otro problema 
