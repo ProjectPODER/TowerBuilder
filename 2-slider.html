@@ -9,10 +9,10 @@ permalink: /slider/
 		<div class="section">
 			<div class="container">
 				<div class="row align-items-center">
-					<div class="col-lg-5 col-md-12">
+					<div class="col-lg-5 col-md-5 col-sm-12">
 						{{ first-slide.content }}
 					</div>
-					<div class="col-lg-7 col-md-12">
+					<div class="col-lg-7 col-md-7 col-sm-12 text-center">
 						<img src="/assets/img/{{first-slide.image}}" alt="" class="img-fluid">
 					</div>
 				</div>
@@ -28,7 +28,13 @@ permalink: /slider/
 	    verticalCentered: true,
 	    navigation: true,
 	    anchors: anchors,
-	    menu: '#menu'
+	    menu: '#menu',
+	    responsiveSlides: true,
+	    paddingTop: '10px',
+		paddingBottom: '30px',
+	    responsiveWidth: 992,
+        afterResponsive: function(isResponsive){
+        }
 	  });
 	});
 

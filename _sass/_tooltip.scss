@@ -1,5 +1,5 @@
 div.tooltip {
-    font-family: Rajdhani;
+    font-family: Lato;
     font-size: 13px;
     line-height: 15px;
     position: absolute;
@@ -20,18 +20,19 @@ div.tooltip ul {
 
 div.tooltip * {
     pointer-events: none;
-    color: #013e5c;
+    color: $dark;
     margin: 0
 }
 
 div.tooltip .title {
-    font-weight: 600;
-    margin-bottom: 10px
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: $info;
 }
 
 div.tooltip a {
     pointer-events: auto;
-    color: #013e5c;
+    color: $primary;
     cursor: pointer;
     word-wrap: break-word
 }
