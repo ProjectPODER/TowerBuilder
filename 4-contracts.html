@@ -12,48 +12,39 @@ permalink: /contracts/
                     <h1 class="contracts-title">Contratos por empresas</h1>
                     <div class="form-group contract-search">
                         <label for="search" class="search-title">Búsqueda</label>
-                        <input type="text" class="form-control" id="search" placeholder="Introduce palabra clave a buscar">
+                        <input type="text" class="form-control" id="search-text" placeholder="Introduce palabra clave a buscar">
                     </div>
                     <div class="row contract-filter">
                         <div class="col-lg-3">
                             <div class="form-group filter-box filter-amount">
                                 <label class="filter-title">Monto total <i class="title-tip">(en pesos mexicanos)</i></label>
-                                <input type="text" name="fromAmount" class="filter-input half-input filter-input-from form-control" placeholder="desde $">
-                                <input type="text" name="toAmount" class="filter-input half-input filter-input-to form-control" placeholder="hasta $">
+                                <input type="text" id="search-fromAmount" name="fromAmount" class="filter-input half-input filter-input-from form-control" placeholder="desde $">
+                                <input type="text" id="search-toAmount" name="toAmount" class="filter-input half-input filter-input-to form-control" placeholder="hasta $">
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group filter-box filter-contract-type">
                                 <label class="filter-title">Tipo de contratación<img src="/assets/img/info-circle-solid.svg" alt="icon" class="info-icon" data-toggle="tooltip" data-placement="bottom" title="La ley obliga a la Unidad Compradora a definir el tipo de contratación, ya que varían las normas en cada caso."></label>
-                                <select name="contractType" class="form-control" id="" class="filter-input">
+                                <select id="search-contractType" name="contractType" class="form-control" id="" class="filter-input">
                                     <option value="todos">-Todos-</option>
-                                    <option value="Adquisiciones">Adquisiciones</option>
-                                    <option value="Arrendamientos">Arrendamientos</option>
-                                    <option value="Obra Pública">Obra Pública</option>
-                                    <option value="Servicios">Servicios</option>
-                                    <option value="Servicios Relacionados con la OP">Servicios Relacionados con la OP</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group filter-box filter-procedure-type">
                                 <label class="filter-title">Tipo de procedimiento<img src="/assets/img/info-circle-solid.svg" alt="icon" class="info-icon" data-toggle="tooltip" data-placement="bottom" title="La licitación pública es según la ley mexicana el procedimiento adecuado para contratar obra publica. Excepcionalmente también se pueden realizar otro tipo de procedimientos como: adjudicación directa, convenio e invitación a cuando menos tres proveedores."></label>
-                                <select name="procedureType" class="form-control" id="" class="filter-input">
+                                <select id="search-procedureType" name="procedureType" class="form-control" id="" class="filter-input">
                                     <option value="todos">-Todos-</option>
-                                    <option value="Adjudicación Directa Federal">Adjudicación Directa Federal</option>
-                                    <option value="Convenio">Convenio</option>
-                                    <option value="Invitación a Cuando Menos 3 Personas">Invitación a Cuando Menos 3 Personas</option>
-                                    <option value="Licitación Pública">Licitación Pública</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group filter-box filter-date">
                                 <div>
-                                    <label class="filter-title">Rango de fechas<img src="/assets/img/info-circle-solid.svg" alt="icon" class="info-icon" data-toggle="tooltip" data-placement="bottom" title="Encuentra los contratos activos entre dos fechas."></label>   
+                                    <label class="filter-title">Rango de fechas<img src="/assets/img/info-circle-solid.svg" alt="icon" class="info-icon" data-toggle="tooltip" data-placement="bottom" title="Encuentra los contratos activos entre dos fechas."></label>
                                 </div>
-                                <input type="text" class="filter-input filter-input-from datepicker__input-container form-control" placeholder="desde">
-                                <input type="text" class="filter-input filter-input-to datepicker__input-container form-control" placeholder="hasta">
+                                <input type="text" id="search-dateFrom" class="filter-input filter-input-from datepicker__input-container form-control" placeholder="desde">
+                                <input type="text" id="search-dateTo" class="filter-input filter-input-to datepicker__input-container form-control" placeholder="hasta">
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -64,5 +55,28 @@ permalink: /contracts/
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <table id="contracts_search" width="100%"></table>
+            </div>
+        </div>
     </div>
 </section>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="/assets/css/gijgo.min.css" />
+
+<script src="/assets/javascript/papaparse.min.js"></script>
+<script src="/assets/javascript/datatables.min.js"></script>
+<script src="/assets/javascript/gijgo.min.js"></script>
+<script src="/assets/javascript/towersearch.js"></script>
+
+<script type="text/javascript">
+    $.getJSON('/assets/data/contracts.json', function(json) {
+        buildSearchData(json);
+    });
+
+    $('#search-dateFrom').datepicker({ format: 'yyyy-mm-dd', showRightIcon: false, uiLibrary: 'bootstrap4', iconsLibrary: 'fontawesome' });
+    $('#search-dateTo').datepicker({ format: 'yyyy-mm-dd', showRightIcon: false, uiLibrary: 'bootstrap4', iconsLibrary: 'fontawesome' });
+
+</script>
