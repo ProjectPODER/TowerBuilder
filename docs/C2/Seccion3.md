@@ -86,3 +86,17 @@ $bgHome : "./img/bg-masthead.jpg";
 ```
 image: tu-logo.png
 ```
+## Cambiar favicon
+
+1. Reemplaza el archivo que se encuentra en la raíz del proyecto llamado **favicon.png** por tu favicon, deberá conservar el mismo nombre y de preferencia, la imagen debe tener como medidas: 32 x 32 pixeles.
+
+## Adaptar la visualización para vistas en dispositivos móviles
+
+La visualización necesitará mostrarse en imágenes para las vistas en dispositivos móviles, para esto deberás, una vez obtenida tu gráfica, convertir cada forma de tu visualización en imagen para poder agregarla en el encabezado de cada slide.
+
+```
+---
+title: First Slide
+image: tu-grafica.png
+---
+```

@@ -1148,6 +1148,12 @@ function setupFullPage() {
     anchors: anchors,
     menu: '#slidesMenu',
     navigation: true,
+    responsiveSlides: true,
+    paddingTop: '10px',
+    paddingBottom: '30px',
+    responsiveWidth: 992,
+    afterResponsive: function(isResponsive){
+    },
     paddingTop: isMobile
       ? '0px'
       : ($('.site-top-ribbon').height() + 60) + 'px',
