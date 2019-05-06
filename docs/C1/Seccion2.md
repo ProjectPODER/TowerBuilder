@@ -2,7 +2,7 @@
 
 Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para tu proyecto y otros atributos de configuración. Para esto deberás:
 
-1. Navegar hasta el archivo de configuración, para eso debes entrar a tu repositorio y buscar el archivo "**config.yml**".
+1. Navegar hasta el archivo de configuración, para eso debes entrar a tu repositorio y buscar el archivo "**_config.yml**".
 
 2. Da click en el nombre del archivo para abrirlo.
 
@@ -29,10 +29,12 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
 	- Otros valores importantes a cambiar son: 
 
 	```
-    image: tu-logo.png -> cambiarlo por el logo de tu proyecto o dejarlo vacío, es opcional
-    description: >- //cambiarlo por la descripción de tu proyecto 
-  	Tu descripción va aquí 
+    image: tb-logo.png -> cambiarlo por el logo de tu proyecto o dejarlo vacío, es opcional
+    description: >- 
+  	Modifica el texto existente y pon la descripción de tu proyecto aquí. 
 	```
+
+	  Para cambiar el logo, sigue [estas instrucciones](https://towerbuilder.readthedocs.io/en/latest/C2/Seccion3.html#cambiar-el-logo).
 
 	- Para que en el slider de la Visualización, aparezca el nombre principal de tu gráfico, edita la variable: 
 
@@ -73,7 +75,7 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
 
 	Para más información sobre las colecciones, [visita esta página](https://jekyllrb.com/docs/collections/).
 
-	- Las últimas variables que se muestran dentro del archivo **_config.yml**, están relacionadas con las opciones con las que cuenta Tower Builder para mostrar los artículos:
+	- Las últimas variables que se muestran dentro del archivo "**_config.yml**", están relacionadas con las opciones con las que cuenta Tower Builder para mostrar los artículos:
 	```
     show_excerpts: true
 	future: true
