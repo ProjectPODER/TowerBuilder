@@ -1,6 +1,6 @@
 # Haciendo mi sitio con TowerBuilder
 
-TowerBuilder es un sistema que no requiere programación para generar sitios web con visualizaciones de datos de contrataciones y beneficiarios reales. Está pensado para seguir el dinero en grandes procesos de compra, se ha usado en grandes obras públicas ([www.torredecontrol.org](www.torredecontrol.org)) y en la compra de medicamentos ([VivirConVIH.org](www.vivirconvih.org)).
+TowerBuilder es un sistema que no requiere programación para generar sitios web con visualizaciones de datos de contrataciones y beneficiarios reales. Está pensado para seguir el dinero en grandes procesos de compra, se ha usado en grandes obras públicas ([TorreDeControl.org](www.torredecontrol.org)) y en la compra de medicamentos ([VivirConVIH.org](www.vivirconvih.org)).
 
 ## ¿Qué necesito para armar mi sitio con TowerBuilder?
 

@@ -84,7 +84,7 @@ $bgHome : "./img/bg-masthead.jpg";
 2. Ve al archivo de configuración **_config.yml** y cambia el valor de la variable **image** por el nombre del archivo de tu logotipo:
 
 ```
-image: tu-logo.png
+image: tb-logo.png
 ```
 ## Cambiar favicon
 
