@@ -15,36 +15,36 @@ El archivo de datos deberá contener un listado de records o releases de los pro
 El archivo contracts.json debe cumplir con la estructura de uno de los siguientes tipos de datos: [Release Package](http://standard.open-contracting.org/latest/en/schema/release_package/) o [Record Package](http://standard.open-contracting.org/latest/en/schema/record_package/).
 
 Un **Release Package** es un objeto JSON con una propiedad llamada «releases», la cual contiene un listado en forma de array, es decir, entre corchetes [], cuyos elementos son objetos individuales de tipo [release](http://standard.open-contracting.org/latest/en/schema/reference/) separados por comas (,). Cada objeto de tipo release corresponde a un proceso individual de contratación.
-    ```
-    {
-    	"releases": [
-            { (release 1) },
-            { (release 2) },
-            ...
-            { (release n) }
-        ]
-    }
-    ```
+```
+{
+	"releases": [
+        { (release 1) },
+        { (release 2) },
+        ...
+        { (release n) }
+    ]
+}
+```
 
 Un **Record Package** es un objeto JSON con una propiedad llamada «records», la cual contiene un listado en forma de array, es decir, entre corchetes [], cuyos elementos son objetos individuales de tipo [record](http://standard.open-contracting.org/latest/en/schema/records_reference/) separados por comas (,). Cada objeto de tipo record se compone a su vez de dos propiedades: una propiedad llamada «releases», la cual debe cumplir con el mismo formato que los Release Packages descritos anteriormente, y otra propiedad llamada «compiledRelease», la cual contiene un objeto individual de tipo [release](http://standard.open-contracting.org/latest/en/schema/reference/). Cada objeto de tipo record corresponde a un proceso individual de contratación. El listado de releases dentro del objeto de tipo record contiene el historial de versiones publicadas para un proceso de contratación, y el objeto compiledRelease contiene la última versión de cada dato individual del mismo proceso de contratación.
-    ```
-    {
-    	"records": [
-            {
-                "releases": [
-                    { (release 1) },
-                    { (release 2) },
-                    ...
-                    { (release n) }
-                ],
-                "compiledRelease": { (última versión del release) }
-            },
-            { (record 2) },
-            ...
-            { (record n) }
-        ]
-    }
-    ```
+```
+{
+	"records": [
+        {
+            "releases": [
+                { (release 1) },
+                { (release 2) },
+                ...
+                { (release n) }
+            ],
+            "compiledRelease": { (última versión del release) }
+        },
+        { (record 2) },
+        ...
+        { (record n) }
+    ]
+}
+```
 
 Nota: dentro de cada release, es necesario que ciertos campos contengan algún valor para que los gráficos se desplieguen de manera correcta. Los campos obligatorios son:
 - *ocid*
