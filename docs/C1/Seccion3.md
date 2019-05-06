@@ -4,11 +4,17 @@
 
 Para esta parte, deberás tener el listado de contratos que quieres visualizar en el formato del estándar de contrataciones abiertas [OCDS](http://standard.open-contracting.org/latest/en/). Puedes obtener el listado de alguna de las fuentes OCDS utilizando la herramienta [Kingfisher](https://github.com/open-contracting/kingfisher) para guardarlo en disco. Para más información puedes revisar la [documentación completa](https://ocdskingfisher.readthedocs.io/en/latest/) de Kingfisher.
 
-El estándar OCDS es un modelo universal para la publicación y análisis de datos de procesos de contratación. Los datos publicados bajo el estándar se encuentran en el formato [JSON](https://www.json.org/json-es.html) y pueden presentarse de dos formas: [release](http://standard.open-contracting.org/latest/en/schema/reference/) y [record](http://standard.open-contracting.org/latest/en/schema/records_reference/). Generalmente, los datos OCDS se publican en listados de procesos de contratación conocidos como packages. Es posible encontrar [paquetes de releases](http://standard.open-contracting.org/latest/en/schema/release_package/) y [paquetes de records](http://standard.open-contracting.org/latest/en/schema/record_package/) publicados por los gobiernos de ciertos países.
+El estándar OCDS es un modelo para la publicación y análisis de datos de procesos de contratación. Los datos publicados bajo el estándar se encuentran en el formato [JSON](https://www.json.org/json-es.html) y pueden presentarse de dos formas: [release](http://standard.open-contracting.org/latest/en/schema/reference/) y [record](http://standard.open-contracting.org/latest/en/schema/records_reference/). Generalmente, los datos OCDS se publican en listados de procesos de contratación conocidos como packages. Es posible encontrar [paquetes de releases (Release Packages)](http://standard.open-contracting.org/latest/en/schema/release_package/) y [paquetes de records (Record Packages)](http://standard.open-contracting.org/latest/en/schema/record_package/) publicados por los gobiernos de ciertos países.
 
-El archivo de datos debe contener un listado de records o releases de los procesos de contratación. Para lograr que el archivo sea sólo el listado de records o releases dentro de un array, puede ser necesario manipular el contenido del archivo. Para esto recomendamos la herramienta ocdskit y en particular jq. El archivo final de datos debe contener una de las siguientes estructuras:
+Los datos deberán ser colocados en un archivo con el nombre **contracts.json** y el archivo ubicado en la ruta *assets/data/*. Para subir el archivo al repositorio de Github, debes ubicarte en la página principal del repositorio en tu navegador. En el listado de archivos, primero haz click en la carpeta *assets* y en la pantalla siguiente haz click en la carpeta *data*. Una vez estés adentro de la carpeta *data* debes hacer click en el botón "Upload files", ubicado sobre la tabla del listado de archivos al lado derecho de la pantalla. Esto te llevará a una pantalla desde la cual puedes elegir el archivo desde tu computadora o arrastrarlo hacia la ventana del navegador. Si no ves el botón para subir archivos debes iniciar sesión en Github con tu usuario y contraseña.
 
-- **Release package:** un objeto "releases" que contiene un listado en forma de array (entre corchetes []) cuyos elementos son releases individuales.
+El archivo de datos deberá contener un listado de records o releases de los procesos de contratación. Para lograr que el archivo sea sólo el listado de records o releases dentro de un array, puede ser necesario manipular el contenido del archivo. Para esto recomendamos la herramienta [ocdskit](https://github.com/open-contracting/ocdskit) y en particular [jq](https://stedolan.github.io/jq/).
+
+**Estructura del archivo contracts.json**
+
+El archivo contracts.json debe cumplir con la estructura de uno de los siguientes tipos de datos: [Release Package](http://standard.open-contracting.org/latest/en/schema/release_package/) o [Record Package](http://standard.open-contracting.org/latest/en/schema/record_package/).
+
+Un **Release Package** es un objeto JSON con una propiedad llamada «releases», la cual contiene un listado en forma de array, es decir, entre corchetes [], cuyos elementos son objetos individuales de tipo [release](http://standard.open-contracting.org/latest/en/schema/reference/) separados por comas (,). Cada objeto de tipo release corresponde a un proceso individual de contratación.
     ```
     {
     	"releases": [
@@ -20,7 +26,7 @@ El archivo de datos debe contener un listado de records o releases de los proces
     }
     ```
 
-- **Record package:** un objeto "records" que contiene un array cuyos elementos son objetos de tipo record. Cada record a su vez contiene un objeto "releases" con el formato de un release package.
+Un **Record Package** es un objeto JSON con una propiedad llamada «records», la cual contiene un listado en forma de array, es decir, entre corchetes [], cuyos elementos son objetos individuales de tipo [record](http://standard.open-contracting.org/latest/en/schema/records_reference/) separados por comas (,). Cada objeto de tipo record se compone a su vez de dos propiedades: una propiedad llamada «releases», la cual debe cumplir con el mismo formato que los Release Packages descritos anteriormente, y otra propiedad llamada «compiledRelease», la cual contiene un objeto individual de tipo [release](http://standard.open-contracting.org/latest/en/schema/reference/). Cada objeto de tipo record corresponde a un proceso individual de contratación. El listado de releases dentro del objeto de tipo record contiene el historial de versiones publicadas para un proceso de contratación, y el objeto compiledRelease contiene la última versión de cada dato individual del mismo proceso de contratación.
     ```
     {
     	"records": [
@@ -30,7 +36,8 @@ El archivo de datos debe contener un listado de records o releases de los proces
                     { (release 2) },
                     ...
                     { (release n) }
-                ]
+                ],
+                "compiledRelease": { (última versión del release) }
             },
             { (record 2) },
             ...
@@ -47,8 +54,6 @@ Nota: dentro de cada release, es necesario que ciertos campos contengan algún v
 - *contracts.value.amount*
 - *contracts.value.currency*
 - Dentro del campo parties, al menos uno con *role: ["supplier"]* y con valores para los campos de *id* y *name*
-
-Los datos deberán ser colocados en un archivo con el nombre **contracts.json** y el archivo ubicado en la ruta *assets/data/*. Para subir el archivo al repositorio de Github, debes ubicarte en la página principal del repositorio en tu navegador. En el listado de archivos, primero haz click en la carpeta *assets* y en la pantalla siguiente haz click en la carpeta *data*. Una vez estés adentro de la carpeta *data* debes hacer click en el botón "Upload files", ubicado sobre la tabla del listado de archivos al lado derecho de la pantalla. Esto te llevará a una pantalla desde la cual puedes elegir el archivo desde tu computadora o arrastrarlo hacia la ventana del navegador. Si no ves el botón para subir archivos debes iniciar sesión en Github con tu usuario y contraseña.
 
 **Guía: armar un listado de contratos manualmente**
 
