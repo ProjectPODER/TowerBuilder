@@ -1,6 +1,6 @@
-# Actualización de datos
+# Actualizaciones de TowerBuilder 
 
-TowerBuilder puede tener actualizaciones eventuales y es importante mantener tu repositorio sincronizado con el original para tener siempre las últimas actualizaciones de seguridad y nuevas funcionalidades. El proceso para sincronizar los repositorios consiste de los siguientes pasos:
+TowerBuilder, la base con la que estás construyendo tu sitio, puede tener actualizaciones eventuales y es importante mantener tu repositorio sincronizado con el original para tener siempre las últimas actualizaciones de seguridad y nuevas funcionalidades. El proceso para sincronizar los repositorios consiste de los siguientes pasos:
 
 1. En tu navegador, abre la página principal de tu repositorio (https://github.com/tu_usuario/TowerBuilder).
 2. Arriba del listado de archivos, del lado derecho, ubica el botón "Compare" y dale un click.
