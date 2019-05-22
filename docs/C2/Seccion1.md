@@ -2,7 +2,7 @@
 
 TowerBuilder puede tener actualizaciones eventuales y es importante mantener tu repositorio sincronizado con el original para tener siempre las últimas actualizaciones de seguridad y nuevas funcionalidades. El proceso para sincronizar los repositorios consiste de los siguientes pasos:
 
-1. En tu navegador, abre la página principal de tu repositorio (https://github.com/{tu_usuario}/TowerBuilder).
+1. En tu navegador, abre la página principal de tu repositorio (https://github.com/tu_usuario/TowerBuilder).
 2. Arriba del listado de archivos, del lado derecho, ubica el botón "Compare" y dale un click.
 3. La pantalla siguiente te muestra los cambios que has realizado en tu versión de TowerBuilder, pero esto no es exactamente lo que queremos ver aquí, sino los cambios hechos en el repositorio original de TowerBuilder. Debajo del título de la página encontrarás varios selectores que te permiten elegir los repositorios a comparar. En el primero de izquierda a derecha, selecciona tu propio repositorio.
 4. En la siguiente pantalla, haz click en el link que dice "compare across forks" que se encuentra justo debajo del título de la página, del lado derecho.
