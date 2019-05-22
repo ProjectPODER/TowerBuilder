@@ -12,6 +12,6 @@ Inicialmente, tu nombre de usuario y el nombre del repositorio se verán refleja
 
 Para usar un subdominio personalizado, es necesario modificar el DNS del dominio, esto se hace en el sitio donde se registró el dominio. 
 
-Es necesario agregar un CNAME que apunte a usuario.github.io, para más detalles consultar la documentación oficial de github: https://help.github.com/en/articles/setting-up-a-custom-subdomain
+Es necesario agregar un CNAME que apunte a usuario.github.io, para más detalles consultar la [documentación oficial de github](https://help.github.com/en/articles/setting-up-a-custom-subdomain).
 
 **Importante:** No utilizar la misma URL del repositorio original, porque no se podrá visualizar el sitio.
