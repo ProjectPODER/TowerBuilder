@@ -14,7 +14,7 @@ TowerBuilder es un sistema que no requiere programación para generar sitios web
 ¿Qué ventajas tiene usar TowerBuilder para armar mi sitio?
 ----------------------------------------------------------
 
-- El diseño predeterminado no requiere ningún esfuerzo de programación ni alojamiento del sitio, se hace todo desde GitHub.com
+- El diseño predeterminado no requiere ningún esfuerzo de programación ni alojamiento del sitio, se hace todo desde GitHub.com.
 - Tendrás una visualización de datos impactante y un útil sistema de búsqueda de contratos.
 - Si tienes acceso a los datos, podrás armar tu sitio en minutos.
 - Podrás personalizar el diseño y los textos todo lo que gustes, de acuerdo a tus conocimientos y el tiempo disponible.
