@@ -46,10 +46,10 @@ permalink: /visualization/
 	{% endfor %}
 	]
 
-	$.getJSON('/assets/data/contracts.json', function(json) {
+	$.getJSON("{{ site.contracts_url }}", function(json) {
 		buildGraphData(json);
 	});
 
-	
+
 
 </script>

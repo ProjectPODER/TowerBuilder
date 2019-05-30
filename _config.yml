@@ -25,6 +25,12 @@ description: >-
 # The name of your graphic
 graphTitle: "Nombre del gráfico"
 
+# URL of your contracts file or API endpoint
+contracts_url: "/assets/data/contracts.json"
+
+# URL of your beneficial ownership file or API endpoint
+bods_url: ""
+
 # Build settings
 plugins:
   - jekyll-feed
