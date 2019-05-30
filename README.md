@@ -32,14 +32,20 @@ Si eres desarrollador y deseas correr TowerBuilder de manera local, estas son la
 1. Dentro de la terminal, comenzaremos por clonar el repositorio:
 `   git clone https://github.com/ProjectPODER/TowerBuilder.git`
 
-2. Entrar al proyecto;
+2. Entrar al proyecto:
 `   cd TowerBuilder`
 
 3. Dentro de la carpeta, vamos a instalar las dependencias necesarias para el proyecto:
 `   bundle install`
 
+ 3.1 Si no tienes el comando bundle instalado, significa que no tienes ruby, para esto debes instalar primero ruby, bundle y las cabeceras de desarrollo de ruby con el siguiente comando:
+`   sudo apt install ruby ruby-bundler ruby-dev`
+
 4. Para construir el sitio y hacerlo disponible en un servidor local:
 `   bundle exec jekyll serve`
+
+ 4.1. Es muy probable que en este punto recibas un error sobre cantidad máxima de archivos que se pueden monitorear en tu sistema, y es muy probable que se arregle como dice en la [documentación](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers):
+`   echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
 
 5. Ahora navega a http://localhost:4000
 
