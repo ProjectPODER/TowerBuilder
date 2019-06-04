@@ -2,7 +2,7 @@
 
 TowerBuilder es un sistema que no requiere programación para generar sitios web con visualizaciones de datos de contrataciones, especialmente orientado a grandes obras públicas, inspirado por www.torredecontrol.org.
 
-Puedes leer la documentación completa en [el manual de TowerBuilder](https://towerbuilder.readthedocs.io/en/latest/), donde se explica detalladamente cada paso para crear tu propio sitio web utilizando el sistema.
+Puedes leer la documentación completa en [el manual de TowerBuilder](https://towerbuilder.readthedocs.io/), donde se explica detalladamente cada paso para crear tu propio sitio web utilizando el sistema.
 
 #### ¿Qué necesito para armar mi sitio con TowerBuilder?
 * Conseguir un listado de contrataciones en formato [OCDS](http://standard.open-contracting.org/latest/en/).
