@@ -31,16 +31,18 @@ Para editar los textos de cada slide del slider:
   - **collections/_first-slider/slide-2.md**
   - **collections/_first-slider/slide-3.md**
 
-Para añadir o quitar un slide, sólo debes añadir o quitar un archivo **.md** dentro de la carpeta **_first-slider**.
+Para añadir o quitar un slide, sólo debes añadir o quitar un archivo **.md** dentro de la carpeta **_first-slider**, con su respectivo encabezado.
 
 Para cambiar o añadir una imagen (_.jpg_, _.png_ o _.svg_) dentro del slider, debes agregar la imagen dentro de la carpeta **assets/img/** y agregar el nombre del archivo dentro del archivo correspondiente al slide en el que aparecerá la imagen.
 
 ```
 ---
 title: First Slide
-**image: graphic-example.png** -> aquí va el nombre del archivo.
+image: graphic-example.png -> aquí va el nombre del archivo.
 ---
 ```
+
+Si quieres agregar un slide con solo texto y ocupando todo el ancho de la página, deberás borrar toda la línea de **image** del encabezado.
 
 Para editar los textos del slider con la visualización:
   - **collections/_visualization-slider/slide-1.md**

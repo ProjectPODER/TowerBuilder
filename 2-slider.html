@@ -9,12 +9,18 @@ permalink: /slider/
 		<div class="section">
 			<div class="container">
 				<div class="row align-items-center">
+					{%- if first-slide.image -%}
 					<div class="col-lg-5 col-md-5 col-sm-12">
 						{{ first-slide.content }}
 					</div>
 					<div class="col-lg-7 col-md-7 col-sm-12 text-center">
 						<img src="/assets/img/{{first-slide.image}}" alt="" class="img-fluid">
 					</div>
+              		{%- else -%}
+					<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+						{{ first-slide.content }}
+					</div>
+					{%- endif -%}
 				</div>
 			</div>
 	    </div>
