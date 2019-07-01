@@ -55,3 +55,5 @@ $(document).ready(function () {
     });
 
 });
+
+// (window.parent.frames.length > 0);

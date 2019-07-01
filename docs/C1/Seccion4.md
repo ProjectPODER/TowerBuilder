@@ -100,7 +100,7 @@ Estos son los pasos para editar el nombre de un archivo en Github:
 5. Una vez modificado, ir a la parte de abajo de la página en la sección **Commit changes**, en el primer campo añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
 6. Guardar los cambios dando click en el botón verde **Commit changes**.
 
-**Nota:** Para quitar la página _Styleguide_ del menú, debes ir al archivo de configuraciones **_config.yml** y escribir el nombre completo del archivo en la sección _exclude_, quedando de esta manera:
+<!-- **Nota:** Para quitar la página _Styleguide_ del menú, debes ir al archivo de configuraciones **_config.yml** y escribir el nombre completo del archivo en la sección _exclude_, quedando de esta manera:
 
 ```
 exclude:
@@ -153,7 +153,79 @@ Para eliminar un archivo en Github:
 1. Da click en el archivo que quieres eliminar.
 2. En la parte de arriba del documento, da click en el ícono del bote de basura.
 3. Al final de la página, en el primer campo de la sección **Commit changes**, añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
+5. Guardar los cambios dando click en el botón verde **Commit changes**. -->
+
+### Agregar una nueva página
+
+Para agregar una nueva página, debes crear un archivo donde podrás añadir texto en formato markdown.
+
+Los pasos para crear un archivo son:
+
+1. En GitHub, navega a la página principal del repositorio.
+2. En el repositorio, busca la carpeta donde deseas crear un archivo.
+3. Encima de la lista de archivos, haz clic en _Create new file_.
+   ![](https://help.github.com/assets/images/help/repository/create_new_file.png)
+
+4. En el campo de _Name your file_, escribe el nombre y la extensión del archivo (.md).
+   ![](https://help.github.com/assets/images/help/repository/new-file-name.png)
+
+5. En la pestaña _Edit new file_ , agrega contenido al archivo.
+6. Es importante agregar siempre a los archivos nuevos creados, un encabezado con el siguiente código, siempre irá al incio del archivo:
+
+```
+---
+layout: page -> siempre debe ser **page**
+title: Nombre de la página -> puedes cambiar al título que desees
+permalink: /nombre-del-link/ -> puedes cambiar al nombre del link que desees mostrar
+---
+```
+7. Para revisar el nuevo contenido, haz clic en _Preview_.
+   ![](https://help.github.com/assets/images/help/repository/new-file-preview.png)
+
+8. Al final de la página, en el primer campo de la sección **Commit new file**, añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
+9. Guardar los cambios dando click en el botón verde **Commit new file**.
+
+Para información más detallada de cómo crear un nuevo archivo, visita la [documentación oficial de Github](https://help.github.com/en/articles/creating-new-files).
+
+
+### Agregar un elemento del menú
+
+Al crear una nueva página, que contenga el encabezado descrito anteriormente, automáticamente se añadirá al final del menú.
+
+Si quieres cambiar el orden en el que debe aparecer la página en el menú, coloca el número correspondiente y modifica los números de los elementos que ya están. Para renombrar un archivo, sigue la [documentación de Github aquí](https://help.github.com/en/articles/renaming-a-file).
+
+
+### Ocultar/Eliminar un elemento del menú
+
+Para quitar un elemento del menú, basta con eliminar el archivo. 
+
+Para eliminar un archivo en Github:
+
+1. Da click en el archivo que quieres eliminar.
+2. En la parte de arriba del documento, da click en el ícono del bote de basura.
+3. Al final de la página, en el primer campo de la sección **Commit changes**, añadir una corta descripción de los cambios que se hicieron, puedes agregar una descripción más extensa en el siguiente campo, de manera opcional.
 5. Guardar los cambios dando click en el botón verde **Commit changes**.
+
+Si quieres excluir una página del menú, pero sin eliminar el archivo y sin mantenerla en línea, sólo debes agregar al encabezado **"published: false"**:
+
+```
+---
+published: false
+permalink: /nombre-del-link/ -> El link ya no estará disponible.
+---
+```
+
+Si quieres excluir el elemento del menú, pero manteniendo la página en línea, deberás borrar el título del encabezado:
+
+```
+---
+layout: page
+title: Nombre de la página -> borra esta línea del archivo para excluir la página del menú.
+permalink: /nombre-del-link/ -> El link seguirá disponible.
+---
+```
+
+**Nota:** Con las dos opciones anteriores, podrás ocultar o eliminar cualquier sección como el Slider, la Visualización o la página de Styleguide de tu proyecto final.
 
 
 ## Artículos
