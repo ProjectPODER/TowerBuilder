@@ -20,10 +20,10 @@ image: tb-logo.png
 
 #Description of your site
 description: >-
-  TowerBuilder es un sistema que no requiere programación para generar sitios web con visualizaciones de datos de contrataciones, especialmente orientado a grandes obras públicas, inspirado por www.torredecontrol.org.
+  TowerBuilder is a system to generate websites with data visualizations that mix open contracting and beneficial ownership data, all without requiring programming knowledge.
 
 # The name of your graphic
-graphTitle: "Nombre del gráfico"
+graphTitle: "Graphic name"
 
 # URL of your contracts file or API endpoint
 contracts_url: "/assets/data/contracts.json"
