@@ -92,11 +92,24 @@ image: tb-logo.png
 
 ## Adaptar la visualización para vistas en dispositivos móviles
 
-La visualización necesitará mostrarse en imágenes para las vistas en dispositivos móviles, para esto deberás, una vez obtenida tu gráfica, convertir cada forma de tu visualización en imagen para poder agregarla en el encabezado de cada slide.
+De manera predeterminada, el archivo **3-visualization-slider.html** tiene configurada la opción de *"responsive"* como *"true"* para una mejor experiencia en la navegación en dispositivos móviles:
 
 ```
 ---
-title: First Slide
-image: tu-grafica.png
+layout: default
+title: Visualization
+permalink: /visualization/
+responsive: true
 ---
 ```
+
+ Esto quiere decir que la visualización necesitará mostrarse en imágenes para las vistas en móviles, para esto deberás, una vez obtenida tu gráfica, convertir cada forma de tu visualización en imagen (.png o .jpg), debes agregar estas imágenes dentro de la carpeta **assets/img/** para poder agregarla posteriormente en el encabezado de cada slide correspondiente. Por ejemplo:
+
+```
+---
+title: Slide 1
+image: tu-grafica.png -> Aquí va el nombre de tu imagen.
+---
+```
+
+También puedes desactivar la opción de *"responsive"* y evitar colocar la imagen en cada slide, sólo debes borrar la línea que dice **responsive: true** del encabezado del archivo **3-visualization-slider.html** y borrar del encabezado de cada slide toda la línea que comienza con **image:**.
