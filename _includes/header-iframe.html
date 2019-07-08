@@ -29,12 +29,11 @@
 </nav>
 
 <!-- Desktop Navbar -->
-<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top d-none d-sm-block">
+<nav class="navbar navbar-expand navbar-dark justify-content-center fixed-top d-none d-sm-block">
       <div class="container-fluid">
       {%- assign default_paths = site.pages | map: "path" -%}
       {%- assign page_paths = site.header_pages | default: default_paths -%}
       {%- assign titles_size = site.pages | map: 'title' | size -%}
-      <a class="navbar-brand" rel="author" href="{{ '/'' | relative_url }}"><img src="/assets/img/{{ site.image | prepend: site.baseurl }}">{{ site.title | escape }}</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
