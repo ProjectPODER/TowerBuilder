@@ -1,5 +1,5 @@
 <!-- Mobile Navbar -->
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top d-block d-sm-none">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top d-block d-sm-none" id="mobile-navbar">
   <div class="container-fluid">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
@@ -29,7 +29,7 @@
 </nav>
 
 <!-- Desktop Navbar -->
-<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top d-none d-sm-block">
+<nav class="navbar navbar-expand navbar-dark fixed-top bg-dark d-none d-sm-block" id="desktop-navbar">
       <div class="container-fluid">
       {%- assign default_paths = site.pages | map: "path" -%}
       {%- assign page_paths = site.header_pages | default: default_paths -%}

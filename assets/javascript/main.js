@@ -44,7 +44,23 @@ var autocollapse = function (menu,maxHeight) {
         
     }
 };
+
+// Iframe
 $(document).ready(function () {
+    if( window.location.search.indexOf("iframe") > -1 ) {
+        $('#mobile-navbar').remove();
+        $('a.navbar-brand').hide();
+        $('button.navbar-toggler').hide();
+        $( '#desktop-navbar' ).removeClass( 'bg-dark d-none d-sm-block' ).addClass( 'justify-content-center nav-iframe' );
+        // $( '#nav' ).addClass( 'mx-auto' )
+        $('a').each(function(i,e) {
+            if (e != window.undefined && !e.target) {
+                if (e.href.indexOf(location.hostname) > -1) {
+                    e.href = e.href+"?iframe"
+                }
+            }
+        });
+    }
 
     // when the page loads
     autocollapse('#nav',50); 
@@ -54,4 +70,7 @@ $(document).ready(function () {
         autocollapse('#nav',50); 
     });
 
+
 });
+
+

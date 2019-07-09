@@ -1,0 +1,54 @@
+---
+layout: iframe-layout
+permalink: /iframe-slider/
+
+---
+<div id="fullpage-slider">
+	{% for first-slide in site.first-slider %}
+		{% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
+		<div class="section">
+			<div class="container">
+				<div class="row align-items-center">
+					{%- if first-slide.image -%}
+					<div class="col-lg-5 col-md-5 col-sm-12">
+						{{ first-slide.content }}
+					</div>
+					<div class="col-lg-7 col-md-7 col-sm-12 text-center">
+						<img src="/assets/img/{{first-slide.image}}" alt="" class="img-fluid">
+					</div>
+              		{%- else -%}
+					<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+						{{ first-slide.content }}
+					</div>
+					{%- endif -%}
+				</div>
+			</div>
+	    </div>
+	{% endfor %}
+</div>
+
+<script type="text/javascript">
+	//Inicializing sliders
+	$(function() {
+	  $('#fullpage-slider').fullpage({
+	    verticalCentered: true,
+	    navigation: true,
+	    anchors: anchors,
+	    menu: '#menu',
+	    responsiveSlides: true,
+	    paddingTop: '10px',
+		paddingBottom: '30px',
+	    responsiveWidth: 992,
+        afterResponsive: function(isResponsive){
+        }
+	  });
+	});
+
+	var anchors = [
+	{% for first-slide in site.first-slider %}
+	  {% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
+	  '{{id}}'{% if forloop.last == false %},{% endif %}
+	{% endfor %}
+	]
+</script>
+

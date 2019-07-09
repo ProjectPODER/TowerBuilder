@@ -1,0 +1,18 @@
+.nav-iframe {
+	/*background-color: rgba(255,255,255, 0.4);*/
+
+	.nav-item {
+		margin: 5px 1px 0;
+	}
+	.nav-link {
+		@extend .bg-dark;
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+		border-radius: 0.25rem;
+		transition: padding 0s;
+	}
+	.navbar-nav .active > .nav-link {
+		background-color: #1d2124 !important;
+	}
+}
+
