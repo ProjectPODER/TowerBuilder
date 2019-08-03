@@ -4,8 +4,71 @@ VARIABLE DEFINITIONS FOR GRAPH
 *=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-_
 */
 
-// FIXME esto debería venir de algún otro lugar para ser parametrizable
-const projectTitle = window.graphTitle;
+function correctJSON(s) {
+    const corrected = '[' + s.replace(/=>/g, ':').replace(/}{/g, '},{') + ']'
+    const aconfig = JSON.parse(corrected)
+
+    function arrayToObject(a) {
+        return a.reduce((a, c) => {
+            if (typeof c === 'object') {
+                Object.entries(c).map(([k, v]) => {
+                    if (v instanceof Array) {
+                        c[k] = arrayToObject(v)
+                    }
+                })
+            }
+
+            return Object.assign({}, a, c)
+        }, {})
+    }
+
+    return arrayToObject(aconfig)
+}
+
+const config = correctJSON(window.graphConfig)
+
+const nodeSizes = {
+    min: 10,
+    max: 100
+}
+
+const defaultNodeColours = {
+    default: '#1ee6d3',
+    contract: '#1ee6d3',
+    contractTypes: '#3abdc3',
+    contractByType: '#438a9c',
+    organization: '#3c5a6f',
+    shareholderPerson: '#EB639A',
+    shareholderCorp: '#363E4E',
+}
+
+const defaultLinkColours = {
+    default: '#706F74',
+    contractsTypes: '#706F74',
+    toCenter: '#706F74',
+    toContractType: '#706F74',
+    toOrganization: '#706F74',
+}
+
+const colours = {
+    nodes: defaultNodeColours,
+    links: defaultLinkColours
+}
+
+const projectTitle = config.title;
+if (config.sizes) {
+    nodeSizes = Object.assign({}, nodeSizes, config.sizes)
+}
+
+if (config.colours) {
+    if (config.colours.nodes) {
+        Object.assign(colours.nodes, config.colours.nodes)
+    }
+
+    if (config.colours.links) {
+        Object.assign(colours.links, config.colours.links)
+    }
+}
 
 // FIXME: detectar si es movil, todo lo demas deberia funcionar bien...
 const isMobile = false;
@@ -460,7 +523,7 @@ function initGraph(data) {
     nodeForce: 10,
     type: 'all',
     group: 1,
-    color: '#1ee6d3',
+    color: colours.nodes.contract,
     linksCount: 0,
     label: projectTitle,
     icon: null
@@ -478,7 +541,7 @@ function initGraph(data) {
       nodeForce: 10,
       type: 'contract_type',
       group: 2,
-      color: '#3abdc3',
+      color: colours.nodes.contractTypes,
       linksCount: 0,
       contractsCount: Object.keys(contractByType.contracts).length,
       contractsAmount: contractByType.amount,
@@ -491,7 +554,7 @@ function initGraph(data) {
       type: 'contract_type',
       linkStrength: 2,
       linkDistance: 1,
-      color: '#706F74',
+      color: colours.links.contractTypes,
       dashed: false,
       opacity: 0.6
     };
@@ -511,7 +574,7 @@ function initGraph(data) {
         nodeForce: 0.6,
         type: 'contract',
         group: 3,
-        color: '#438a9c',
+        color: colours.nodes.contractByType,
         linksCount: 0,
         suppliersList: contract.suppliers.map(supplier => supplier.simple),
         icon: null
@@ -523,7 +586,7 @@ function initGraph(data) {
         hidden: true,
         linkStrength: 3,
         linkDistance: 2.5,
-        color: '#706F74',
+        color: colours.links.toCenter,
         dashed: false,
         opacity: 0
       };
@@ -533,7 +596,7 @@ function initGraph(data) {
         type: 'contract',
         linkStrength: 3,
         linkDistance: 2.5,
-        color: '#706F74',
+        color: colours.links.toContractType,
         dashed: false,
         opacity: 0.6
       };
@@ -556,7 +619,7 @@ function initGraph(data) {
       nodeForce: 10,
       type: 'organization',
       group: 4,
-      color: '#3c5a6f',
+      color: colours.nodes.organization,
       linksCount: 0,
       contractsCount: organization.contracts_count,
       contractsAmount: organization.contracts_amount,
@@ -574,7 +637,7 @@ function initGraph(data) {
           type: 'organization',
           linkStrength: 4,
           linkDistance: 1,
-          color: '#706F74',
+          color: colours.links.toOrganization,
           dashed: true,
           opacity: 1,
           name: organization.name
@@ -592,7 +655,7 @@ function initGraph(data) {
       hidden: true,
       linkStrength: 4,
       linkDistance: 6,
-      color: '#706F74',
+      color: colours.links.toCenter,
       dashed: false,
       opacity: 0
     };
@@ -626,7 +689,7 @@ function initGraph(data) {
         nodeForce: 10,
         type: 'related',
         group: 4,
-        color: '#3c5a6f',
+        color: colours.nodes.organization,
         linksCount: 0,
         relationType: 'organization',
         icon: null,
@@ -640,7 +703,7 @@ function initGraph(data) {
         hidden: true,
         linkStrength: 3,
         linkDistance: 9,
-        color: '#706F74',
+        color: colours.links.toCenter,
         dashed: false,
         opacity: 0
       };
@@ -660,7 +723,7 @@ function initGraph(data) {
         nodeForce: 10,
         type: 'related',
         group: 4,
-        color: '#3c5a6f',
+        color: colours.nodes.organization,
         linksCount: 0,
         relationType: 'organization',
         icon: null,
@@ -674,7 +737,7 @@ function initGraph(data) {
         hidden: true,
         linkStrength: 3,
         linkDistance: 9,
-        color: '#706F74',
+        color: colours.links.toOrganization,
         dashed: false,
         opacity: 0
       };
@@ -690,7 +753,7 @@ function initGraph(data) {
       type: 'related',
       linkStrength: 3,
       linkDistance: 5,
-      color: '#706F74',
+      color: colours.links.toCenter,
       dashed: true,
       opacity: 1
     };
@@ -707,8 +770,8 @@ function initGraph(data) {
         const shareholderType = shareholder.type;
         const shareholderContractsCount = shareholder.contracts_count || 0;
         const typeColor = shareholder.type == "person"
-          ? "#EB639A"
-          : "#363E4E";
+          ? colours.nodes.shareholderPerson
+          : colours.nodes.shareholderCorp;
         if (relatedFiguresStack[shareholderId] == undefined) {
           relatedFiguresStack[shareholderId] = {
             count: 0,
@@ -779,7 +842,7 @@ function initGraph(data) {
                 linkStrength: 2,
                 linkDistance: 3,
                 topParentNode: false,
-                color: '#706F74',
+                color: colours.links.default,
                 dashed: true,
                 opacity: 1
               };
@@ -799,8 +862,8 @@ function initGraph(data) {
         const boardSimple = board.simple;
         const boardContractsCount = board.contracts_count || 0;
         const typeColor = board.type == "person"
-          ? "#EB639A"
-          : "#363E4E";
+          ? colours.nodes.shareholderPerson
+          : colours.nodes.shareholderCorp;
         const boardType = board.type;
         if (relatedFiguresStack[boardId] == undefined) {
           relatedFiguresStack[boardId] = {
