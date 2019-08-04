@@ -29,7 +29,7 @@ const config = correctJSON(window.graphConfig)
 
 const nodeSizes = {
     min: 10,
-    max: 100
+    max: 500
 }
 
 const defaultNodeColours = {
@@ -613,8 +613,13 @@ function initGraph(data) {
     const organization = organizations[k];
     const node = {
       id: organization._id,
-      name: organization.name,
-      activeSize: 2*(Math.log2(1 + 10*organization.contracts_amount/contractsAmount)/10)*nodeSizes.max + nodeSizes.min,
+        name: organization.name,
+        /*
+           organization.contracts_amount/contractsAmount: map to [0, 1]
+           adds 1 to get proper log2 smoothing
+           divides the rest by 5 to get back to [1, 0]
+         */
+      activeSize: (Math.log2(1 + organization.contracts_amount/contractsAmount)/5)*nodeSizes.max + nodeSizes.min,
       inactiveSize: 10,
       nodeForce: 10,
       type: 'organization',
