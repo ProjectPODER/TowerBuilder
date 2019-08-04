@@ -57,7 +57,7 @@ const colours = {
 
 const projectTitle = config.title;
 if (config.sizes) {
-    nodeSizes = Object.assign({}, nodeSizes, config.sizes)
+    Object.assign(nodeSizes, config.sizes)
 }
 
 if (config.colours) {
@@ -614,7 +614,7 @@ function initGraph(data) {
     const node = {
       id: organization._id,
       name: organization.name,
-      activeSize: organization.contracts_count * 2 + 10,
+      activeSize: 2*(Math.log2(1 + 10*organization.contracts_amount/contractsAmount)/10)*nodeSizes.max + nodeSizes.min,
       inactiveSize: 10,
       nodeForce: 10,
       type: 'organization',
