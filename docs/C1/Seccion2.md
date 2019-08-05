@@ -42,7 +42,10 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
 	```
     graph:
         title: "Nombre del gráfico"
-          - colours:
+        sizes:
+            - min: 5
+            - max: 500
+        colours:
              - nodes:
                  - default: '#1ee6d3'
                  - contract: '#1ee6d3'

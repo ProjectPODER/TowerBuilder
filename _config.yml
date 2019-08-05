@@ -31,6 +31,9 @@ bods_url: ""
 graph:
   # The name of your graphic
   - title: "Graphic name"
+  - sizes:
+    - min: 5
+    - max: 10000
   - colours:
       - nodes:
           - default: '#1ee6d3'
