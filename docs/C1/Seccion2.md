@@ -41,10 +41,13 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
 
 	```
     graph:
+        # el nombre del grafico
         title: "Nombre del gráfico"
+        # los tamaños minimos y maximos de los nodos (en pixeles, aproximativo)
         sizes:
             - min: 5
             - max: 500
+        # colores de nodos y connectores
         colours:
              - nodes:
                  - default: '#1ee6d3'
