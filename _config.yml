@@ -31,9 +31,11 @@ bods_url: ""
 graph:
   # The name of your graphic
   - title: "Graphic name"
+  # los tamaños minimos y maximos de los nodos (en pixeles, aproximativo)
   - sizes:
     - min: 10
     - max: 500
+  # colores de nodos y connectores
   - colours:
       - nodes:
           - default: '#1ee6d3'
