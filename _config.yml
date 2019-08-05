@@ -22,15 +22,32 @@ image: tb-logo.png
 description: >-
   TowerBuilder is a system to generate websites with data visualizations that mix open contracting and beneficial ownership data, all without requiring programming knowledge.
 
-# The name of your graphic
-graphTitle: "Graphic name"
-
 # URL of your contracts file or API endpoint
 contracts_url: "/assets/data/contracts.json"
 
 # URL of your beneficial ownership file or API endpoint
 bods_url: ""
 
+graph:
+  # The name of your graphic
+  - title: "Graphic name"
+  - sizes:
+    - min: 10
+    - max: 500
+  - colours:
+      - nodes:
+          - default: '#1ee6d3'
+          - contract: '#1ee6d3'
+          - contractTypes: '#3abdc3'
+          - contractByType: '#438a9c'
+          - organization: '#3c5a6f'
+          - shareholderPerson: '#EB639A'
+      - links:
+          - default: '#706F74'
+          - contractsTypes: '#706F74'
+          - toCenter: '#706F74'
+          - toContractType: '#706F74'
+          - toOrganization: '#706F74'
 # Build settings
 plugins:
   - jekyll-feed

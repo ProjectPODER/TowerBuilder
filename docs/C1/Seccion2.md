@@ -36,10 +36,30 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
 
 	  Para cambiar el logo, sigue [estas instrucciones](https://towerbuilder.readthedocs.io/en/latest/C2/Seccion3.html#cambiar-el-logo).
 
-	- Para que en el slider de la Visualización, aparezca el nombre principal de tu gráfico, edita la variable: 
+	- El Grafico se puede configurar a traves de varias variables contenidas
+      en `_config.yml`
 
 	```
-    graphTitle: "Nombre del gráfico"
+    graph:
+        title: "Nombre del gráfico"
+        sizes:
+            - min: 5
+            - max: 500
+        colours:
+             - nodes:
+                 - default: '#1ee6d3'
+                 - contract: '#1ee6d3'
+                 - contractTypes: '#3abdc3'
+                 - contractByType: '#438a9c'
+                 - organization: '#3c5a6f'
+                 - shareholderPerson: '#EB639A'
+                 - shareholderCorp: '#363E4E'
+             - links:
+                 - default: '#706F74'
+                 - contractsTypes: '#706F74'
+                 - toCenter: '#706F74'
+                 - toContractType: '#706F74'
+                 - toOrganization: '#706F74'
 	```
 
 	- Jekyll tiene un sistema de **Plugins**  que permiten ejecutar código personalizado sin necesidad de modificar la fuente de Jekyll. En la página de configuración de Tower Builder, se representa de esta manera:
