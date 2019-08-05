@@ -4,25 +4,53 @@ VARIABLE DEFINITIONS FOR GRAPH
 *=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-_
 */
 
-function correctJSON(s) {
-    const corrected = '[' + s.replace(/=>/g, ':').replace(/}{/g, '},{') + ']'
-    const aconfig = JSON.parse(corrected)
+/*
+   the json we get from jekyll's jsonify is somehow wierd:
+   both:
+      graph:
+        title: "MSPAS"
+        colours:
+          nodes:
+            default: '#1ee6d3'
+            contract: '#1ee6d3'
+          links:
+            default: '#706F74'
+            contractsTypes: '#706F74'
+   and:
+      graph:
+        - title: "MSPAS"
+        - colours:
+          - nodes:
+            - default: '#1ee6d3'
+            - contract: '#1ee6d3'
+          - links:
+            - default: '#706F74'
+            - contractsTypes: '#706F74'
+
+   yeilds a structure of arrays when using jsonify, so here we correct that
+   mess into a pretty nice js object.
+*/
+
+function correctJSON(o) {
+    function arrayify(c) {
+        if (typeof c === 'object') {
+            Object.entries(c).map(([k, v]) => {
+                if (v instanceof Array) {
+                    c[k] = arrayToObject(v)
+                }
+            })
+        }
+
+        return c
+    }
 
     function arrayToObject(a) {
         return a.reduce((a, c) => {
-            if (typeof c === 'object') {
-                Object.entries(c).map(([k, v]) => {
-                    if (v instanceof Array) {
-                        c[k] = arrayToObject(v)
-                    }
-                })
-            }
-
-            return Object.assign({}, a, c)
+            return Object.assign({}, a, arrayify(c))
         }, {})
     }
 
-    return arrayToObject(aconfig)
+    return arrayify(o)
 }
 
 const config = correctJSON(window.graphConfig)
