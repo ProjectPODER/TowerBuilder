@@ -472,6 +472,18 @@ function getOrganizations(params) {
 }
 */
 
+
+const mergeArray = a => Object.values(a.reduce((a, c) => {
+  o = a[c.id]
+
+  return Object.assign({}, a, {
+    [c.id]: o === undefined ? c : Object.assign({}, o, {
+      contracts_count: c.contracts_count + o.contracts_count,
+      contracts_amount: c.contracts_amount + o.contracts_amount,
+    })
+  })
+}, {}))
+
 function initGraph(data) {
   AppData.organizations = data.organizations.data;
   AppData.contracts = data.contracts.data;
@@ -480,7 +492,7 @@ function initGraph(data) {
 
   const contractsAmount = getContractsAmount(AppData.contracts);
   const contractsByTypes = getContractsByTypes(AppData.contracts);
-  const organizations = AppData.organizations;
+  const organizations = mergeArray(AppData.organizations);
   const investigations = AppData.investigations;
   const relatedFiguresStack = {};
   const slidesObjects = [
