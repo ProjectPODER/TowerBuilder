@@ -32,6 +32,10 @@
     }
 }
 
+.invisible-node {
+    opacity: 0;
+}
+
 @media (min-width: 992px) {
     .home-content {
         height: 100vh;
