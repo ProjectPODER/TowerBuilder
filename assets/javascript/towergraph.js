@@ -594,7 +594,7 @@ function initGraph(data) {
       type: 'contract_type',
       linkStrength: 2,
       linkDistance: 1,
-      color: colours.links.contractTypes,
+      color: colours.links.contractsTypes,
       dashed: false,
       opacity: 0.6
     };
