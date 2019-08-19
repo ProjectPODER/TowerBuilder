@@ -1195,8 +1195,13 @@ function getContractsByTypes(contracts) {
   const contractTypes = getContractTypes(contracts);
   const contractsByTypes = {};
   for (let i in contractTypes) {
-    const contractType = contractTypes[i];
+    let contractType = contractTypes[i];
     const contractTypesFilter = new Filter({property: 'procedure_type', expected: contractType, operator: 'eq'});
+
+    if (contractType === "") {
+      contractType = "Licitación"
+    }
+
     const contractsByType = contractsSet.filter(contractTypesFilter).toObject();
     contractsByTypes[contractType] = {
       amount: getContractsAmount(objectToArray(contractsByType)),
