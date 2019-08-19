@@ -593,7 +593,7 @@ function initGraph(data) {
       target: 'contracts',
       type: 'contract_type',
       linkStrength: 2,
-      linkDistance: 4 * contractByType.amount/contractsAmount,
+      linkDistance: 1 + contractByType.amount/contractsAmount,
       color: colours.links.contractsTypes,
       dashed: false,
       opacity: 0.6
