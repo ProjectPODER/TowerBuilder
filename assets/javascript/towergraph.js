@@ -50,7 +50,7 @@ function correctJSON(o) {
         }, {})
     }
 
-    return arrayify(o)
+    return arrayToObject(arrayify(o))
 }
 
 const config = correctJSON(window.graphConfig)
