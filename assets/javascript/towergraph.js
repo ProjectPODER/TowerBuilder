@@ -557,8 +557,8 @@ function initGraph(data) {
   const node = {
     id: 'contracts',
     name: 'contracts',
-    activeSize: nodeSizes.max/5,
-    inactiveSize: nodeSizes.max/10,
+    activeSize: nodeSizes.max/2,
+    inactiveSize: nodeSizes.max/4,
     topParentNode: false,
     nodeForce: 10,
     type: 'all',
@@ -593,7 +593,7 @@ function initGraph(data) {
       target: 'contracts',
       type: 'contract_type',
       linkStrength: 2,
-      linkDistance: 1,
+      linkDistance: 4 * contractByType.amount/contractsAmount,
       color: colours.links.contractsTypes,
       dashed: false,
       opacity: 0.6
