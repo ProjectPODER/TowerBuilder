@@ -50,7 +50,7 @@ function correctJSON(o) {
         }, {})
     }
 
-    return arrayify(o)
+    return arrayToObject(arrayify(o))
 }
 
 const config = correctJSON(window.graphConfig)
@@ -557,8 +557,8 @@ function initGraph(data) {
   const node = {
     id: 'contracts',
     name: 'contracts',
-    activeSize: contractsAmount / 500000, // FIXME: tiene que calcularse esto dinámicamente
-    inactiveSize: 35,
+    activeSize: nodeSizes.max/5,
+    inactiveSize: nodeSizes.max/10,
     topParentNode: false,
     nodeForce: 10,
     type: 'all',
@@ -575,7 +575,7 @@ function initGraph(data) {
     const node = {
       id: contractByType.name,
       name: contractByType.name,
-      activeSize: Math.pow(contractByType.amount, 1 / 5) / 10,
+      activeSize: (Math.log2(1 + contractByType.amount/contractsAmount)/5)*nodeSizes.max + nodeSizes.min,
       inactiveSize: 15,
       topParentNode: false,
       nodeForce: 10,
@@ -594,7 +594,7 @@ function initGraph(data) {
       type: 'contract_type',
       linkStrength: 2,
       linkDistance: 1,
-      color: colours.links.contractTypes,
+      color: colours.links.contractsTypes,
       dashed: false,
       opacity: 0.6
     };
