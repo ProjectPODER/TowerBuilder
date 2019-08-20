@@ -490,6 +490,7 @@ function initGraph(data) {
   AppData.investigations = data.investigations;
   AppData.texts = {};
 
+  const totalContracts = AppData.contracts.length;
   const contractsAmount = getContractsAmount(AppData.contracts);
   const contractsByTypes = getContractsByTypes(AppData.contracts);
   const organizations = mergeArray(AppData.organizations);
@@ -572,6 +573,8 @@ function initGraph(data) {
   nodes.push(node);
   for (let i in contractsByTypes) {
     const contractByType = contractsByTypes[i];
+    const contractsCount = Object.keys(contractByType.contracts).length;
+    const contractsRatio = contractsCount / totalContracts;
     const node = {
       id: contractByType.name,
       name: contractByType.name,
@@ -635,7 +638,7 @@ function initGraph(data) {
         target: contractByType.name,
         type: 'contract',
         linkStrength: 3,
-        linkDistance: 2.5,
+        linkDistance: 3*contractsRatio,
         color: colours.links.toContractType,
         dashed: false,
         opacity: 0.6
