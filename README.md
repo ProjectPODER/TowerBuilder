@@ -52,3 +52,21 @@ Si eres desarrollador y deseas correr TowerBuilder de manera local, estas son la
 #### Pasos siguientes
 - Hacer opcional el gráfico de la sección de Visualización.
 - Permitir otros tipos de visualizaciones en esta sección.
+
+### Proyectos lanzados
+
+- Living with HIV - [http://livingwithhiv.org/](http://livingwithhiv.org/)
+
+Contáctanos para añadir tu proyecto creado con TowerBuilder a través de la siguiente dirección de e-mail: <info@quienesquien.wiki>.
+
+### Demos
+
+En español: <https://projectpoder.github.io/TowerBuilder_ES/>
+
+En inglés: <https://towerbuilder.projectpoder.org/>
+
+### Documentación
+
+En español: <https://towerbuilder.readthedocs.io/es/latest/index.html>
+
+En inglés: <https://towerbuilder.readthedocs.io/en/latest/index.html>
