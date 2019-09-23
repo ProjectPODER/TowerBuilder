@@ -42,7 +42,7 @@ responsive: true
 						{{ visualization-slide.content }}
 					</div>
 					<div class="col-lg-7 col-md-7 col-sm-12 d-block d-lg-none mb-5">
-						<img src="/assets/img/{{visualization-slide.image}}" alt="" class="img-fluid">
+						<img src="{{ site.baseurl }}/assets/img/{{visualization-slide.image}}" alt="" class="img-fluid">
 					</div>
 					{%- else -%}
 					<div class="col-lg-5 col-md-5 col-sm-12 vis-text">
@@ -67,8 +67,8 @@ responsive: true
 </div>
 {%- endif -%}
 
-<script src="/assets/javascript/papaparse.min.js"></script>
-<script src="/assets/javascript/towergraph.js"></script>
+<script src="{{ site.baseurl }}/assets/javascript/papaparse.min.js"></script>
+<script src="{{ site.baseurl }}/assets/javascript/towergraph.js"></script>
 
 <script type="text/javascript">
 	var anchors = [
@@ -78,7 +78,7 @@ responsive: true
 	{% endfor %}
 	]
 
-	$.getJSON("{{ site.contracts_url }}", function(json) {
+	$.getJSON("{{ site.contracts_url | prepend: site.baseurl }}", function(json) {
 		buildGraphData(json);
 	});
 

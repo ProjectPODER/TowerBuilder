@@ -268,7 +268,7 @@ function buildSearchData(contracts_json) {
     } );
 
     // Aquí se parsea el CSV con los datos de parents y shareholders y board members
-    $.get('/assets/data/owners.csv', function(csv_data) {
+    $.get('../assets/data/owners.csv', function(csv_data) {
         var lines = Papa.parse(csv_data);
         var owners = lines.data;
         owners.shift(); // Quitar los headers del csv
