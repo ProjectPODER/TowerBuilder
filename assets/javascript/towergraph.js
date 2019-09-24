@@ -145,7 +145,6 @@ OCDS + OWNERS TRANSFORMATION
 */
 
 function buildGraphData(contracts_json) {
-    var releases = contracts_json.releases;
     var contracts = [];
     var contracts_index = [];
     var orgs = [];
@@ -153,45 +152,38 @@ function buildGraphData(contracts_json) {
     var shareboarders = [];
     var shareboarders_index = [];
 
-    releases.map( (release) => {
+    console.log("buildGraphData",config.contracts_format);
+
+    if (config.contracts_format == "releases_json") {
+      var releases = contracts_json.releases;
+      console.log("releases_json",releases);
+      if (!releases || releases.length < 1) {
+        console.error("Contracts file empty. Please check contracts_url or contracts_format.");
+        return false;
+      }
+      releases.map( (release) => {
         if(release.hasOwnProperty('contracts')) {
-            var contractSuppliers = findSupplierParties(release);
-            var contractDates = findContractDates(release);
-            var contract = {
-                        "_id": release.id ? release.id : release.ocid,
-                        "ocid": release.ocid,
-                        "title": release.tender.title,
-                        "type": release.tender.mainProcurementCategory ? release.tender.mainProcurementCategory : release.tender.procurementMethodDetails,
-                        "procedure_type": release.tender.procurementMethodDetails,
-                        "amount": release.contracts[0].value.amount,
-                        "currency": release.contracts[0].value.currency,
-                        "suppliers": contractSuppliers,
-                        "start_date": contractDates['start'],
-                        "end_date": contractDates['end']
-                    };
-            contracts.push(contract);
-            contracts_index.push(contract.ocid);
-
-            contract.suppliers.map( (supplier) => {
-                var orgIndex = findOrg(supplier.id, orgs_index);
-                if(orgIndex > 0) {
-                    orgs[orgIndex].contracts_count += 1;
-                    orgs[orgIndex].contracts_amount += contract.amount;
-                    orgs[orgIndex].contracts.push(contractOrgObject(contract));
-                }
-                else {
-                    var supplierObj = orgObject(supplier);
-
-                    supplierObj.contracts_count += 1;
-                    supplierObj.contracts_amount += contract.amount;
-                    supplierObj.contracts.push(contractOrgObject(contract));
-
-                    orgs.push(supplierObj);
-                    orgs_index.push(supplier.id);
-                }
-            } );
+          let contract = processContract(release,orgs,orgs_index);
+          console.log("buildGraphData",contract)
+          contracts.push(contract);
+          contracts_index.push(contract.ocid);
         }
-    } );
+      } );
+    }
+
+    if (config.contracts_format == "records_json_api") {
+      var records = contracts_json.data[0].records;
+      console.log("records_json_api",records);
+      records.map( (record) => {
+        if(record.compiledRelease.hasOwnProperty('contracts')) {
+          let contract = processContract(record.compiledRelease,orgs,orgs_index);
+          contracts.push(contract);
+          contracts_index.push(contract.ocid);
+        }
+      } );
+    }
+
+    console.log("buildGraphData",contracts_index);
 
     // Aquí se parsea el CSV con los datos de parents y shareholders y board members
     $.get('../assets/data/owners.csv', function(csv_data) {
@@ -257,6 +249,45 @@ function buildGraphData(contracts_json) {
     })
 }
 
+
+function processContract(release,orgs,orgs_index) {
+  var contractSuppliers = findSupplierParties(release);
+  var contractDates = findContractDates(release);
+  var contract = {
+              "_id": release.id ? release.id : release.ocid,
+              "ocid": release.ocid,
+              "title": release.tender.title,
+              "type": release.tender.mainProcurementCategory ? release.tender.mainProcurementCategory : release.tender.procurementMethodDetails,
+              "procedure_type": release.tender.procurementMethod || release.tender.procurementMethodDetails,
+              "amount": release.contracts[0].value.amount,
+              "currency": release.contracts[0].value.currency,
+              "suppliers": contractSuppliers,
+              "start_date": contractDates['start'],
+              "end_date": contractDates['end']
+          };
+
+  contract.suppliers.map( (supplier) => {
+      var orgIndex = findOrg(supplier.id, orgs_index);
+      if(orgIndex > 0) {
+          orgs[orgIndex].contracts_count += 1;
+          orgs[orgIndex].contracts_amount += contract.amount;
+          orgs[orgIndex].contracts.push(contractOrgObject(contract));
+      }
+      else {
+          var supplierObj = orgObject(supplier);
+
+          supplierObj.contracts_count += 1;
+          supplierObj.contracts_amount += contract.amount;
+          supplierObj.contracts.push(contractOrgObject(contract));
+
+          orgs.push(supplierObj);
+          orgs_index.push(supplier.id);
+      }
+  } );
+
+  return contract
+}
+
 function orgName2Id(name) {
     return name.normalize('NFD')
                 .replace(/[,.]/g, '') // remove commas and periods
@@ -272,6 +303,7 @@ function findMember(id, member_index) {
 }
 
 function findContractDates(release) {
+  console.log("findContractDates",release);
     var dates = [];
     if(release.contracts[0].hasOwnProperty('period')) {
         dates['start'] = release.contracts[0].period.startDate;
