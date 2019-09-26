@@ -26,10 +26,11 @@ Si algo te resulta muy difícil, puedes volver a intentar en 15 minutos, revisar
 Contáctanos para añadir tu proyecto creado con TowerBuilder a través de la siguiente dirección de e-mail: <info@quienesquien.wiki>.
 
 ## Demos
+Puedes ver una página de ejemplo en:
 
-En español: <https://projectpoder.github.io/TowerBuilder_ES/>
+Español: <https://projectpoder.github.io/TowerBuilder_ES/>
 
-En inglés: <https://towerbuilder.projectpoder.org/>
+Inglés: <https://towerbuilder.projectpoder.org/>
 
 ## Documentación
 

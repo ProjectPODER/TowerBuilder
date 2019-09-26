@@ -1,6 +1,6 @@
 ---
 title: First Slide
-image: graphic-example.png
+image: graphic-example1.png
 ---
 
 # THIS IS THE FIRST SLIDE
