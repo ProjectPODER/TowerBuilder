@@ -2,9 +2,17 @@
 
 ### Datos de contratos
 
-Para esta parte, deberás tener el listado de contratos que quieres visualizar en el formato del estándar de contrataciones abiertas [OCDS](http://standard.open-contracting.org/latest/en/). Puedes obtener el listado de alguna de las fuentes OCDS utilizando la herramienta [Kingfisher](https://github.com/open-contracting/kingfisher) para guardarlo en disco. Para más información puedes revisar la [documentación completa](https://ocdskingfisher.readthedocs.io/en/latest/) de Kingfisher.  También puedes ver el listado completo de los  [Publicadores de OCDS](https://www.open-contracting.org/why-open-contracting/worldwide/#/table) que se actualiza trimestralmente.
+Para esta parte, deberás tener el listado de contratos que quieres visualizar en el formato del estándar de contrataciones abiertas [OCDS](http://standard.open-contracting.org/latest/en/). Puedes obtener el listado de alguna API, como la [API de QuienEsQuien.wiki](https://quienesquienapi.readthedocs.io) o de las fuentes OCDS utilizando la herramienta [Kingfisher](https://github.com/open-contracting/kingfisher) para guardarlo en disco. Para más información puedes revisar la [documentación completa](https://ocdskingfisher.readthedocs.io/en/latest/) de Kingfisher.  También puedes ver el listado completo de los  [Publicadores de OCDS](https://www.open-contracting.org/why-open-contracting/worldwide/#/table) que se actualiza trimestralmente.
 
+#### Formatos de orígen
 El estándar OCDS es un modelo para la publicación y análisis de datos de procesos de contratación. Los datos publicados bajo el estándar se encuentran en el formato [JSON](https://www.json.org/json-es.html) y pueden presentarse de dos formas: [release](http://standard.open-contracting.org/latest/en/schema/reference/) y [record](http://standard.open-contracting.org/latest/en/schema/records_reference/). Generalmente, los datos OCDS se publican en listados de procesos de contratación conocidos como packages. Es posible encontrar [paquetes de releases (Release Packages)](http://standard.open-contracting.org/latest/en/schema/release_package/) y [paquetes de records (Record Packages)](http://standard.open-contracting.org/latest/en/schema/record_package/) publicados por los gobiernos de ciertos países.
+
+Dependiendo del oríen de los datos, deberás modificar el archivo `_config.yml` para especificar el formato. Esto se hace en la opción `contracts_format` dentro de `graph`. Las diferentes opciones son:
+* `releases_json`, este tiene la estructura `{releases: [] }`. Sirve para cuando tienes los contratos en un archivo.
+* `records_json_api`, este tiene la estructura: `{data: { records: [ {compiledRelease: {} }] } }` y sirve cuando lso datos vienen de la API de QuienEsQuien.wiki.
+* `csv` esta opción aún no está implementada, pero sirve para cuando tienes los contratos en una planilla de cálculo y los exportas a una archivo CSV.
+
+#### Datos en archivo json
 
 Los datos deberán ser colocados en un archivo con el nombre **contracts.json** y el archivo ubicado en la ruta *assets/data/*. Para subir el archivo al repositorio de Github, debes ubicarte en la página principal del repositorio en tu navegador. En el listado de archivos, primero haz click en la carpeta *assets* y en la pantalla siguiente haz click en la carpeta *data*. Una vez estés adentro de la carpeta *data* debes hacer click en el botón "Upload files", ubicado sobre la tabla del listado de archivos al lado derecho de la pantalla. Esto te llevará a una pantalla desde la cual puedes elegir el archivo desde tu computadora o arrastrarlo hacia la ventana del navegador. Si no ves el botón para subir archivos debes iniciar sesión en Github con tu usuario y contraseña.
 
@@ -73,6 +81,12 @@ Nota: dentro de cada release, es necesario que ciertos campos contengan algún v
     - *{releases: .results}*: filtrar el JSON recibido como input, tomando el valor de la propiedad "results" y guardándolo en una nueva propiedad llamada "releases".
     - *> contracts.json*: tomar el resultado del filtro anterior, y guardarlo como un archivo llamado "contracts.json" en la carpeta actual.
 7. Copia el archivo *contracts.json* a la carpeta *assets/data/* de tu repositorio, como se explica en la sección anterior.
+
+#### Datos provenientes de API
+
+Primero debes obtener la URL de consulta a la API que devuelva el conjunto de contratos que quieres. Para esto deberás ayudarte de la documentación de la misma. En el caso de la Api de QuienEsQuien.wiki, puedes leer la [documentación aquí](https://quienesquienapi.readthedocs.io).
+
+Una vez que tengas la url, debes modificar en `_config.yml` la opción `contracts_url` con esta dirección y no te olvides de modificar `graph.contract_format` con el valor `records_json_api` como se indica en el apartado "Formatos de orígen".
 
 ### Datos de beneficiarios reales
 

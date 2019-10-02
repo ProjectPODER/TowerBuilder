@@ -72,9 +72,7 @@ permalink: /contracts/
 <script src="{{ site.baseurl }}/assets/javascript/towersearch.js"></script>
 
 <script type="text/javascript">
-    $.getJSON('../assets/data/contracts.json', function(json) {
-        buildSearchData(json);
-    });
+    getSearchData($, "{{ site.contracts_url | prepend: site.baseurl }}");
 
     $('#search-dateFrom').datepicker({ format: 'yyyy-mm-dd', showRightIcon: false, uiLibrary: 'bootstrap4', iconsLibrary: 'fontawesome' });
     $('#search-dateTo').datepicker({ format: 'yyyy-mm-dd', showRightIcon: false, uiLibrary: 'bootstrap4', iconsLibrary: 'fontawesome' });
