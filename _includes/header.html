@@ -17,22 +17,11 @@
           {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}
-              <li class="nav-item {% if my_page.url == page.url %}active{% endif %}">
+              <li class="nav-item {% if my_page.url == page.url %}active{% endif %} {% if my_page.title == "About" %}line{% endif %}">
                 <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
               </li>
             {%- endif -%}
           {%- endfor -%}
-              <!-- Extra links -->
-              <li class="nav-item">
-                <a class="nav-link" href="https://towerbuilder.readthedocs.io/en/latest/index.html" target="_blank">Documentation</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://github.com/ProjectPODER/TowerBuilder" target="_blank">Github</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://projectpoder.github.io/TowerBuilder_ES/">Español</a>
-              </li>
-              <!-- Ends extra links -->
       </ul>
       {%- endif -%}
     </div>
@@ -55,23 +44,11 @@
               {%- for path in page_paths -%}
               {%- assign my_page = site.pages | where: "path", path | first -%}
               {%- if my_page.title -%}
-              <li class="nav-item {% if my_page.url == page.url %}active{% endif %}">
+              <li class="nav-item {% if my_page.url == page.url %}active{% endif %} {% if my_page.title == "About" %}line{% endif %}">
                   <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
               </li>
               {%- endif -%}
               {%- endfor -%}
-
-              <!-- Extra links -->
-              <li class="nav-item">
-                <a class="nav-link" href="https://towerbuilder.readthedocs.io/en/latest/index.html" target="_blank">Documentation</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://github.com/ProjectPODER/TowerBuilder" target="_blank">Github</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://projectpoder.github.io/TowerBuilder_ES/">Español</a>
-              </li>
-              <!-- Ends extra links -->
 
               <li class="nav-item dropdown d-none">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

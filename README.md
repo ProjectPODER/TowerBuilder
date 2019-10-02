@@ -62,7 +62,7 @@ Contáctanos para añadir tu proyecto creado con TowerBuilder a través de la si
 ### Demos
 Puedes ver una página de ejemplo en:
 
-Español: <https://projectpoder.github.io/TowerBuilder_ES/>
+Español: <http://es.towerbuilder.projectpoder.org/>
 
 Inglés: <https://towerbuilder.projectpoder.org/>
 
