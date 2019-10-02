@@ -144,6 +144,25 @@ OCDS + OWNERS TRANSFORMATION
 *=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-__-=*^*=-_
 */
 
+function getGraphData($, url) {
+    if (config.contracts_format == "csv") {
+        console.log(url);
+        $.get(url, function(data) {
+            Papa.parse(data, {
+                header: true,
+                complete: function(results) {
+                    buildGraphData(results.data)
+                }
+            });
+        });
+    }
+    else {
+        $.getJSON(url, function(json) {
+    		buildGraphData(json);
+    	});
+    }
+}
+
 function buildGraphData(contracts_json) {
     var contracts = [];
     var contracts_index = [];
@@ -181,6 +200,16 @@ function buildGraphData(contracts_json) {
           contracts_index.push(contract.ocid);
         }
       } );
+    }
+
+    if (config.contracts_format == "csv") {
+        contracts_json.map( (row) => {
+            if(row.OCID) {
+                let contract = processContractFromCsv(row,orgs,orgs_index);
+                contracts.push(contract);
+                contracts_index.push(contract.ocid);
+            }
+        } );
     }
 
     console.log("buildGraphData",contracts_index);
@@ -264,6 +293,52 @@ function processContract(release,orgs,orgs_index) {
               "suppliers": contractSuppliers,
               "start_date": contractDates['start'],
               "end_date": contractDates['end']
+          };
+
+  contract.suppliers.map( (supplier) => {
+      var orgIndex = findOrg(supplier.id, orgs_index);
+      if(orgIndex > 0) {
+          orgs[orgIndex].contracts_count += 1;
+          orgs[orgIndex].contracts_amount += contract.amount;
+          orgs[orgIndex].contracts.push(contractOrgObject(contract));
+      }
+      else {
+          var supplierObj = orgObject(supplier);
+
+          supplierObj.contracts_count += 1;
+          supplierObj.contracts_amount += contract.amount;
+          supplierObj.contracts.push(contractOrgObject(contract));
+
+          orgs.push(supplierObj);
+          orgs_index.push(supplier.id);
+      }
+  } );
+
+  return contract
+}
+
+function processContractFromCsv(row,orgs,orgs_index) {
+  var contractSuppliers = [];
+  var suppliers = row.SUPPLIER_NAMES.split(';');
+  suppliers.map( (supplier) => {
+      contractSuppliers.push({
+          "_id": supplier,
+          "id": supplier,
+          "simple": supplier
+      });
+  } );
+
+  var contract = {
+              "_id": row.OCID,
+              "ocid": row.OCID,
+              "title": row.CONTRACT_TITLE,
+              "type": row.CONTRACT_TYPE,
+              "procedure_type": row.PROCUREMENT_METHOD,
+              "amount": parseFloat(row.CONTRACT_AMOUNT),
+              "currency": row.CONTRACT_CURRENCY,
+              "suppliers": contractSuppliers,
+              "start_date": row.CONTRACT_START_DATE,
+              "end_date": row.CONTRACT_END_DATE
           };
 
   contract.suppliers.map( (supplier) => {
