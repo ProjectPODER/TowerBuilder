@@ -3,6 +3,7 @@ layout: iframe-layout
 permalink: /iframe-slider/
 
 ---
+<div id="page-loader"><span class="preloader-interior"></span></div>
 <div id="fullpage-slider">
 	{% for first-slide in site.first-slider %}
 		{% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
@@ -40,7 +41,12 @@ permalink: /iframe-slider/
 		paddingBottom: '30px',
 	    responsiveWidth: 992,
         afterResponsive: function(isResponsive){
-        }
+        },
+        afterRender: function(){
+			window.load = function () {
+			  $('#page-loader').fadeOut(500);
+			}();
+		}
 	  });
 	});
 

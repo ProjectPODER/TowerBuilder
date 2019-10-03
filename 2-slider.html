@@ -3,6 +3,7 @@ layout: default
 title: Slider
 permalink: /slider/
 ---
+<div id="page-loader"><span class="preloader-interior"></span></div>
 <div id="fullpage-slider">
 	{% for first-slide in site.first-slider %}
 		{% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
@@ -35,12 +36,17 @@ $(document).ready(function() {
 	    navigation: true,
 	    anchors: anchors,
 	    menu: '#menu',
-	    responsiveSlides: true,
+	    lazyLoading: true,
 	    paddingTop: '10px',
 		paddingBottom: '30px',
 	    responsiveWidth: 992,
         afterResponsive: function(isResponsive){
-        }
+        },
+        afterRender: function(){
+			window.load = function () {
+			  $('#page-loader').fadeOut(500);
+			}();
+		}
 	  });
 	});
 

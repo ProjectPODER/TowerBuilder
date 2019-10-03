@@ -72,5 +72,3 @@ $(document).ready(function () {
 
 
 });
-
-

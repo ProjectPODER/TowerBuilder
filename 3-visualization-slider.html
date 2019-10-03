@@ -31,6 +31,7 @@ responsive: true
     }
 }
 </style>
+<div id="page-loader"><span class="preloader-interior"></span></div>
 <div id="fullpage">
 	{% for visualization-slide in site.visualization-slider %}
 		{% capture id %}{{ visualization-slide.id | remove:'/' | remove:'visualization-slider' | downcase }}{% endcapture %}
