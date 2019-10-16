@@ -59,6 +59,9 @@ graph:
   # csv: a csv file (not implemented)
   - contracts_format: "records_json_api"
 
+# Customize the More information menu button title
+menu_button_title: More information
+
 # Build settings
 plugins:
   - jekyll-feed
