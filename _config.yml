@@ -62,6 +62,29 @@ graph:
 # Customize the More information menu button title
 menu_button_title: More information
 
+# Customize the titles and placeholder inputs in Contracts page
+contracts_title: Contracts by companies
+search_title: Search
+search_placeholder: Enter keyword to search
+amount_title: Total amount (Mexican pesos)
+amount_from_placeholder: From $
+amount_to_placeholder: to $
+type_contract_title: Type of contract
+type_contract_title_tooltip: The law requires that the Buyer defines the type of contract because the rules vary in each case.
+type_contract_all_option: All
+type_procedure_title: Type of procedure
+type_procedure_title_tooltip: La licitación pública es según la ley mexicana el procedimiento adecuado para contratar obra publica. Excepcionalmente también se pueden realizar otro tipo de procedimientos como adjudicación directa, convenio e invitación a cuando menos tres proveedores.
+type_procedure_all_option: All
+date_range_title: Date range
+date_range_from_placeholder: From
+date_range_to_placeholder: to
+date_range_title_tooltip: Find active contracts between two dates.
+filter_footnote_title: Apply filters on contracts with companies.
+# Customize the Contract table titles
+column_1: Companies
+column_2: No. of contracts
+column_3: Total amount
+
 # Build settings
 plugins:
   - jekyll-feed
