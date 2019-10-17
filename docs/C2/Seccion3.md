@@ -57,6 +57,15 @@ O dejar sin editar, si sólo cambiaste el tono del color.
 
 Te recomendamos [este sitio](https://www.color-hex.com/)(en inglés) o [este sitio](https://htmlcolorcodes.com/es/selector-de-color/) (en español), para encontrar los códigos hexadecimales de los colores.
 
+## Cambiar los colores del preloader
+
+El preloader aparece cuando se está cargando el slider y la visualización, para cambiar los colores sólo deberás colocar el color que desees en las siguientes variables:
+
+```
+$preloader-color1: #1ee6d3;
+$preloader-color2: #343a40;
+$preloader-color3: $primary;
+```
 
 ## Cambiar la imagen de fondo de la página principal
 
