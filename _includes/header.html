@@ -49,10 +49,9 @@
             </li>
             {%- endif -%}
             {%- endfor -%}
-
             <li class="nav-item dropdown d-none">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Más información
+                  {{ site.menu_button_title | escape }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdownMenu">
                 </ul>
