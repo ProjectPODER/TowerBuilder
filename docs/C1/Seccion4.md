@@ -267,7 +267,7 @@ column_3: Monto total
 ```
 Los cambios realizados se podrán ver así:
 
-![Buscador de contratos](/assets/img/contracts.png)
+![Buscador de contratos](/img/contracts.png)
 
 ## Artículos
 
