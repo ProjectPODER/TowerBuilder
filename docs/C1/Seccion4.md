@@ -237,7 +237,7 @@ Para cambiar el título del botón que aparece cuando se reduce el tamaño de an
 menu_button_title: Más información -> cámbialo al texto que desees
 ```
 
-### Editar los títulos de la página de Contratos
+### Editar los títulos de la página del Buscador de Contratos
 
 Podrás cambiar los títulos de los diferentes filtros del buscador de contratos y los títulos de las columnas de la tabla en el archivo **_config.yml**, este es un ejemplo de la configuración que tiene por default:
 
@@ -265,6 +265,9 @@ column_1: Empresas
 column_2: Cant. de contratos
 column_3: Monto total
 ```
+Los cambios realizados se podrán ver así:
+
+![Buscador de contratos](/assets/img/contracts.png)
 
 ## Artículos
 
