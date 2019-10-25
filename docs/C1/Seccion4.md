@@ -267,7 +267,7 @@ column_3: Monto total
 ```
 Los cambios realizados se podrán ver así:
 
-![](https://towerbuilder.projectpoder.org/assets/img/contratos.png)
+![](contratos.png)
 
 ## Artículos
 
