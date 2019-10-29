@@ -62,9 +62,22 @@ Contáctanos para añadir tu proyecto creado con TowerBuilder a través de la si
 ### Demos
 Puedes ver una página de ejemplo en:
 
-Español: <https://projectpoder.github.io/TowerBuilder_ES/>
+Español: <http://es.towerbuilder.projectpoder.org/>
 
 Inglés: <https://towerbuilder.projectpoder.org/>
+
+#### Versiones para iframe
+
+Tower Builder cuenta con versiones que pueden insertarse mediante un iframe en otros sitios web: 
+
+<https://towerbuilder.projectpoder.org/?iframe>.
+
+Iframes para la visualización y el slider:
+
+<https://towerbuilder.projectpoder.org/iframe-visualization/>
+
+<https://towerbuilder.projectpoder.org/iframe-slider/>
+
 
 ### Documentación
 

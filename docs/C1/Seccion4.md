@@ -229,6 +229,45 @@ permalink: /nombre-del-link/ -> El link seguirá disponible.
 
 **Nota:** Con las dos opciones anteriores, podrás ocultar o eliminar cualquier sección como el Slider, la Visualización o la página de Styleguide de tu proyecto final.
 
+### Editar el nombre del botón Más información del menú
+
+Para cambiar el título del botón que aparece cuando se reduce el tamaño de ancho de la pantalla, sólo debes cambiar el texto en el archivo **_config.yml** de la siguiente variable:
+
+```
+menu_button_title: Más información -> cámbialo al texto que desees
+```
+
+### Editar los títulos de la página del Buscador de Contratos
+
+Podrás cambiar los títulos de los diferentes filtros del buscador de contratos y los títulos de las columnas de la tabla en el archivo **_config.yml**, este es un ejemplo de la configuración que tiene por default:
+
+```
+contracts_title: Contratos por empresas
+search_title: Búsqueda
+search_placeholder: Introduce palabra clave a buscar
+amount_title: Monto total (en pesos mexicanos)
+amount_from_placeholder: Desde $
+amount_to_placeholder: hasta $
+type_contract_title: Tipo de contratación
+type_contract_title_tooltip: La ley obliga a la Unidad Compradora a definir el tipo de contratación, ya que varían las normas en cada caso.
+type_contract_all_option: Todo
+type_procedure_title: Tipo de procedimiento
+type_procedure_title_tooltip: La licitación pública es según la ley mexicana el procedimiento adecuado para contratar obra publica. Excepcionalmente también se pueden realizar otro tipo de procedimientos como adjudicación directa, convenio e invitación a cuando menos tres proveedores.
+type_procedure_all_option: Todo
+date_range_title: Rango de fechas
+date_range_from_placeholder: Desde
+date_range_to_placeholder: hasta
+date_range_title_tooltip: Encuentra los contratos activos entre dos fechas.
+filter_footnote_title: Los filtros aplican sobre los contratos que tienen las empresas.
+
+# Customize the Contract table titles
+column_1: Empresas 
+column_2: Cant. de contratos
+column_3: Monto total
+```
+Los cambios realizados se podrán ver así:
+
+![](contratos.png)
 
 ## Artículos
 

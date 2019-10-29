@@ -1,3 +1,6 @@
+---
+---
+
 var organizations_data = null;
 var contracts_data = null;
 var table = null;
@@ -39,19 +42,19 @@ function initSearch() {
         ],
         columns: [
             {
-                title: "Empresas",
+                title: "{{site.column_1}}",
                 data: "name",
                 type: "string",
                 searchable: "false"
             },
             {
-                title: "Cant. de Contratos",
+                title: "{{site.column_2}}",
                 data: "contracts_count",
                 type: "num",
                 searchable: "false"
             },
             {
-                title: "Monto Total",
+                title: "{{site.column_3}}",
                 data: "contracts_amount",
                 type: "num",
                 render: function(data, type, row, meta) { return data.toFixed(2) },
