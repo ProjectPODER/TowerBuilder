@@ -56,7 +56,7 @@ graph:
   #Format of the contracts_url: releases_json, records_json_api, csv
   # releases_json: {releases: [] }
   # records_json_api: {data: { records: [ {compiledRelease: {} }] } }
-  # csv: a csv file (not implemented)
+  # csv: a csv file
   - contracts_format: "csv"
 
 # Customize the More information menu button title
