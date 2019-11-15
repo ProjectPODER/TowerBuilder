@@ -227,7 +227,7 @@ function populateContracts( data ) {
             childContent +=     '</tr>';
             childContent +=     '<tr>';
             childContent +=         '<td width="50%">';
-            childContent +=             'Monto: $' + contract.amount + '<br />';
+            childContent +=             'Monto: ' + $.fn.dataTable.render.number( ',', '.', 2, '$' ).display(contract.amount) + '<br />';
             childContent +=             'Tipo de Procedimiento: ' + contract.procedure_type;
             childContent +=         '</td>';
             childContent +=         '<td width="50%">';
