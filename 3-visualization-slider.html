@@ -79,10 +79,6 @@ responsive: true
 	{% endfor %}
 	]
 
-	$.getJSON("{{ site.contracts_url | prepend: site.baseurl }}", function(json) {
-		buildGraphData(json);
-	});
-
-
+    getGraphData($, "{{ site.contracts_url | prepend: site.baseurl }}");
 
 </script>

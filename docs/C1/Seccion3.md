@@ -88,6 +88,35 @@ Primero debes obtener la URL de consulta a la API que devuelva el conjunto de co
 
 Una vez que tengas la url, debes modificar en `_config.yml` la opción `contracts_url` con esta dirección y no te olvides de modificar `graph.contract_format` con el valor `records_json_api` como se indica en el apartado "Formatos de orígen".
 
+#### Datos en archivo csv
+
+Los datos deberán ser colocados en un archivo con el nombre **contracts.csv** y el archivo ubicado en la ruta *assets/data/*. Para subir el archivo al repositorio de Github, debes ubicarte en la página principal del repositorio en tu navegador. En el listado de archivos, primero haz click en la carpeta *assets* y en la pantalla siguiente haz click en la carpeta *data*. Una vez estés adentro de la carpeta *data* debes hacer click en el botón "Upload files", ubicado sobre la tabla del listado de archivos al lado derecho de la pantalla. Esto te llevará a una pantalla desde la cual puedes elegir el archivo desde tu computadora o arrastrarlo hacia la ventana del navegador. Si no ves el botón para subir archivos debes iniciar sesión en Github con tu usuario y contraseña.
+
+El archivo de datos deberá contener un listado de contratos, uno por fila. Al momento de exportar el csv, asegúrate de que el separador sea una coma (,) y los datos estén encapsulados con comillas dobles (""). El archivo debe contener las siguientes columnas, con una primera fila de encabezados que contiene el título de la columna en mayúsculas tal y como aparece en el listado, y los valores para cada columna deberán ser el campo OCDS que aparece entre paréntesis en la descripción:
+
+- OCID: identificador del proceso de contratación (ocid)
+- CONTRACT_TITLE: el título del contrato (contracts.title)
+- CONTRACT_TYPE: la categoría o tipo del contrato (tender.mainProcurementCategory)
+- PROCUREMENT_METHOD: el procedimiento de contratación (tender.procurementMethod)
+- BUYER_NAME: nombre de la unidad compradora (buyer.name)
+- SUPPLIER_NAMES: nombres de los proveedores, separados por punto y coma (;) (awards.suppliers.name)
+- CONTRACT_START_DATE: fecha de inicio del contrato (contracts.period.startDate)
+- CONTRACT_END_DATE: fecha de fin del contrato (contracts.period.endDate)
+- CONTRACT_AMOUNT: monto del contrato (contracts.value.amount)
+- CONTRACT_CURRENCY: moneda del contrato (contracts.value.currency)
+
+Luego de colocar el archivo en la ruta apropiada debes editar el archivo *_config.yml* de la siguiente manera:
+
+- Buscar la llave *contracts_url* y colocarle el valor **"/assets/data/contracts.csv"**
+- Buscar la llave *contracts_format* y colocarle el valor **"csv"**
+
+#### Datos en hoja de cálculo en línea
+
+Si deseas utilizar una hoja de cálculo de Google Docs, luego de completar la base de datos como lo describe la sección anterior debes publicar el documento utilizando el menú **File > Publish to the web**. En el popup seleccionar la hoja en la que están los datos de los contratos, y luego en el siguiente selector debes elegir la opción "Comma-separated values (.csv)". Copia el enlace generado y verifica en tu navegador que se descarguen los datos en el formato CSV. Luego busca el archivo *_config.yml* y edítalo de la siguiente manera:
+
+- Buscar la llave *contracts_url* y colocarle el enlace generado al publicar el documento, entre comillas
+- Buscar la llave *contracts_format* y colocarle el valor **"csv"**
+
 ### Datos de beneficiarios reales
 
 Para complementar los datos de procesos de contratación es posible indicar la manera como éstos se relacionan con las personas y empresas que se encuentran detrás de las entidades que aparecen en los datos publicados bajo OCDS. Las relaciones se expresan como un árbol de jerarquías, en el cual se establecen relaciones entre empresas (una empresa matriz y sus subsidiarias) o entre empresas y personas (accionistas y miembros de juntas directivas de una empresa). Este árbol de jerarquías permite establecer quiénes son los beneficiarios reales de los procesos de contratación analizados.
