@@ -84,3 +84,9 @@ Iframes para la visualización y el slider:
 En español: <https://towerbuilder.readthedocs.io/es/latest/index.html>
 
 En inglés: <https://towerbuilder.readthedocs.io/en/latest/index.html>
+
+
+### Soporte multi-dispositivo
+Gracias al apoyo de BrowserStack estamos implementando mejoras para soportar múltiples dispositivos, incluso aquellos a los que no tenemos acceso directo, aprovechando la oferta gratuita del servicio de pruebas de BrowserStack.
+
+![www.browsertack.org](https://3fxtqy18kygf3on3bu39kh93-wpengine.netdna-ssl.com/wp-content/uploads/2018/03/header-logo.svg)
