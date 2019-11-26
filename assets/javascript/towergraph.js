@@ -56,8 +56,8 @@ function correctJSON(o) {
 const config = correctJSON(window.graphConfig)
 
 const nodeSizes = {
-    min: 10,
-    max: 500
+    min: config.sizes.min,
+    max: config.sizes.max
 }
 
 const defaultNodeColours = {
@@ -146,7 +146,6 @@ OCDS + OWNERS TRANSFORMATION
 
 function getGraphData($, url) {
     if (config.contracts_format == "csv") {
-        console.log(url);
         $.get(url, function(data) {
             Papa.parse(data, {
                 header: true,
@@ -171,11 +170,8 @@ function buildGraphData(contracts_json) {
     var shareboarders = [];
     var shareboarders_index = [];
 
-    console.log("buildGraphData",config.contracts_format);
-
     if (config.contracts_format == "releases_json") {
       var releases = contracts_json.releases;
-      console.log("releases_json",releases);
       if (!releases || releases.length < 1) {
         console.error("Contracts file empty. Please check contracts_url or contracts_format.");
         return false;
@@ -183,7 +179,6 @@ function buildGraphData(contracts_json) {
       releases.map( (release) => {
         if(release.hasOwnProperty('contracts')) {
           let contract = processContract(release,orgs,orgs_index);
-          console.log("buildGraphData",contract)
           contracts.push(contract);
           contracts_index.push(contract.ocid);
         }
@@ -192,7 +187,6 @@ function buildGraphData(contracts_json) {
 
     if (config.contracts_format == "records_json_api") {
       var records = contracts_json.data[0].records;
-      console.log("records_json_api",records);
       records.map( (record) => {
         if(record.compiledRelease.hasOwnProperty('contracts')) {
           let contract = processContract(record.compiledRelease,orgs,orgs_index);
@@ -212,8 +206,6 @@ function buildGraphData(contracts_json) {
         } );
     }
 
-    console.log("buildGraphData",contracts_index);
-
     // Aquí se parsea el CSV con los datos de parents y shareholders y board members
     $.get('../assets/data/owners.csv', function(csv_data) {
         var lines = Papa.parse(csv_data);
@@ -226,43 +218,59 @@ function buildGraphData(contracts_json) {
             var simpleOrg = orgName2Id(owner[2]); // Con quien está relacionada la entidad (versión simple)
             var simpleEntity = orgName2Id(owner[0]); // La entidad que estamos relacionando (versión simmple)
             var orgOriginal = findOrg( simpleOrg, orgs_index );
+
             if(orgOriginal >= 0) {
                 switch(owner[3]) {
                     case 'parent':
                         orgs[orgOriginal].parents_ids.push(simpleEntity);
                         var tempParent = orgObject({ id: simpleEntity, simple: owner[0] });
                         tempParent.contracts_count += orgs[orgOriginal].contracts_count;
-                        tempParent.contracts_count += orgs[orgOriginal].contracts_amount;
+                        tempParent.contracts_amount += orgs[orgOriginal].contracts_amount;
                         orgs.push(tempParent);
+                        orgs_index.push(simpleEntity);
                         break;
                     case 'shareholder':
                         orgs[orgOriginal].shareholders_ids.push(simpleEntity);
-                        // ENCONTRAR AL SHAREHOLDER!!!
-                        var tempShareholder = {
-                            "_id": simpleEntity,
-                            "type": (owner[1] == 'persona')? 'person' : 'organization',
-                            "name": owner[0],
-                            "simple": simpleEntity,
-                            "contracts_count": orgs[orgOriginal].contracts_count,
-                            "contracts_amount": orgs[orgOriginal].contracts_amount
+                        var shareholderID = findOrg(simpleEntity, shareboarders_index);
+
+                        if(shareholderID >= 0) {
+                            shareboarders[shareholderID].contracts_count += orgs[orgOriginal].contracts_count;
+                            shareboarders[shareholderID].contracts_amount += orgs[orgOriginal].contracts_amount;
                         }
-                        shareboarders.push(tempShareholder);
-                        shareboarders_index.push(simpleEntity);
+                        else {
+                            var tempShareholder = {
+                                "_id": simpleEntity,
+                                "type": (owner[1] == 'persona')? 'person' : 'organization',
+                                "name": owner[0],
+                                "simple": simpleEntity,
+                                "contracts_count": orgs[orgOriginal].contracts_count,
+                                "contracts_amount": orgs[orgOriginal].contracts_amount
+                            }
+                            shareboarders.push(tempShareholder);
+                            shareboarders_index.push(simpleEntity);
+                        }
                         break;
                     case 'boardmember':
                         orgs[orgOriginal].board_ids.push(simpleEntity);
-                        // ENCONTRAR AL BOARDMEMBER!!!
-                        var tempBoardmember = {
-                            "_id": simpleEntity,
-                            "type": "person",
-                            "name": owner[0],
-                            "simple": simpleEntity,
-                            "contracts_count": orgs[orgOriginal].contracts_count,
-                            "contracts_amount": orgs[orgOriginal].contracts_amount,
-                            "role": owner[4]
+                        var boardmemberID = findOrg(simpleEntity, shareboarders_index);
+
+                        if(boardmemberID >= 0) {
+                            shareboarders[boardmemberID].contracts_count += orgs[orgOriginal].contracts_count;
+                            shareboarders[boardmemberID].contracts_amount += orgs[orgOriginal].contracts_amount;
                         }
-                        shareboarders.push(tempBoardmember);
-                        shareboarders_index.push(simpleEntity);
+                        else {
+                            var tempBoardmember = {
+                                "_id": simpleEntity,
+                                "type": "person",
+                                "name": owner[0],
+                                "simple": simpleEntity,
+                                "contracts_count": orgs[orgOriginal].contracts_count,
+                                "contracts_amount": orgs[orgOriginal].contracts_amount,
+                                "role": owner[4]
+                            }
+                            shareboarders.push(tempBoardmember);
+                            shareboarders_index.push(simpleEntity);
+                        }
                         break;
                 }
             }
@@ -297,7 +305,7 @@ function processContract(release,orgs,orgs_index) {
 
   contract.suppliers.map( (supplier) => {
       var orgIndex = findOrg(supplier.id, orgs_index);
-      if(orgIndex > 0) {
+      if(orgIndex >= 0) {
           orgs[orgIndex].contracts_count += 1;
           orgs[orgIndex].contracts_amount += contract.amount;
           orgs[orgIndex].contracts.push(contractOrgObject(contract));
@@ -322,8 +330,8 @@ function processContractFromCsv(row,orgs,orgs_index) {
   var suppliers = row.SUPPLIER_NAMES.split(';');
   suppliers.map( (supplier) => {
       contractSuppliers.push({
-          "_id": supplier,
-          "id": supplier,
+          "_id": orgName2Id(supplier),
+          "id": orgName2Id(supplier),
           "simple": supplier
       });
   } );
@@ -366,6 +374,7 @@ function processContractFromCsv(row,orgs,orgs_index) {
 function orgName2Id(name) {
     return name.normalize('NFD')
                 .replace(/[,.]/g, '') // remove commas and periods
+                .replace(/\s/g, '-') // replace whitespace with dashes
                 .toLowerCase();
 }
 
@@ -378,7 +387,6 @@ function findMember(id, member_index) {
 }
 
 function findContractDates(release) {
-  console.log("findContractDates",release);
     var dates = [];
     if(release.contracts[0].hasOwnProperty('period')) {
         dates['start'] = release.contracts[0].period.startDate;
@@ -399,8 +407,8 @@ function findSupplierParties(release)
             if(party.hasOwnProperty('role')) {
                 if(party.role == 'supplier') {
                     suppliers.push({
-                        "_id": party.id? party.id : party.name,
-                        "id": party.id? party.id : party.name,
+                        "_id": orgName2Id(party.name),
+                        "id": orgName2Id(party.name),
                         "simple": party.name
                     });
                 }
@@ -408,8 +416,8 @@ function findSupplierParties(release)
             else if(party.hasOwnProperty('roles')) {
                 if(party.roles.length > 0 && party.roles.indexOf('supplier') >= 0) {
                     suppliers.push({
-                        "_id": party.id? party.id : party.name,
-                        "id": party.id? party.id : party.name,
+                        "_id": orgName2Id(party.name),
+                        "id": orgName2Id(party.name),
                         "simple": party.name
                     });
                 }
@@ -420,8 +428,8 @@ function findSupplierParties(release)
     if(suppliers.length == 0) {
         if(release.hasOwnProperty('awards') && release.awards.length > 0) {
             suppliers.push({
-                "_id": release.awards[0].suppliers[0].id? release.awards[0].suppliers[0].id : release.awards[0].suppliers[0].name,
-                "id": release.awards[0].suppliers[0].id? release.awards[0].suppliers[0].id : release.awards[0].suppliers[0].name,
+                "_id": orgName2Id(release.awards[0].suppliers[0].name),
+                "id": orgName2Id(release.awards[0].suppliers[0].name),
                 "simple": release.awards[0].suppliers[0].name
             });
         }
@@ -972,7 +980,10 @@ function initGraph(data) {
                 dashed: true,
                 opacity: 1
               };
-
+              slidesObjects[5].nodes.push(relatedFiguresStack[shareholderId].node);
+              nodes.push(relatedFiguresStack[shareholderId].node);
+              slidesObjects[5].links.push(relatedFiguresStack[shareholderId].link);
+              links.push(relatedFiguresStack[shareholderId].link);
               break;
             }
           case 1:
@@ -1040,7 +1051,8 @@ function initGraph(data) {
                 id: boardId,
                 name: boardName,
                 simple: boardSimple,
-                activeSize: boardContractsCount * 2 + 10,
+                // activeSize: boardContractsCount * 2 + 10,
+                activeSize: (nodeSizes.min*2) + Math.log2(1 + boardContractsCount/AppData.contracts.length) * (nodeSizes.max - nodeSizes.min),
                 inactiveSize: 10,
                 topParentNode: false,
                 nodeForce: 10,
@@ -1065,7 +1077,10 @@ function initGraph(data) {
                 dashed: true,
                 opacity: 1
               };
-
+              slidesObjects[5].nodes.push(relatedFiguresStack[boardId].node);
+              nodes.push(relatedFiguresStack[boardId].node);
+              slidesObjects[5].links.push(relatedFiguresStack[boardId].link);
+              links.push(relatedFiguresStack[boardId].link);
               break;
             }
           case 1:
@@ -1109,6 +1124,9 @@ function initGraph(data) {
       const parent = organization.parents[p];
       const linkOrganization = organization;
       linkParents(linkOrganization, parent);
+    }
+    if(organization.parents.length == 0) {
+        linkParents(organization, organization);
     }
   }
 
@@ -1759,6 +1777,7 @@ function setupD3() {
     simulation.force("link").links(graph.links);
     simulation.force("center", d3.forceCenter(width / 2 - offset, height / 2 - offset))
     simulation.alpha(0.2).restart();
+
     link.each(d => {
       d.target.visibleNode = true;
       d.source.visibleNode = true;
@@ -2280,5 +2299,4 @@ MathSet.prototype.symmetricDifference = function(newSet) {
 
 MathSet.prototype.log = function() {
   var text = "{ " + Object.keys(this.toObject()).join(" , ") + " }";
-  console.log(text);
 };
