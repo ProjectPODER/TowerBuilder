@@ -910,18 +910,21 @@ function initGraph(data) {
       links.push(linkToCenter);
     }
 
-    const link = {
-      source: organization._id,
-      target: linkOrganization._id,
-      type: 'related',
-      linkStrength: 3,
-      linkDistance: 5,
-      color: colours.links.toCenter,
-      dashed: true,
-      opacity: 1
-    };
-    slidesObjects[5].links.push(link);
-    links.push(link);
+    if(organization._id != linkOrganization._id) {
+        const link = {
+          source: organization._id,
+          target: linkOrganization._id,
+          type: 'organization',
+          linkStrength: 3,
+          linkDistance: 5,
+          color: colours.links.toCenter,
+          dashed: true,
+          opacity: 1
+        };
+        slidesObjects[4].links.push(link);
+        links.push(link);
+        console.log(link);
+    }
 
     if (shareholders && shareholders.length > 0) {
       for (let s in shareholders) {
