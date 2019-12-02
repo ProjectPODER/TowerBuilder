@@ -4,53 +4,80 @@ permalink: /iframe-visualization/
 
 ---
 <style>
-.graph-container {
-    height: 100%;
-    width: 70%;
-    top: 0;
-    position: fixed;
-    right: 0;
-    z-index: 1000;
-}
-</style>
-<div id="page-loader"><span class="preloader-interior"></span></div>
-<div id="fullpage">
-	{% for visualization-slide in site.visualization-slider %}
-		{% capture id %}{{ visualization-slide.id | remove:'/' | remove:'visualization-slider' | downcase }}{% endcapture %}
-		<div class="section">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-5 col-md-5 col-sm-12">
-						{{ visualization-slide.content }}
-					</div>
-					<div class="col-lg-7 col-md-7 col-sm-12 d-block d-lg-none mb-5">
-						<img src="/assets/img/{{visualization-slide.image}}" alt="" class="img-fluid">
+	.graph-container {
+		height: 100%;
+		width: 70%;
+		top: 0;
+		position: fixed;
+		right: 0;
+		z-index: 1000;
+	}
+	@media (max-width: 768px) {
+		.graph-container {
+			height: 400px;
+			width: 100%;
+		}
+		.vis-text{
+			margin-top: 400px;
+		}
+		.bg-graph{
+			width: 100%;
+			height: 400px;
+			position: fixed;
+			top: 0;
+			right: 0;
+			z-index: 99999999;
+		}
+	}
+	</style>
+	<div id="page-loader"><span class="preloader-interior"></span></div>
+	<div id="fullpage">
+		{% for visualization-slide in site.visualization-slider %}
+			{% capture id %}{{ visualization-slide.id | remove:'/' | remove:'visualization-slider' | downcase }}{% endcapture %}
+			<div class="section">
+				<div class="container">
+					<div class="row align-items-center">
+						{%- if page.responsive -%}
+						<div class="col-lg-5 col-md-5 col-sm-12">
+							{{ visualization-slide.content }}
+						</div>
+						<div class="col-lg-7 col-md-7 col-sm-12 d-block d-lg-none mb-5">
+							<img data-src="{{ site.baseurl }}/assets/img/{{visualization-slide.image}}" alt="" class="img-fluid">
+						</div>
+						{%- else -%}
+						<div class="col-lg-5 col-md-5 col-sm-12 vis-text">
+							{{ visualization-slide.content }}
+						</div>
+						{%- endif -%}
 					</div>
 				</div>
 			</div>
-	    </div>
-	{% endfor %}
-</div>
-<div class="tooltip d-none d-lg-block"></div>
-<div class="graph-container d-none d-lg-block">
-	<svg width="100%" height="100%"></svg>
-</div>
-
-<script src="/assets/javascript/papaparse.min.js"></script>
-<script src="/assets/javascript/towergraph.js"></script>
-
-<script type="text/javascript">
-	var anchors = [
-	{% for visualization-slide in site.visualization-slider %}
-	  {% capture id %}{{ visualization-slide.id | remove:'/' | remove:'visualization-slider' | downcase }}{% endcapture %}
-	  '{{id}}'{% if forloop.last == false %},{% endif %}
-	{% endfor %}
-	]
-
-	$.getJSON("{{ site.contracts_url }}", function(json) {
-		buildGraphData(json);
-	});
-
-
-
-</script>
+		{% endfor %}
+	</div>
+	{%- if page.responsive -%}
+	<div class="tooltip d-none d-lg-block"></div>
+	<div class="graph-container d-none d-lg-block">
+		<svg width="100%" height="100%"></svg>
+	</div>
+	{%- else -%}
+	<div class="tooltip"></div>
+	<div class="bg-graph"></div>
+	<div class="graph-container">
+		<svg width="100%" height="100%"></svg>
+	</div>
+	{%- endif -%}
+	
+	<script src="{{ site.baseurl }}/assets/javascript/papaparse.min.js"></script>
+	<script src="{{ site.baseurl }}/assets/javascript/towergraph.js"></script>
+	
+	<script type="text/javascript">
+		var anchors = [
+		{% for visualization-slide in site.visualization-slider %}
+		  {% capture id %}{{ visualization-slide.id | remove:'/' | remove:'visualization-slider' | downcase }}{% endcapture %}
+		  '{{id}}'{% if forloop.last == false %},{% endif %}
+		{% endfor %}
+		]
+	
+		getGraphData($, "{{ site.contracts_url | prepend: site.baseurl }}");
+	
+	</script>
