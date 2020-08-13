@@ -22,5 +22,6 @@ blockquote p:last-child, blockquote ul:last-child, blockquote ol:last-child {
 }
 
 a {
-	transition: all .35s;
+    transition: all .35s;
+    word-wrap: break-word;
 }
