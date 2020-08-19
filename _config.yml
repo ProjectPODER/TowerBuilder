@@ -111,3 +111,6 @@ collections:
 # Set to false to hide excerpts on the posts page
 show_excerpts: true
 future: true
+
+# Set the date in the posts and post page (en/es).
+date-language: "en"
