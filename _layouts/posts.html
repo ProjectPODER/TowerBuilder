@@ -19,7 +19,7 @@ layout: default
               </a>
               <div class="ml-auto">
                 <span class="text-muted">
-                  {% include translated_date.html date=post.date format="%B %-d, %Y" lang=site.date-language  %}
+                  {% include translated_date.html date=post.date format=site.date-format lang=site.date-language  %}
                   <!-- {%- assign date_format = "%b %-d, %Y" -%}
                   {{ post.date | date: date_format }} -->
                 </span>

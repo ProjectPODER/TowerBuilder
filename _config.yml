@@ -112,5 +112,9 @@ collections:
 show_excerpts: true
 future: true
 
-# Set the date in the posts and post page (en/es).
+# Set the date language in the posts and post page (en/es).
 date-language: "en"
+
+# Set the date format in the posts and post page.
+# Other formats: "%a, %b %d, %y" | "%Y" | "%b %d, %y" | "%Y-%m-%d %H:%M"
+date-format: "%B %-d, %Y"
