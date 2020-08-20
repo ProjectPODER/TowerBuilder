@@ -52,7 +52,8 @@ graph:
           - toCenter: '#706F74'
           - toContractType: '#706F74'
           - toOrganization: '#706F74'
-
+  - descriptionLink: "Ir al perfil"
+  
   #Format of the contracts_url: releases_json, records_json_api, csv
   # releases_json: {releases: [] }
   # records_json_api: {data: { records: [ {compiledRelease: {} }] } }

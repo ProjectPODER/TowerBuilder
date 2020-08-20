@@ -55,6 +55,8 @@ function correctJSON(o) {
 
 const config = correctJSON(window.graphConfig)
 
+const descriptionLink = config.descriptionLink;
+
 const nodeSizes = {
     min: config.sizes.min,
     max: config.sizes.max
@@ -1849,7 +1851,7 @@ function setupD3() {
                 return `
                       <p class="title">${nameText}</p>
                       <p>Contratos: ${contractsCount}</p>
-                      <p>Leer la nota:</p>
+                      <p>${descriptionLink}:</p>
                       <p><a rel="noreferrer noopener" target="_blank" href="https://quienesquien.wiki/${typeText}/${nameText}">https://quienesquien.wiki/${typeText}/${nameText}</a></p>
                 `;
                 break;
