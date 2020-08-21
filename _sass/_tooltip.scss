@@ -27,12 +27,16 @@ div.tooltip * {
 div.tooltip .title {
     font-weight: bold;
     margin-bottom: 10px;
-    color: $info;
+    color: $graphTooltipTitleColor;
 }
 
 div.tooltip a {
     pointer-events: auto;
-    color: $primary;
+    color: $link-color;
     cursor: pointer;
     word-wrap: break-word
+}
+
+div.tooltip a:hover {
+    color: $link-hover-color;
 }

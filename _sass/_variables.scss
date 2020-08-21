@@ -41,11 +41,13 @@ $dark:          $gray-800 !default;
 //For example:./img/your-image.png 
 $bgHome : "./img/bg-masthead.jpg";
 
+// Graph tooltip title color 
+$graphTooltipTitleColor: $info;
+
 
 // Links
 //
 // Style anchor elements.
-
 $link-color:                $primary !default;
 $link-decoration:           none !default;
 $link-hover-color:          darken($link-color, 15%) !default;
