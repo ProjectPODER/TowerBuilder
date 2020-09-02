@@ -1,5 +1,8 @@
 # Publicar el sitio
 
+**Importante:** Antes de publicar tu sitio, asegúrate de borrar el contenido del archivo **CNAME** o reemplazar el contenido por la url de tu sitio web.
+
+
 Una vez que hayas configurado tu sitio, agregado los datos y editado los textos, puedes publicar el sitio para verificar si está todo correcto. 
 
 Inicialmente, tu nombre de usuario y el nombre del repositorio se verán reflejados en la dirección URL de tu sitio cuando esté publicado. Este tendrá la forma de **tu_usuario.github.io/tu_repositorio**
