@@ -165,13 +165,13 @@ function initSearch() {
                 }
 
                 // Filtro de tipo de contrato
-                if(contractType != 'todos' && contractType != contract.type) {
+                if(contractType && contractType != 'todos' && contractType != contract.type) {
                     hiddenContracts.push(contract.ocid + '_' + contract.start_date);
                     return false;
                 }
 
                 // Filtro de tipo de procedimiento
-                if(procedureType != 'todos' && procedureType != contract.procedure_type) {
+                if(procedureType && procedureType != 'todos' && procedureType != contract.procedure_type) {
                     hiddenContracts.push(contract.ocid + '_' + contract.start_date);
                     return false;
                 }
