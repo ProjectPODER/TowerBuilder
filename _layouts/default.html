@@ -1,12 +1,26 @@
 <!DOCTYPE html>
+<!-- Default theme -->
 <html lang="{{ page.lang | default: site.lang | default: "es" }}">
 
   {%- include head.html -%}
 
   <body>
-    {%- include header.html -%}
+    {% if site.branded-header == "PODER" %}
+      {%- include poder-header.html -%}
+    {% endif %}
+
+    {% if site.branded-header == "PODER" %}
+      {%- include header-iframe.html -%}
+    {% else %}
+      {%- include header.html -%}
+    {% endif %}
+
 
       {{ content }}
+
+    {% if site.branded-header == "PODER" %}
+      {%- include poder-footer.html -%}
+    {% endif %}
 
   </body>
 
