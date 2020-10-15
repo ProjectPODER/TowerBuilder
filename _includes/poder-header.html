@@ -1,1 +1,44 @@
-<iframe src="https://poderlatam.org/towerbuilder-header/" width="100%" height="100%" title="PODER"></iframe>
+<iframe src="https://poderlatam.org/towerbuilder-header/" width="100%" height="229" title="PODER-header" id="PODER-header-iframe"></iframe>
+<script type="text/javascript">
+    const IFRAME_ALLOWED_URLS = [
+        "127.0.0.1", "localhost","poderlatam.org","projectpoder.github.io"
+    ];
+
+    function displayIframe(id) {
+        const iframe = $(id);
+        iframe.show()
+
+        // console.log("Display iframe",id,iframe);
+        
+        // window.addEventListener("message", (event) => {
+        //     console.log(event);
+        //     html = event.html;
+        //     iframe.innerHTML = html;
+        // });
+        
+        // iframe.on("load",() => {
+        //     console.log("iframe load")
+        //     iframe[0].contentWindow.postMessage("a","https://poderlatam.org")        
+        // })
+    }
+    function hideIframe(id) {
+        $(id).attr("src","").hide();
+    }
+
+    function checkIframe(id,success,fail) {
+        let allowed = false;
+        IFRAME_ALLOWED_URLS.map( (url) => {
+            if (window.location.href.includes(url)) {
+                allowed=true;
+            }
+        })
+        if (allowed) {
+            success(id);
+        }
+        else {
+            fail(id);
+        }
+    }
+
+    checkIframe("#PODER-header-iframe",displayIframe,hideIframe);
+</script>
