@@ -1,6 +1,6 @@
 .nav-iframe {
 	/*background-color: rgba(255,255,255, 0.4);*/
-
+	z-index:9999;
 	.nav-item {
 		margin: 5px 1px 0;
 	}
@@ -14,5 +14,9 @@
 	.navbar-nav .active > .nav-link {
 		background-color: #1d2124 !important;
 	}
+}
+
+.nav-mobile-iframe {
+	z-index:9999;
 }
 

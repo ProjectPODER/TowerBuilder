@@ -1397,6 +1397,7 @@ function setupFullPage() {
     lazyLoading: true,
     paddingTop: '10px',
     paddingBottom: '30px',
+    fixedElements: '#PODER-footer-iframe',
     responsiveWidth: 992,
     afterResponsive: function(isResponsive){
     },

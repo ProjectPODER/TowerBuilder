@@ -1,0 +1,44 @@
+#PODER-header-iframe {
+    height: 129.45px;
+}
+
+#PODER-footer-iframe {
+    height: 230px;
+}
+
+@media (max-width: 992px) {
+    #PODER-header-iframe {
+        height: 123px !important;
+    }
+}
+
+@media (max-width: 771px) {
+    #PODER-header-iframe {
+        height: 77px !important;
+    }
+}
+
+@media (max-width: 483px) {
+    #PODER-header-iframe {
+        height: 67px !important;
+    }
+
+    #PODER-footer-iframe {
+        height: 198.94px;
+    }
+}
+@media (max-width: 351px) {
+    #PODER-footer-iframe {
+        height: 188px !important;
+    }
+}
+@media (max-width: 319px) {
+    #PODER-header-iframe {
+        height: 57px !important;
+    }
+}
+@media (max-width: 307px) {
+    .home-mg-iframe {
+        margin-top: -124px;
+    }
+}
