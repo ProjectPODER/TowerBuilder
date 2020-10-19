@@ -3,7 +3,7 @@
 }
 
 #PODER-footer-iframe {
-    height: 230px;
+    height: 226px;
 }
 
 @media (max-width: 992px) {
@@ -41,4 +41,8 @@
     .home-mg-iframe {
         margin-top: -124px;
     }
+}
+
+iframe {
+    border-width: 0;
 }
