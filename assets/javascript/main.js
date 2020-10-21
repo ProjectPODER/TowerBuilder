@@ -83,6 +83,15 @@ function updateParentUrl() {
             window.location.pathname=event.data.url.substr(1);
         }
     });
-    
-    window.parent.postMessage({ url: window.location.pathname},"https://poderlatam.org");        
+
+    $("section a").attr("target","_parent");
+
+    let currentHeight = $("body").height();
+
+    if (currentHeight < 700) {
+        setTimeout(() =>{
+            window.parent.postMessage({ height: $("body").height() + 100 },"https://poderlatam.org");        
+        },2000)
+    }
+    window.parent.postMessage({ url: window.location.pathname, height: currentHeight },"https://poderlatam.org");        
 }
