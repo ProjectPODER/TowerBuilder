@@ -5,23 +5,8 @@
   {%- include head.html -%}
 
   <body>
-    {% if site.branded-header == "PODER" %}
-      {%- include poder-header.html -%}
-    {% endif %}
-
-    {% if site.branded-header == "PODER" %}
-      {%- include header-iframe.html -%}
-    {% else %}
-      {%- include header.html -%}
-    {% endif %}
-
-
-      {{ content }}
-
-    {% if site.branded-header == "PODER" %}
-      {%- include poder-footer.html -%}
-    {% endif %}
-
+    {%- include header.html -%}
+    {{ content }}
   </body>
 
 </html>

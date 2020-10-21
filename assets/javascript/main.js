@@ -60,6 +60,8 @@ $(document).ready(function () {
                 }
             }
         });
+
+        updateParentUrl();
     }
 
     // when the page loads
@@ -72,3 +74,15 @@ $(document).ready(function () {
 
 
 });
+
+
+function updateParentUrl() {
+    window.addEventListener("message", (event) => {
+        // console.log("tb",event);
+        if (event.data.url) {
+            window.location.pathname=event.data.url.substr(1);
+        }
+    });
+    
+    window.parent.postMessage({ url: window.location.pathname},"https://poderlatam.org");        
+}
