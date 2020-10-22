@@ -3,12 +3,6 @@ layout: default
 title: Slider
 permalink: /slider/
 ---
-<style>
-	#PODER-footer-iframe {
-		position: fixed;
-		bottom: 0px;
-	}
-</style>
 <div id="page-loader"><span class="preloader-interior"></span></div>
 <div id="fullpage-slider" class="{% if site.branded-header == "PODER" -%}fullpage-slider-iframe{%- endif -%}">
 	{% for first-slide in site.first-slider %}
@@ -45,7 +39,6 @@ $(document).ready(function() {
 	    lazyLoading: true,
 	    paddingTop: '10px',
 		paddingBottom: '30px',
-		fixedElements: '#PODER-footer-iframe',
 		responsiveWidth: 992,
         afterResponsive: function(isResponsive){
         },
