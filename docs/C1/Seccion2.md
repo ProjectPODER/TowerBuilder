@@ -19,7 +19,7 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
     - Lo primero que vas a cambiar es la variable _title_, esta define el nombre que tendrá tu sitio en diferentes lugares tales como la solapa del navegador, los resultados de búsqueda y en el encabezado del sitio. Para esto busca donde dice:
 	
 	```
-    title: "TowerBuilder" 
+    title: "Tower Builder" 
 	```
     y cambia el valor entre comillas por el título de tu sitio, por ejemplo 
 	```
@@ -29,9 +29,9 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
 	- Otros valores importantes a cambiar son: 
 
 	```
-    image: tb-logo.png -> cambiarlo por el logo de tu proyecto o dejarlo vacío, es opcional
+    image: tb-logo.png -> # cambiarlo por el logo de tu proyecto o dejarlo vacío, es opcional
     description: >- 
-  	Modifica el texto existente y pon la descripción de tu proyecto aquí. 
+  	# Modifica el texto existente y pon la descripción de tu proyecto aquí. 
 	```
 
 	  Para cambiar el logo, sigue [estas instrucciones](https://towerbuilder.readthedocs.io/en/latest/C2/Seccion3.html#cambiar-el-logo).
