@@ -42,6 +42,7 @@ En esta sección podrás mostrar una imagen de fondo que ocupa toda la pantalla,
 
 Variables:
 
+```
 ---
 title: Inicio -> El título de la sección, esto se mostrará en el menú que aparecerá en la parte derecha de la pantalla.
 main-section: true -> Activa los estilos para que se muestre la imagen de fondo principal y los textos destacados.
