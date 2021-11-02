@@ -44,12 +44,12 @@ Variables:
 
 ```
 ---
-title: Inicio -> El título de la sección, esto se mostrará en el menú que aparecerá en la parte derecha de la pantalla.
-main-section: true -> Activa los estilos para que se muestre la imagen de fondo principal y los textos destacados.
-main-logo: todosloscontratoscr-logo-blanco.png -> Si quieres mostrar tu logo, añade el nombre del archivo que ya deberá estar en la carpeta **assets/img/**.
+title: Inicio -> # El título de la sección, esto se mostrará en el menú que aparecerá en la parte derecha de la pantalla.
+main-section: true -> # Activa los estilos para que se muestre la imagen de fondo principal y los textos destacados.
+main-logo: todosloscontratoscr-logo-blanco.png -> # Si quieres mostrar tu logo, añade el nombre del archivo que ya deberá estar en la carpeta **assets/img/**.
 
 # Column options
-one-column-section: true -> Deberá estar activada para mostrar la sección en una sola columna
+one-column-section: true -> # Deberá estar activada para mostrar la sección en una sola columna
 ---
 ```
 
@@ -64,20 +64,20 @@ Variables:
 
 ```
 ---
-title: Introducción -> Título de la sección
-cta-button-section: true -> Activar si quieres mostrar un botón al final de la sección
+title: Introducción -> # Título de la sección
+cta-button-section: true -> # Activar si quieres mostrar un botón al final de la sección
 button:
-  link: "https://projectpoder.github.io/tolococr/" -> Url del botón
-  text: "Botón"  -> Nombre del botón
+  link: "https://projectpoder.github.io/tolococr/" -> # Url del botón
+  text: "Botón"  -> # Nombre del botón
 # Media section
-media: true -> Activar para añadir una imagen, video o iframe, solo puedes elegir una opción
+media: true -> # Activar para añadir una imagen, video o iframe, solo puedes elegir una opción
 media-type: # Fill only one option
-  image: -> Añadir el nombre del archivo que deberá estar ya en la carpeta assets/img
-  iframe: "https://link.com" -> Agregar entre comillas el link del iframe
-  video: "https://youtube.com"-> Agregar entre comillas el link al video
+  image: -> # Añadir el nombre del archivo que deberá estar ya en la carpeta assets/img
+  iframe: https://link.com -> # Agregar el link del iframe
+  video: https://youtube.com -> # Agregar el link al video
 
 # If iframe, set the different iframe size, depending of de size screen
-iframe-size: -> Esta opción funcionará si agregaste un iframe, podrás configurar el alto del iframe dependiendo de el tamaño de la pantalla
+iframe-size: -> # Esta opción funcionará si agregaste un iframe, podrás configurar el alto del iframe dependiendo de el tamaño de la pantalla
   xl-size: "20%" # Extra large screen ≥1280px
   lg-size: "30%" # Large screen ≤1279px
   md-size: "50%" # Medium screen ≤992px
@@ -85,18 +85,18 @@ iframe-size: -> Esta opción funcionará si agregaste un iframe, podrás configu
   xs-size: "120%" # Extra screen small <576px
 
 # Column options
-one-column-section: true -> Activar para mostrar el contenido en una sola columna
+one-column-section: true -> # Activar para mostrar el contenido en una sola columna
 
 # Section background and text colors
-background-color: "#ffffff" -> Elije un color de fondo para la sección
-text-color: "#333333" -> ELije el color del texto de la sección
+background-color: "#ffffff" -> # Elige un color de fondo para la sección
+text-color: "#333333" -> # ELige el color del texto de la sección
 
-# Article information -> Con estas variables, activamos el área de notas de esta sección
-articles: true -> Muestra las notas
+# Article information -> # Con estas variables, activamos el área de notas de esta sección
+articles: true -> # Muestra las notas
 articles-section:
-  background-color: "#EFEFEF" -> Modifica el colo del fondo de toda las sección de notas
+  background-color: "#EFEFEF" -> # Modifica el colo del fondo de toda las sección de notas
 # Article 1
-article-content: -> Aquí puedes agregar la información de una nota como se muestra con los textos de ejemplos
+article-content: -> # Aquí puedes agregar la información de una nota como se muestra con los textos de ejemplos
   title: Título de la nota
   author: Marisol Carrillo
   organization: PODER
@@ -104,7 +104,7 @@ article-content: -> Aquí puedes agregar la información de una nota como se mue
   image: bg-masthead.jpg
   link: https://github.com/ProjectPODER
 # Article 2
-article-content2: -> Información de la segunda nota de la sección
+article-content2: -> # Información de la segunda nota de la sección
   title: Título de la nota 2
   author: Marisol Carrillo
   organization: PODER
@@ -175,22 +175,22 @@ Variables:
 
 ```
 ---
-title: Section 4 -> Título de la sección
+title: Section 4 -> # Título de la sección
 # Media section
-media: true -> Activa el mostrar una imagen, video o iframe, solo se puede llenar una opción
+media: true -> # Activa el mostrar una imagen, video o iframe, solo se puede llenar una opción
 media-type:
-  image: graphic-example1.png -> Nombre del archivo que ya deberá estar en la carpeta assets/img
-  iframe: -> Link entre comillas del iframe
-  video: -> Link entre comillas del video
+  image: graphic-example1.png -> # Nombre del archivo que ya deberá estar en la carpeta assets/img
+  iframe: -> # Link entre comillas del iframe
+  video: -> # Link entre comillas del video
 # Column options
-one-column-section: false -> Desactiva la vista de una columna
-two-columns-section: true -> Activa la vista de dos columnas
+one-column-section: false -> # Desactiva la vista de una columna
+two-columns-section: true -> # Activa la vista de dos columnas
 # If two columns is true
 # Media position
-media-left: false - > En estasección mostraremos la imagen, video o iframe en la columna derecha, por eso está desactivada esta opción
+media-left: false - > # En estasección mostraremos la imagen, video o iframe en la columna derecha, por eso está desactivada esta opción
 # Section background and text colors
-background-color: "#ffffff" -> Selecciona el color de fondo de toda la sección
-text-color: "#ffffff" -> Selecciona el color del texto de toda la sección
+background-color: "#ffffff" -> # Selecciona el color de fondo de toda la sección
+text-color: "#ffffff" -> # Selecciona el color del texto de toda la sección
 
 ---
 ```
@@ -212,20 +212,20 @@ media: true
 media-type:
   image:
   iframe:
-  video: https://www.youtube.com/embed/TYCBicKyVhs -> Añadir un video
+  video: https://www.youtube.com/embed/TYCBicKyVhs -> # Añadir un video
 
 # Column options
 one-column-section: false
 two-columns-section: true
 # If two columns is true
 # Media position
-media-left: true -> Activa la opción de mostrar la imagen, video o iframe en la columna izquierda
+media-left: true -> # Activa la opción de mostrar la imagen, video o iframe en la columna izquierda
 # Section background and text colors
 background-color: "#ffffff"
 text-color: "#ffffff"
 
 # Article information
-articles: true -> Activamos la opción de mostrar notas
+articles: true -> # Activamos la opción de mostrar notas
 articles-section:
   background-color: "#EFEFEF"
 # Article 1
@@ -264,10 +264,10 @@ button:
   link: "https://projectpoder.github.io/tolococr/"
   text: "Botón"
 # Highlight section options
-highlight-section: true -> Activar para mostrar los estilos de la sección destacada
-highlight-section-background: "#006607" -> Agrega un color de fondo del contenedor del texto
+highlight-section: true -> # Activar para mostrar los estilos de la sección destacada
+highlight-section-background: "#006607" -> # Agrega un color de fondo del contenedor del texto
 # Column options
-one-column-section: true -> Muestra una sola columna
+one-column-section: true -> # Muestra una sola columna
 
 # Section background and text colors
 background-color: "#ffffff"
@@ -345,12 +345,12 @@ Variables:
 
 ```
 ---
-title: Proyecto de -> Título de la columna
-image-logo: logoPODER_19.png -> Nombre del archivo que deberá estar en la carpeta assets/img
-image-name: Logo de PODER -> Nombre de la imagen
-width-logo: 100px -> Tamaño de la imagen
+title: Proyecto de -> # Título de la columna
+image-logo: logoPODER_19.png -> # Nombre del archivo que deberá estar en la carpeta assets/img
+image-name: Logo de PODER -> # Nombre de la imagen
+width-logo: 100px -> # Tamaño de la imagen
 # If there are more logos
-image-logo2: Innovaap_logo.png -> Puedes agregar un segundo logo en la misma columna
+image-logo2: Innovaap_logo.png -> # Puedes agregar un segundo logo en la misma columna
 image-name2: Logo de Innovaap
 width-logo2: 170px
 ---
@@ -376,7 +376,7 @@ Para cambiar o añadir una imagen (_.jpg_, _.png_ o _.svg_) dentro del slider, d
 ```
 ---
 title: First Slide
-**image: graphic-example.png** -> aquí va el nombre del archivo.
+**image: graphic-example.png** -> # aquí va el nombre del archivo.
 ---
 ```
 
@@ -466,9 +466,9 @@ Los pasos para crear un archivo son:
 6. Es importante agregar siempre a los archivos nuevos creados, el siguiente código al incio del archivo:
 ```
 ---
-layout: page -> siempre debe ser **page**
-title: Nombre de la página -> puedes cambiar al título que desees
-permalink: /nombre-del-link/ -> puedes cambiar al nombre del link que desees mostrar
+layout: page -> # siempre debe ser **page**
+title: Nombre de la página -> # puedes cambiar al título que desees
+permalink: /nombre-del-link/ -> # puedes cambiar al nombre del link que desees mostrar
 ---
 ```
 
