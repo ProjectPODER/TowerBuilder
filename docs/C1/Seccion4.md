@@ -355,6 +355,39 @@ image-name2: Logo de Innovaap
 width-logo2: 170px
 ---
 ```
+#### Embeber iframes de Kibana
+A continuación, te explicamos los pasos a seguir para embeber un iframe de Kibana correctamente:
+
+- En Kibana, seleccionar la opción de compartir para embed la visualización (se puede llegar desde la edición del dashboard).
+- La visualización debe estar en Simona.
+- Copiar la visualización al espacio público desde saved objects, buscando por nombre, elegir "clone to space" y elegir public.
+- Ir al espacio público, buscar la visualización, seleccionar share y luego embed.
+- La elección de snapshot o saved object depende de si queremos que los numeros se actualicen (saved object) o si queremos que siempre queden así (snapshot).
+- De la url copiada, eliminar todo excepto la url que está entre comillas en src.
+- Poner esta url en la variable **iframe** de la sección en la que se quiere agregar.
+
+Por ejemplo:
+```
+title: Introducción
+cta-button-section: true
+button:
+  link: "https://projectpoder.github.io/tolococr/"
+  text: "Botón"
+# Media section
+media: true
+media-type: # Fill only one option
+  image:
+  iframe: https://publico-simona.quienesquien.wiki/s/publico/app/visualize#/edit/e5b829d0-ca23-11eb-b96d-0715cd05503e?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2008',to:'2019'))&_a=(filters:!(),linked:!f,query:(language:kuery,query:''),uiState:(),vis:(aggs:!((enabled:!t,id:'1',params:(customLabel:'Cantidad%20de%20contratos'),schema:metric,type:count),(enabled:!f,id:'2',params:(customLabel:'Suma%20de%20monto',field:monto),schema:metric,type:sum),(enabled:!t,id:'3',params:(customLabel:'Cantidad%20de%20Adjudicatarios',field:adjudicatario.keyword),schema:metric,type:cardinality),(enabled:!t,id:'5',params:(customLabel:'Cantidad%20de%20Instituciones',field:institucion.keyword),schema:metric,type:cardinality),(enabled:!t,id:'6',params:(customLabel:'Cantidad%20de%20municipios',field:municipio.keyword),schema:metric,type:cardinality)),params:(addLegend:!f,addTooltip:!t,metric:(colorSchema:Greens,colorsRange:!((from:0,to:100),(from:100,to:10000),(from:10000,to:30000),(from:30000,to:40000),(from:40000,to:500000)),invertColors:!f,labels:(show:!t),metricColorMode:Background,percentageMode:!f,style:(bgColor:!f,bgFill:%23000,fontSize:60,labelColor:!f,subText:''),useRanges:!f),type:metric),title:SICOP_DASH_numeros,type:metric)) -> # Agregar el link del iframe
+  video:
+
+# If iframe, set the different iframe size, depending of de size screen
+iframe-size: -> # Esta opción funcionará si agregaste un iframe, podrás configurar el alto del iframe dependiendo de el tamaño de la pantalla
+  xl-size: "20%" # Extra large screen ≥1280px
+  lg-size: "30%" # Large screen ≤1279px
+  md-size: "50%" # Medium screen ≤992px
+  sm-size: "100%" # Small screen ≤768px
+  xs-size: "120%" # Extra screen small <576px
+```
 
 
 ### Página Acerca
