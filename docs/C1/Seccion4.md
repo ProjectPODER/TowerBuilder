@@ -369,15 +369,16 @@ A continuación, te explicamos los pasos a seguir para embeber un iframe de Kiba
 Por ejemplo:
 ```
 title: Introducción
-cta-button-section: true
+cta-button-section: false
 button:
-  link: "https://projectpoder.github.io/tolococr/"
-  text: "Botón"
+  link:
+  text:
 # Media section
 media: true
 media-type: # Fill only one option
   image:
-  iframe: "https://publico-simona.quienesquien.wiki/s/publico/app/visualize#/edit/e5b829d0-ca23-11eb-b96d-0715cd05503e?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2008',to:'2019'))&_a=(filters:!(),linked:!f,query:(language:kuery,query:''),uiState:(),vis:(aggs:!((enabled:!t,id:'1',params:(customLabel:'Cantidad%20de%20contratos'),schema:metric,type:count),(enabled:!f,id:'2',params:(customLabel:'Suma%20de%20monto',field:monto),schema:metric,type:sum),(enabled:!t,id:'3',params:(customLabel:'Cantidad%20de%20Adjudicatarios',field:adjudicatario.keyword),schema:metric,type:cardinality),(enabled:!t,id:'5',params:(customLabel:'Cantidad%20de%20Instituciones',field:institucion.keyword),schema:metric,type:cardinality),(enabled:!t,id:'6',params:(customLabel:'Cantidad%20de%20municipios',field:municipio.keyword),schema:metric,type:cardinality)),params:(addLegend:!f,addTooltip:!t,metric:(colorSchema:Greens,colorsRange:!((from:0,to:100),(from:100,to:10000),(from:10000,to:30000),(from:30000,to:40000),(from:40000,to:500000)),invertColors:!f,labels:(show:!t),metricColorMode:Background,percentageMode:!f,style:(bgColor:!f,bgFill:%23000,fontSize:60,labelColor:!f,subText:''),useRanges:!f),type:metric),title:SICOP_DASH_numeros,type:metric))" -> # Agregar el link del iframe
+  # Agregar el link del iframe
+  iframe: "https://publico-simona.quienesquien.wiki/s/publico/app/visualize#/edit/e5b829d0-ca23-11eb-b96d-0715cd05503e?embed=true&_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:'2008',to:'2019'))&_a=(filters:!(),linked:!f,query:(language:kuery,query:''),uiState:(),vis:(aggs:!((enabled:!t,id:'1',params:(customLabel:'Cantidad%20de%20contratos'),schema:metric,type:count),(enabled:!f,id:'2',params:(customLabel:'Suma%20de%20monto',field:monto),schema:metric,type:sum),(enabled:!t,id:'3',params:(customLabel:'Cantidad%20de%20Adjudicatarios',field:adjudicatario.keyword),schema:metric,type:cardinality),(enabled:!t,id:'5',params:(customLabel:'Cantidad%20de%20Instituciones',field:institucion.keyword),schema:metric,type:cardinality),(enabled:!t,id:'6',params:(customLabel:'Cantidad%20de%20municipios',field:municipio.keyword),schema:metric,type:cardinality)),params:(addLegend:!f,addTooltip:!t,metric:(colorSchema:Greens,colorsRange:!((from:0,to:100),(from:100,to:10000),(from:10000,to:30000),(from:30000,to:40000),(from:40000,to:500000)),invertColors:!f,labels:(show:!t),metricColorMode:Background,percentageMode:!f,style:(bgColor:!f,bgFill:%23000,fontSize:60,labelColor:!f,subText:''),useRanges:!f),type:metric),title:SICOP_DASH_numeros,type:metric))"
   video:
 
 # If iframe, set the different iframe size, depending of de size screen
