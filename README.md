@@ -42,7 +42,7 @@ Si eres desarrollador y deseas correr TowerBuilder de manera local, estas son la
 `   sudo apt install ruby ruby-bundler ruby-dev`
 
 4. Para construir el sitio y hacerlo disponible en un servidor local:
-`   bundle exec jekyll serve`
+`   bundle exec jekyll serve --livereload`
 
  4.1. Es muy probable que en este punto recibas un error sobre cantidad máxima de archivos que se pueden monitorear en tu sistema, y es muy probable que se arregle como dice en la [documentación](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers):
 `   echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
