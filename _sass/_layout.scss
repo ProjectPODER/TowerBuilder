@@ -25,3 +25,7 @@ a {
     transition: all .35s;
     word-wrap: break-word;
 }
+
+.min-vh-100 {
+    min-height: 100vh !important;
+}

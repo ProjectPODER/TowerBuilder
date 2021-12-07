@@ -1,37 +1,22 @@
-<footer>
+<footer class="mt-auto">
   <div class="py-5 border-top">
     <div class="container">
-
-      <p class="h5 mb-3">{{ site.title | escape }}</p>
-
       <div class="row">
 
-        <div class="col-sm">
-          <ul class="list-unstyled">
-            <li>
-              {%- if site.author -%}
-                {{ site.author | escape }}
-              {%- else -%}
-                {{ site.title | escape }}
-              {%- endif -%}
-            </li>
-            {%- if site.email -%}
-              <li>
-                <a href="mailto:{{ site.email }}">
-                  {{ site.email }}
-                </a>
-              </li>
-            {%- endif -%}
-          </ul>
+        {%- for footer-section in site.footer -%}
+        <div class="col-md text-center">
+          {%- if footer-section.title -%}
+          <h5 class="footer-title">{{ footer-section.title }}</h5>
+          {%- endif -%}
+          <img class="footer-logo" style="width:{{footer-section.width-logo}};" src="{{ site.baseurl }}/assets/img/{{footer-section.image-logo}}" alt="{{ footer-section.image-name }}">
+
+          {%- if footer-section.image-name2 -%}
+          <img class="footer-logo" style="width:{{footer-section.width-logo2}};" src="{{ site.baseurl }}/assets/img/{{footer-section.image-logo2}}"
+            alt="{{ footer-section.image-name2 }}">
+          {%- endif -%}
         </div>
-
-
-        <div class="col-sm text-right">
-          <p>{{- site.description | escape -}}</p>
-        </div>
-
+        {%- endfor -%}
       </div>
-
     </div>
   </div>
 </footer>

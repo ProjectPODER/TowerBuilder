@@ -1666,7 +1666,7 @@ function setupD3() {
   };
   draw(graph);
   d3.selectAll('.nodes.all').transition().attr('r', d => d.activeSize);
-  tooltipHTML = $('.tooltip');
+  tooltipHTML = $('.tooltip-graph');
   function draw(graph) {
     const container = $('svg');
     const svg = $('svg');
@@ -1678,12 +1678,12 @@ function setupD3() {
     let tooltipLink;
 
     if (isDesktop) {
-      tooltip = d3.select(".tooltip").attr("class", "tooltip").style("opacity", 0).on("mouseover", function() {
+      tooltip = d3.select(".tooltip-graph").attr("class", "tooltip-graph").style("opacity", 0).on("mouseover", function() {
         tooltip.transition().duration(300).style("opacity", .98)
       }).on("mouseout", function() {
         tooltip.transition().duration(100).style("opacity", 0).style("pointer-events", "none")
       });
-      tooltipLink = d3.select(".tooltip a").on("mouseover", function() {
+      tooltipLink = d3.select(".tooltip-graph a").on("mouseover", function() {
         tooltip.transition().duration(300).style("opacity", .98)
       }).on("mouseout", function() {
         tooltip.transition().duration(100).style("opacity", 0).style("pointer-events", "none")

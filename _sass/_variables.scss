@@ -15,7 +15,7 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
-$blue:    #007bff !default;
+$blue:    #27408B !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
@@ -26,8 +26,8 @@ $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #1491a5 !default;
 
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
+$primary:       $red !default;
+$secondary:     $blue !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -38,10 +38,10 @@ $dark:          $gray-800 !default;
 
 //Home background image
 //You need to change only the name and the type of your image
-//For example:./img/your-image.png 
+//For example:./img/your-image.png
 $bgHome : "./img/bg-masthead.jpg";
 
-// Graph tooltip title color 
+// Graph tooltip title color
 $graphTooltipTitleColor: $info;
 
 

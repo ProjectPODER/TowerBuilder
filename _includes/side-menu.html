@@ -1,0 +1,18 @@
+<nav class="side-menu" id="side-menu">
+  <ul class="nav navbar-nav">
+    {% for home-section in site.home %}
+    {% capture title %}{{ home-section.title | remove:'/' | remove:'home' | slugify: "latin" | downcase }}{% endcapture %}
+    <li class="nav-item">
+      <a class="nav-link {%- if home-section.main-section -%}{% else %} side-menu-item{%- endif -%}" href="#{{title}}" data-toggle="tooltip"
+        data-placement="left" title="{{home-section.title}}"
+        data-original-title="{{home-section.title}}">
+        {%- if home-section.main-section -%}
+        <span>&#9650;</span>
+        {%- endif -%}
+      </a>
+
+    </li>
+    {% endfor %}
+
+  </ul>
+</nav>

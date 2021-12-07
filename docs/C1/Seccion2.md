@@ -8,30 +8,30 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
 
 3. Da click en el botón "edit" en la parte superior derecha.
 
-4. Comienza a cambiar valores. Este archivo está en un formato llamado YAML, esto significa que está compuesto por una serie de pares de variables con sus valores, cada línea comienza con un nombre de variable, un signo de dos puntos (:) y luego el valor. 
+4. Comienza a cambiar valores. Este archivo está en un formato llamado YAML, esto significa que está compuesto por una serie de pares de variables con sus valores, cada línea comienza con un nombre de variable, un signo de dos puntos (:) y luego el valor.
 
 	```
 	variable: valor
 	```
 
-	No debes cambiar nunca los nombres de las variables, sólo cambiarás lo que viene después de los dos puntos. 
-    
+	No debes cambiar nunca los nombres de las variables, sólo cambiarás lo que viene después de los dos puntos.
+
     - Lo primero que vas a cambiar es la variable _title_, esta define el nombre que tendrá tu sitio en diferentes lugares tales como la solapa del navegador, los resultados de búsqueda y en el encabezado del sitio. Para esto busca donde dice:
-	
+
 	```
-    title: "Tower Builder" 
+    title: "Tower Builder"
 	```
-    y cambia el valor entre comillas por el título de tu sitio, por ejemplo 
+    y cambia el valor entre comillas por el título de tu sitio, por ejemplo
 	```
     title: "Análisis de contrataciones de la carretera sur".
 	```
 
-	- Otros valores importantes a cambiar son: 
+	- Otros valores importantes a cambiar son:
 
 	```
     image: tb-logo.png -> # cambiarlo por el logo de tu proyecto o dejarlo vacío, es opcional
-    description: >- 
-  	# Modifica el texto existente y pon la descripción de tu proyecto aquí. 
+    description: >-
+  	# Modifica el texto existente y pon la descripción de tu proyecto aquí.
 	```
 
 	  Para cambiar el logo, sigue [estas instrucciones](https://towerbuilder.readthedocs.io/en/latest/C2/Seccion3.html#cambiar-el-logo).
@@ -64,6 +64,16 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
                  - toContractType: '#706F74'
                  - toOrganization: '#706F74'
 	```
+
+    - Para habilitar o deshabilitar el menú superior, cambiar entre true o false la siguiente variable:
+    ```
+    top_menu: true
+    ```
+
+    - Para cambiar el título del gráfico, colocar el título en la siguiente variable:
+    ```
+    menu_button_title: More information
+    ```
 
 	- Jekyll tiene un sistema de **Plugins**  que permiten ejecutar código personalizado sin necesidad de modificar la fuente de Jekyll. En la página de configuración de Tower Builder, se representa de esta manera:
 	```
@@ -103,7 +113,7 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
     show_excerpts: true
 	future: true
 	```
-	
+
 	Para conocer más sobre estas opciones visita [este link](https://jekyllrb.com/docs/posts/).
 
 Si quieres conocer opciones más avanzadas sobre este archivo de configuración, visita la [documentación oficial de Jekyll](https://jekyllrb.com/docs/configuration/options/).
