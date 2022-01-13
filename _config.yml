@@ -13,6 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+
 title: Tower Builder
 
 # Logo image
@@ -22,10 +23,15 @@ image: tb-logo.png
 description: >-
   TowerBuilder is a system to generate websites with data visualizations that mix open contracting and beneficial ownership data, all without requiring programming knowledge.
 
+# Allow top menu: true or false
+top_menu: true
+
+# Customize the More information menu button title
+menu_button_title: More information
+
 # URL of your contracts file or API endpoint
 contracts_url: "/assets/data/contracts.csv"
 #contracts_url: "https://api.beta.quienesquien.wiki/v2/contracts?sort=-compiledRelease.total_amount&compiledRelease.parties.memberOf.name=%2FGrupo%20Aeroportuario%2Fi&debug=true&limit=614"
-
 
 # URL of your beneficial ownership file or API endpoint
 bods_url: ""
@@ -59,12 +65,6 @@ graph:
   # records_json_api: {data: { records: [ {compiledRelease: {} }] } }
   # csv: a csv file
   - contracts_format: "csv"
-
-  # Allow top menu
-top_menu: true
-
-# Customize the More information menu button title
-menu_button_title: More information
 
 # Customize the titles and placeholder inputs in Contracts page
 contracts_title: Contracts by companies
