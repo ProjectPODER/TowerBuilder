@@ -93,6 +93,7 @@ column_3: Total amount
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-analytics
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -126,3 +127,9 @@ date-language: "en"
 # Set the date format in the posts and post page.
 # Other formats: "%a, %b %d, %y" | "%Y" | "%b %d, %y" | "%Y-%m-%d %H:%M"
 date-format: "%B %-d, %Y"
+
+# Analytics Configuration (for more options, see the documentation)
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-123-456          # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking

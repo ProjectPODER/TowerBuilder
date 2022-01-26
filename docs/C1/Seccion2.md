@@ -34,6 +34,16 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
   	# Modifica el texto existente y pon la descripción de tu proyecto aquí.
 	```
 
+    - Para habilitar o deshabilitar el menú superior, cambiar entre true o false la siguiente variable:
+    ```
+    top_menu: true
+    ```
+
+    - Para cambiar el título del item del menú superior (aparece cuando hay varios items en el menú o cuando se ajusta la vnta a pantallas más pequeñas):
+    ```
+    menu_button_title: More information
+    ```
+
 	  Para cambiar el logo, sigue [estas instrucciones](https://towerbuilder.readthedocs.io/en/latest/C2/Seccion3.html#cambiar-el-logo).
 
 	- El Grafico se puede configurar a traves de varias variables contenidas
@@ -64,16 +74,6 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
                  - toContractType: '#706F74'
                  - toOrganization: '#706F74'
 	```
-
-    - Para habilitar o deshabilitar el menú superior, cambiar entre true o false la siguiente variable:
-    ```
-    top_menu: true
-    ```
-
-    - Para cambiar el título del gráfico, colocar el título en la siguiente variable:
-    ```
-    menu_button_title: More information
-    ```
 
 	- Jekyll tiene un sistema de **Plugins**  que permiten ejecutar código personalizado sin necesidad de modificar la fuente de Jekyll. En la página de configuración de Tower Builder, se representa de esta manera:
 	```
@@ -117,3 +117,29 @@ Ahora comenzarás a darle forma a tu sitio, tendrás que definir un nombre para 
 	Para conocer más sobre estas opciones visita [este link](https://jekyllrb.com/docs/posts/).
 
 Si quieres conocer opciones más avanzadas sobre este archivo de configuración, visita la [documentación oficial de Jekyll](https://jekyllrb.com/docs/configuration/options/).
+
+
+Para agregar analytics al sitio, puedes agregar alguna de estas opciones:
+
+```
+# Analytics Configuration
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-123-456          # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
+
+  Matomo:                   # Add, if you want to track with Matomo (former Piwik Analytics)
+    url: matomo.example.com # Required - url to Matomo installation without trailing /
+    siteId: "1234"          # Required - replace with your Matomo site id (Write id as string)
+
+  Piwik:                    # Add, if you want to track with Piwik
+    url: piwik.example.com  # Required - url to Piwik installation without trailing /
+    siteId: "1234"          # Required - replace with your Piwik site id (Write id as string)
+
+  MPulse:                   # Add if you want to track performance with mPulse
+    apikey: XXXXX-YYYYY-ZZZZZ-AAAAA-23456   # Required - replace with your mPulse API key
+
+  Plausible:
+    domain: 'example.com'   # The domain configured in plausible
+    source: 'https://plausible.example.com/js/plausible.js' # The source of the javascript
+```

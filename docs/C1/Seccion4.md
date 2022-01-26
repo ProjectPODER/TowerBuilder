@@ -94,7 +94,7 @@ text-color: "#333333" -> # ELige el color del texto de la sección
 # Article information -> # Con estas variables, activamos el área de notas de esta sección
 articles: true -> # Muestra las notas
 articles-section:
-  background-color: "#EFEFEF" -> # Modifica el colo del fondo de toda las sección de notas
+  background-color: "#EFEFEF" -> # Modifica el color del fondo de toda la sección de notas
 # Article 1
 article-content: -> # Aquí puedes agregar la información de una nota como se muestra con los textos de ejemplos
   title: Título de la nota
