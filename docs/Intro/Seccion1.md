@@ -6,7 +6,7 @@ TowerBuilder es un sistema que no requiere programación para generar sitios web
 
 - Conseguir un listado de contrataciones en formato OCDS.
 - Armar una planilla de cálculo con los dueños de las empresas contratistas.
-- Redactar y editar textos en formato [MarkDown](https://guides.github.com/features/mastering-markdown/).
+- Redactar y editar textos en formato [MarkDown](https://www.markdownguide.org/basic-syntax/).
 - Una cuenta de [GitHub.com](https://github.com/).
 
 ## ¿Qué ventajas tiene usar TowerBuilder para armar mi sitio?
