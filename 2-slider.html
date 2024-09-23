@@ -4,27 +4,39 @@ title: Slider
 permalink: /slider/
 ---
 <div id="page-loader"><span class="preloader-interior"></span></div>
-<div id="fullpage-slider" class="{% if site.branded-header == "PODER" -%}fullpage-slider-iframe{%- endif -%}">
+<div id="fullpage-slider">
 	{% for first-slide in site.first-slider %}
-		{% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
-		<div class="section">
-			<div class="container">
-				<div class="row align-items-center">
+	{% capture id %}{{ first-slide.id | remove:'/' | remove:'first-slider' | downcase }}{% endcapture %}
+	<div class="section">
+		<div class="container">
+			<div class="row align-items-center">
+				{%- if first-slide.image or first-slide.video or first-slide.iframe -%}
+				<div class="col-lg-5 col-md-5 col-sm-12">
+					{{ first-slide.content }}
+				</div>
+				<div class="col-lg-7 col-md-7 col-sm-12 text-center">
 					{%- if first-slide.image -%}
-					<div class="col-lg-5 col-md-5 col-sm-12">
-						{{ first-slide.content }}
+					<img data-src="{{ site.baseurl }}/assets/img/{{first-slide.image}}" class="img-fluid">
+					{%- endif -%}
+					{%- if first-slide.video -%}
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" data-src="{{first-slide.video}}" allowfullscreen></iframe>
 					</div>
-					<div class="col-lg-7 col-md-7 col-sm-12 text-center">
-						<img data-src="{{ site.baseurl }}/assets/img/{{first-slide.image}}" class="img-fluid">
-					</div>
-              		{%- else -%}
-					<div class="col-lg-12 col-md-12 col-sm-12 text-center">
-						{{ first-slide.content }}
+					{%- endif -%}
+					{%- if first-slide.iframe -%}
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" data-src="{{first-slide.iframe}}" allowfullscreen></iframe>
 					</div>
 					{%- endif -%}
 				</div>
+				{%- else -%}
+				<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+					{{ first-slide.content }}
+				</div>
+				{%- endif -%}
 			</div>
-	    </div>
+		</div>
+	</div>
 	{% endfor %}
 </div>
 
