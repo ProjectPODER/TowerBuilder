@@ -13,28 +13,34 @@ layout: default
       <div class="col-lg-12">
         <div class="card bg-light mb-3">
           <div class="card-body">
-            <div class="header-card d-flex align-items-first">
-              <a href="{{ post.url | relative_url }}">
-                <h2 class="card-title">{{ post.title | escape }}</h2>
-              </a>
-              <div class="ml-auto">
-                <span class="text-muted">
-                  {% include translated_date.html date=post.date format=site.date-format lang=site.date-language  %}
-                  <!-- {%- assign date_format = "%b %-d, %Y" -%}
-                  {{ post.date | date: date_format }} -->
-                </span>
-                {%- if post.author -%}
-                <p><b>Published by {{ post.author }}</b></p>
-                {%- endif -%}
+            <div class="col-lg-4">
+              <div class="posts-img"
+                style="background-image: url('{{ site.baseurl }}/assets/img/{{post.image}}');">
               </div>
             </div>
-            {%- if site.show_excerpts -%}
+            <div class="col-lg-8">
+              <div class="header-card d-flex align-items-first">
+                <a href="{{ post.url | relative_url }}" style="margin-right: 20px;" target="_blank">
+                  <h2 class="card-title">{{ post.title | escape }}</h2>
+                </a>
+                <div class="ml-auto">
+                  <p class="text-muted m-0">
+                    {% include translated_date.html date=post.date format=site.date-format lang=site.date-language %}
+                  </p>
+                  {%- if post.author -%}
+                  <p><b>Published by {{ post.author }}</b></p>
+                  {%- endif -%}
+                </div>
+              </div>
+              {%- if site.show_excerpts -%}
               <p>{{ post.excerpt }}</p>
-            {%- endif -%}
+              {%- endif -%}
+            </div>
           </div>
         </div>
       </div>
       {%- endfor -%}
+
       <div class="col-lg-12">
         <p class="rss-subscribe mt-4">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
       </div>

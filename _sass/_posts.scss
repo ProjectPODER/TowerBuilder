@@ -1,5 +1,52 @@
+.card-body {
+	display: flex;
+}
+
+.posts-page {
+	.card-title {
+		color: $primary;
+	}
+}
+
+.posts-img {
+	width: 100%;
+	height: 200px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	margin: 10px 0;
+}
+
+.card-deck {
+	.posts-img {
+		width: 95%;
+		height: 200px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: cover;
+		margin: 10px auto;
+	}
+
+	.card-title {
+		color: $gray-900;
+	}
+}
+
+.image-post {
+	text-align: center;
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
 @media (max-width: 767px) {
-    .header-card {
+	.header-card {
 		display: block !important;
+	}
+
+	.card-body {
+		display: block;
 	}
 }
