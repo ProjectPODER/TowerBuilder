@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<section class="post-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+        {{content}}
+      </div>
+      {% for external-post in site.external-posts %}
+      <div class="col-lg-12">
+        <div class="card bg-light mb-3">
+          <div class="card-body">
+            <div class="col-lg-4">
+              <div class="posts-img" style="background-image: url('{{external-post.image}}');">
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="header-card d-flex align-items-first">
+                <a href="{{external-post.post-url}}" style="margin-right: 20px;" target="_blank">
+                  <h2 class="card-title">{{external-post.post-title}}</h2>
+                </a>
+                <div class="ml-auto">
+                  <p class="text-muted m-0">
+                    {% include translated_date.html date=external-post.date format=site.date-format
+                    lang=site.date-language %}
+                  </p>
+                  <p><b>Published by {{external-post.author}}</b></p>
+                </div>
+              </div>
+              <p>{{external-post.summary}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

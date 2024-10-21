@@ -117,6 +117,8 @@ collections:
     output: true
   footer:
     output: true
+  external-posts:
+    output: true
 
 # Set to false to hide excerpts on the posts page
 show_excerpts: true
